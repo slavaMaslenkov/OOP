@@ -34,7 +34,6 @@
             Surname = surname;
             Age = age;
             Gender = gender;
-
         }
         public string Name { get; set; }
         public int Age { get; set; }

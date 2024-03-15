@@ -68,7 +68,7 @@ namespace ClassesLab1
         public void RemovePersonByIndex(int index)
         {
             CheckIndexAvailability(index);
-            _personList.RemoveAt(index-1);
+            _personList.RemoveAt(index - 1);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace ClassesLab1
         public Person GetPersonByIndex(int index)
         {
             CheckIndexAvailability(index);
-            return _personList[index-1];
+            return _personList[index - 1];
         }
 
         /// <summary>
@@ -89,6 +89,7 @@ namespace ClassesLab1
         /// <returns>Индекс объекта.</returns>
         public int GetIndexByPerson(Person person)
         {
+            //TODO: -1
             int index = -11;
 
             for (int i = 0; i < _personList.Count; i++)
