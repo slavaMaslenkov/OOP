@@ -20,6 +20,11 @@
         /// </summary>
         private int _age;
 
+        /// <summary>
+        /// Объект класс Person по умолчанию.
+        /// </summary>
+        public Person() : this("Неизвестно", "Неизвестно", 18, Gender.Male)
+        { }
 
         /// <summary>
         /// Конструктор класса Person.
