@@ -90,7 +90,7 @@ namespace ClassesLab1
         public int GetIndexByPerson(Person person)
         {
             //TODO: -1
-            int index = -11;
+            int index = -1;
 
             for (int i = 0; i < _personList.Count; i++)
             {
