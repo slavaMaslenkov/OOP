@@ -15,12 +15,14 @@ namespace Lab1
             
             PersonList personList1 = new PersonList();
             PersonList personList2 = new PersonList();
-            personList1.AddPerson(GetRandomPerson());
-            personList1.AddPerson(person2);
-            personList1.AddPerson(person3);
-            personList2.AddPerson(person4);
-            personList2.AddPerson(person5);
-            personList2.AddPerson(person6);
+            RandomPerson randomPerson = new RandomPerson();
+
+            personList1.AddPerson(randomPerson.GetRandomPerson());
+            personList1.AddPerson(randomPerson.GetRandomPerson());
+            personList1.AddPerson(randomPerson.GetRandomPerson());
+            personList2.AddPerson(randomPerson.GetRandomPerson());
+            personList2.AddPerson(randomPerson.GetRandomPerson());
+            personList2.AddPerson(randomPerson.GetRandomPerson());
 
             Console.ReadKey();
             Console.WriteLine("Вывод первого списка:");
@@ -29,21 +31,21 @@ namespace Lab1
             Console.ReadKey();
             Console.WriteLine("Вывод второго списка:");
             Console.WriteLine(personList2.PersonInfo());
-
+            
             personList2.AddPerson(personList1.GetPersonByIndex(2));
-
+            
             Console.ReadKey();
             Console.WriteLine("Вывод второго списка:");
             Console.WriteLine(personList2.PersonInfo());
-
+            
             personList1.RemovePersonByIndex(2);
-
+            
             Console.ReadKey();
             Console.WriteLine("Вывод второго списка:");
             Console.WriteLine(personList1.PersonInfo());
-
+            
             personList2.ClearPersonList();
-
+            
             Console.ReadKey();
             Console.WriteLine("Вывод второго списка:");
             Console.WriteLine(personList2.PersonInfo());

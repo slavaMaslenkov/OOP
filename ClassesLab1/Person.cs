@@ -16,9 +16,14 @@
         private string _surname;
 
         /// <summary>
-        /// Возраст.
+        /// Минимальный возраст.
         /// </summary>
-        private int _age;
+        public const int _minAge = 0;
+
+        /// <summary>
+        /// Масимальный возраст.
+        /// </summary>
+        public const int _maxAge = 120;
 
         /// <summary>
         /// Объект класс Person по умолчанию.
@@ -54,5 +59,7 @@
             return $"Имя: {Name}\tФамилия: {Surname}" +
                     $"\tВозраст: {Age}\tПол: {Gender}\n";
         }
+
+
     }
 }
