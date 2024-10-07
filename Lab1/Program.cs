@@ -17,6 +17,7 @@ namespace Lab1
             PersonList personList2 = new PersonList();
             RandomPerson randomPerson = new RandomPerson();
 
+                             
             personList1.AddPerson(randomPerson.GetRandomPerson());
             personList1.AddPerson(randomPerson.GetRandomPerson());
             personList1.AddPerson(randomPerson.GetRandomPerson());
@@ -38,7 +39,7 @@ namespace Lab1
             Console.WriteLine("Вывод второго списка:");
             Console.WriteLine(personList2.PersonInfo());
             
-            personList1.RemovePersonByIndex(2);
+            personList1.RemovePersonByIndex(15);
             
             Console.ReadKey();
             Console.WriteLine("Вывод второго списка:");

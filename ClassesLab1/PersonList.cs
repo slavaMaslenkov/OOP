@@ -15,32 +15,9 @@ namespace ClassesLab1
     public class PersonList
     {
         /// <summary>
-        /// Список объектов класса Person.
+        /// Создание списка объектов класса Person.
         /// </summary>
-        List<Person> _personList;
-
-        /// <summary>
-        /// Количество записей в списке.
-        /// </summary>
-        private int _count;
-
-        /// <summary>
-        /// Создание списка для объектов класса Person.
-        /// </summary>
-        public PersonList()
-        {
-            _personList = new List<Person>();
-            _count = 0;
-        }
-
-        /// <summary>
-        /// Gets or sets the <see cref="PersonList._count"/>.
-        /// Получает количество записей в лесте.
-        /// </summary>
-        public int Count
-        {
-            get { return _count; }
-        }
+        List<Person> _personList = new List<Person>();
 
         /// <summary>
         /// Метод добавления объекта типа Person в список personList.
@@ -68,7 +45,7 @@ namespace ClassesLab1
         public void RemovePersonByIndex(int index)
         {
             CheckIndexAvailability(index);
-            _personList.RemoveAt(index - 1);
+            _personList.RemoveAt(index);
         }
 
         /// <summary>
@@ -79,7 +56,7 @@ namespace ClassesLab1
         public Person GetPersonByIndex(int index)
         {
             CheckIndexAvailability(index);
-            return _personList[index - 1];
+            return _personList[index];
         }
 
         /// <summary>
@@ -89,33 +66,31 @@ namespace ClassesLab1
         /// <returns>Индекс объекта.</returns>
         public int GetIndexByPerson(Person person)
         {
-            //TODO: -1
-            int index = -1;
-
-            for (int i = 0; i < _personList.Count; i++)
+            if (_personList.Contains(person))
             {
-                if (_personList[i].Age == person.Age
-                    && _personList[i].Name == person.Name
-                    && _personList[i].Gender == person.Gender
-                    && _personList[i].Surname == person.Surname)
-                {
-                    index = i;
-
-                    break;
-                }
+                 return _personList.IndexOf(person);
             }
-
-            return index;
+            else 
+            {
+                throw new InvalidOperationException("Человека нет в списке.");
+            }
         }
 
         /// <summary>
         /// Метод удаления всех объектов в списке.
         /// </summary>
-        /// <param name="index">Индекс объекта.</param>
         /// <returns>Объект класса Person.</returns>
         public void ClearPersonList()
         {
              _personList.Clear();
+        }
+
+        /// <summary>
+        /// Получает количество записей в листе.
+        /// </summary>
+        public int CountOfList()
+        {
+             return _personList.Count();
         }
 
         private void CheckIndexAvailability(int index)
@@ -129,7 +104,7 @@ namespace ClassesLab1
             {
                 throw new ArgumentOutOfRangeException($"В списке нет объекта " +
                     $"под номером {index}, в списке " +
-                    $"всего {_personList.Count - 1} объектов");
+                    $"всего {_personList.Count} объектов");
             }
         }
 
