@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -19,82 +20,79 @@ namespace Lab1
         {
             Person person = new Person();
 
-            while (true)
+            List<Action> actions = new List<Action>
             {
-                try
+                () =>
                 {
-                    Console.Write("Введите имя: ");
+                    Console.WriteLine("Введите имя:");
                     person.Name = Console.ReadLine();
-                    break;
-                }
-                catch (ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
+                },
 
-            while (true)
-            {
-                try
+                () =>
                 {
-                    Console.Write("Введите фамилию: ");
-                    person.Surname = Console.ReadLine();
-                    break;
-                }
-                catch (ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
+                     Console.WriteLine("Введите фамилию:");
+                     person.Surname = Console.ReadLine();
+                },
 
+                () =>
+                {
+                     Console.WriteLine("Введите возраст:");
+                     person.Age = Convert.ToInt32(Console.ReadLine());
+                },
 
-            while (true)
-            {
-                try
+                () =>
                 {
-                    Console.Write("Введите возраст: ");
-                    person.Age = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-                catch (ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Неверный формат." +
-                        " Введите целое число от 1 до 120.");
-                }
-            }
+                     Console.WriteLine("Введите пол (M - мужской, F,Ж - женский):");
+                     string gender = Console.ReadLine().ToUpper();
 
-            while (true)
-            {
-                try
-                {
-                    Console.Write("Введите пол (женский - 0; мужской - 1): ");
-                    person.Gender = (Gender)Convert.ToInt32(Console.ReadLine());
-                    if (person.Gender == Gender.Female || person.Gender == Gender.Male)
+                    switch (gender)
                     {
-                        break;
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Ошибка!" +
-                            " Введите число 0 или 1.");
+                        case "M":
+                        case "М":
+                            person.Gender = Gender.Male;
+                            break;
+                        case "F":
+                        case "Ж":
+                            person.Gender = Gender.Female;
+                            break;
+                        default:
+                            Console.WriteLine("Введите пол (M - мужской, F,Ж - женский):");
+                            break;
+
                     }
                 }
-                catch (ArgumentException ex)
+            };
+
+            foreach (Action action in actions)
+            {
+                ParseAction(action);
+            }
+            return person;           
+        }
+
+        public static void ParseAction(Action action)
+        {
+            while (true)
+            {
+                try
                 {
-                    Console.WriteLine(ex.Message);
+                    action.Invoke();
+                    return;
                 }
-                catch (FormatException)
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Не верный формат!" +
-                        " Введите число 0 или 1.");
+                    var exceptionType = ex.GetType();
+                    if (exceptionType == typeof(FormatException) ||
+                        exceptionType == typeof(ArgumentOutOfRangeException) ||
+                        exceptionType == typeof(ArgumentException) ||
+                        exceptionType == typeof(InvalidOperationException))
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
                 }
             }
 
-            return person;
         }
     }
 }

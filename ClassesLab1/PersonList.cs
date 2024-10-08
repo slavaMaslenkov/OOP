@@ -36,7 +36,7 @@ namespace ClassesLab1
         {
             _personList.Remove(person);
         }
-
+        
         /// <summary>
         /// Метод удаление объекта по индексу.
         /// </summary>
