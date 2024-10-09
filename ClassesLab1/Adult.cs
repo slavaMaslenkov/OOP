@@ -92,5 +92,18 @@ namespace ClassesLab1
 
             return randomPerson;
         }
+
+        /// <summary>
+        /// Возвращает строку с информацией об объекте.
+        /// </summary>
+        /// <returns>Информация об объекте.</returns>
+        public override string GetInfo()
+        {
+            return $"Имя: {Name}\tФамилия: {Surname}" +
+                    $"\tВозраст: {Age}\tПол: {Gender}+" +
+                    $"\tНомер паспорта: {NumberOfPassport}+"+
+                    $"\tСерия паспорта: {SeriesOfPassport}\tПартнер: {Partner}+"+
+                    $"\tМесто работы: {Job}\n";
+        }
     }
 }

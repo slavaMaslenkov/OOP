@@ -51,5 +51,19 @@ namespace ClassesLab1
 
         public Adult ParentF { get; set; }
         public string Kindergarten { get; set; }
+
+        /// <summary>
+        /// Возвращает строку с информацией об объекте.
+        /// </summary>
+        /// <returns>Информация об объекте.</returns>
+        public override string GetInfo()
+        {
+            return $"Имя: {Name}\tФамилия: {Surname}" +
+                    $"\tВозраст: {Age}\tПол: {Gender}+" +
+                    $"\tОтец: {ParentM}+" +
+                    $"\tМать: {ParentF}\tДетский сад: {Kindergarten}\n";
+        }
+                    
     }
+
 }

@@ -12,8 +12,8 @@ namespace Lab1
         /// </summary>
         public static void Main()
         {
-            
-            PersonList personList1 = new PersonList();
+
+            /*PersonList personList1 = new PersonList();
             PersonList personList2 = new PersonList();
             
                              
@@ -58,7 +58,8 @@ namespace Lab1
             
             Console.ReadKey();
             Console.WriteLine("Очищение второго списка:");
-            Console.WriteLine(personList2.PersonInfo());
+            Console.WriteLine(personList2.PersonInfo());*/
+            Adult Edik = new Adult();
 
             
         }
