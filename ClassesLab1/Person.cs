@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace ClassesLab1
@@ -24,10 +25,17 @@ namespace ClassesLab1
         /// </summary>
         private const string _englishRegex = @"(^[a-zA-Z]+-?[a-zA-Z]+$)";
 
+        private const string _ageRegex = @"^\d+$";
+
         /// <summary>
         /// Фамилия.
         /// </summary>
         private string _surname;
+
+        /// <summary>
+        /// Возраст.
+        /// </summary>
+        private int _age;
 
         /// <summary>
         /// Минимальный возраст.
@@ -104,7 +112,31 @@ namespace ClassesLab1
                 }
             } 
         }
-        public int Age { get; set; }
+        public int Age 
+        {
+            get
+            {
+                return _age;
+            }
+            set
+            {
+                if (!IsCorrectAge(value))
+                {
+                    throw new NullReferenceException
+                        ("Введите только число.");
+                }
+                else if (value < _maxAge && value > _minAge)
+                {
+                    throw new NullReferenceException
+                        ("Введите число из диапазона от 0 до 120.");
+
+                }
+                else
+                {
+                    _age = IsCorrectAge(value);
+                }
+            }
+        }
         public Gender Gender { get; set; }
 
         /// <summary>
@@ -174,6 +206,19 @@ namespace ClassesLab1
             }
 
             return sameLanguage;
+        }
+
+        /// <summary>
+        /// Проверяет возраст на корректность./>.
+        /// </summary>
+        /// <returns>Булевое выражение/>.</returns>
+        public bool IsCorrectAge(int age)
+        {
+            age = Convert.ToString(age);
+            if (Regex.IsMatch(age, _ageRegex))
+            {
+
+            }
         }
 
         /// <summary>
