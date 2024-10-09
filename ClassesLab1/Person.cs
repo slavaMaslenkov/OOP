@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
@@ -18,13 +19,16 @@ namespace ClassesLab1
         /// <summary>
         /// Регулярное выражение, выявляющее русские буквы.
         /// </summary>
-        private const string _russianRegex = @"(^[а-яА-Я]+-?[а-яА-Я]+$)";
+        private const string _russianRegex = @"(^[а-яА-Я]+(-[а-яА-Я]+)*$)";
 
         /// <summary>
         /// Регулярное выражение, выявляющее английские буквы.
         /// </summary>
-        private const string _englishRegex = @"(^[a-zA-Z]+-?[a-zA-Z]+$)";
+        private const string _englishRegex = @"(^[a-zA-Z]+(-[a-zA-Z]+)*$)";
 
+        /// <summary>
+        /// Регулярное выражение, выявляющее английские буквы.
+        /// </summary>
         private const string _ageRegex = @"^\d+$";
 
         /// <summary>
@@ -77,8 +81,8 @@ namespace ClassesLab1
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new NullReferenceException
-                        ("Введена пустая строка.");
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
                 }
                 else
                 {
@@ -98,13 +102,13 @@ namespace ClassesLab1
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new NullReferenceException
-                        ("Введена пустая строка.");
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
                 }
                 else if (!IsSameLanguage(Name, value))
                 {
-                    throw new ArgumentOutOfRangeException
-                        ("Фамилия и имя не должны быть написаны на разных языках.");
+                    throw new ArgumentOutOfRangeException(
+                        "Фамилия и имя не должны быть написаны на разных языках.");
                 }
                 else
                 {
@@ -120,15 +124,10 @@ namespace ClassesLab1
             }
             set
             {
-                if (!IsCorrectAge(value))
+                if (value > _maxAge || value < _minAge)
                 {
-                    throw new NullReferenceException
-                        ("Введите только число.");
-                }
-                else if (value < _maxAge && value > _minAge)
-                {
-                    throw new NullReferenceException
-                        ("Введите число из диапазона от 0 до 120.");
+                    throw new ArgumentException(
+                        "Введите число из диапазона от 0 до 120.");
 
                 }
                 else
@@ -137,7 +136,7 @@ namespace ClassesLab1
                 }
             }
         }
-        public Gender Gender { get; set; }
+        public Gender Gender {get;set;}
 
         /// <summary>
         /// Проверяет корректность введенных данных./>.
@@ -183,7 +182,7 @@ namespace ClassesLab1
             }
             else
             {
-                throw new ArgumentException("Имя и фамилия должны" +
+                throw new ArgumentException("Имя и фамилия должны " +
                     "содержать только русские или английские буквы.");
             }
             return correctName;
@@ -193,7 +192,7 @@ namespace ClassesLab1
         /// Проверяет написание фамилии и имени на одинаковом языке./>.
         /// </summary>
         /// <returns>Булевое выражение./>.</returns>
-        public Boolean IsSameLanguage(string name, string surname)
+        public bool IsSameLanguage(string name, string surname)
         {
             bool sameLanguage = false;
 
@@ -211,13 +210,17 @@ namespace ClassesLab1
         /// <summary>
         /// Проверяет возраст на корректность./>.
         /// </summary>
-        /// <returns>Булевое выражение/>.</returns>
-        public bool IsCorrectAge(int age)
+        /// <returns>Возраст/>.</returns>
+        public int IsCorrectAge(int age)
         {
-            age = Convert.ToString(age);
-            if (Regex.IsMatch(age, _ageRegex))
+            string stringAge = Convert.ToString(age);
+            if (Regex.IsMatch(stringAge, _ageRegex) && !string.IsNullOrEmpty(stringAge))
             {
-
+                return Convert.ToInt16(stringAge);
+            }
+            else
+            {
+                throw new ArgumentException("Введите только число.");
             }
         }
 
@@ -238,8 +241,10 @@ namespace ClassesLab1
         public static Person GetRandomPerson()
         {
             Random rnd = new Random();
-            string[] names = { "Катя", "Оля", "Наташа", "Света", "Галя", "Слава", "Эдик", "Вова", "Даня", "Коля" };
-            string[] surnames = { "Катяшкина", "Олечкина", "Наташечкина", "Светова", "Галова", "Славин", "Эдиксон", "Вовчанин", "Данон", "Коликов" };
+            string[] names = { "Катя", "Оля", "Наташа", "Света", "Галя",
+                "Слава", "Эдик", "Вова", "Даня", "Коля" };
+            string[] surnames = { "Катяшкина", "Олечкина", "Наташечкина",
+                "Светова", "Галова", "Славин", "Эдиксон", "Вовчанин", "Данон", "Коликов" };
 
             int namesIndex = rnd.Next(names.Length - 1);
 

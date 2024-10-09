@@ -56,8 +56,8 @@ namespace Lab1
                             person.Gender = Gender.Female;
                             break;
                         default:
-                            Console.WriteLine("Введите пол (M - мужской, F,Ж - женский):");
-                            break;
+                            throw new ArgumentException
+                                 ("Введите пол (M - мужской, F,Ж - женский):");
 
                     }
                 }

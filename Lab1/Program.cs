@@ -32,8 +32,8 @@ namespace Lab1
             Console.WriteLine("Вывод второго списка:");
             Console.WriteLine(personList2.PersonInfo());
 
-            Person Slava = new("Slava", "Maslenkov", 15, 0);
-            personList1.AddPerson(Slava);
+            ///Person Slava = new("Slava", "Maslenkov", 15, 0);
+            personList1.AddPerson(ConsolePerson.ReadConsolePerson());
             Console.ReadKey();
             Console.WriteLine("Добавление нового человека в первый список:");
             Console.WriteLine(personList1.PersonInfo());
@@ -60,7 +60,6 @@ namespace Lab1
             Console.WriteLine("Очищение второго списка:");
             Console.WriteLine(personList2.PersonInfo());
 
-            ConsolePerson.ReadConsolePerson();
             
         }
     }
