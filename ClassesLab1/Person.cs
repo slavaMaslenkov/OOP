@@ -39,7 +39,7 @@ namespace ClassesLab1
         /// <summary>
         /// Возраст.
         /// </summary>
-        private int _age;
+        private long _age;
 
         /// <summary>
         /// Минимальный возраст.
@@ -64,7 +64,7 @@ namespace ClassesLab1
         /// <param name="surname">Фамилия.</param>
         /// <param name="age">Возраст.</param>
         /// <param name="gender">Пол.</param>
-        public Person(string name, string surname, int age, Gender gender)
+        public Person(string name, string surname, long age, Gender gender)
         {
             Name = name;
             Surname = surname;
@@ -126,7 +126,7 @@ namespace ClassesLab1
         /// <summary>
         /// Определение свойства Age.
         /// </summary>
-        public int Age 
+        public long Age 
         {
             get
             {
