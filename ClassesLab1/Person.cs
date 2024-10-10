@@ -27,7 +27,7 @@ namespace ClassesLab1
         private const string _englishRegex = @"(^[a-zA-Z]+(-[a-zA-Z]+)*$)";
 
         /// <summary>
-        /// Регулярное выражение, выявляющее английские буквы.
+        /// Регулярное выражение, выявляющее цифры.
         /// </summary>
         private const string _ageRegex = @"^\d+$";
 
@@ -218,10 +218,11 @@ namespace ClassesLab1
         {
             bool sameLanguage = false;
 
-            if (Regex.IsMatch(name, _russianRegex) &&
-                    Regex.IsMatch(surname, _russianRegex) ||
-                    (Regex.IsMatch(name, _englishRegex)
-                    && Regex.IsMatch(surname, _englishRegex)))
+            if (Regex.IsMatch(name, _russianRegex) 
+                && Regex.IsMatch(surname, _russianRegex) 
+                ||
+                (Regex.IsMatch(name, _englishRegex)
+                && Regex.IsMatch(surname, _englishRegex)))
             {
                 sameLanguage = true;
             }
