@@ -71,6 +71,8 @@ namespace ClassesLab1
             Age = age;
             Gender = gender;
         }
+
+        //TODO: XML
         public string Name 
         { 
             get
@@ -91,7 +93,7 @@ namespace ClassesLab1
             }
         }
 
-        
+        //TODO: XML
         public string Surname 
         {
             get
@@ -116,6 +118,8 @@ namespace ClassesLab1
                 }
             } 
         }
+
+        //TODO: XML
         public int Age 
         {
             get
@@ -136,8 +140,11 @@ namespace ClassesLab1
                 }
             }
         }
+
+        //TODO: XML
         public Gender Gender {get;set;}
 
+        //TODO: XML
         /// <summary>
         /// Проверяет корректность введенных данных./>.
         /// </summary>
@@ -153,10 +160,11 @@ namespace ClassesLab1
                 string[] words = name.Split(new char[] { '-' });
                 if (words.Length == 2) 
                 { 
-                    if (Regex.IsMatch(words[0], _russianRegex) &&
-                    Regex.IsMatch(words[1], _russianRegex) ||
-                    (Regex.IsMatch(words[0], _englishRegex)
-                    && Regex.IsMatch(words[1], _englishRegex)))
+                    if (Regex.IsMatch(words[0], _russianRegex) 
+                        &&  Regex.IsMatch(words[1], _russianRegex) 
+                        ||
+                        (Regex.IsMatch(words[0], _englishRegex)
+                        && Regex.IsMatch(words[1], _englishRegex)))
                     {
                         words[0] = textInfo.ToTitleCase(words[0]);
                         words[1] = textInfo.ToTitleCase(words[1]);
@@ -172,9 +180,7 @@ namespace ClassesLab1
                 {
                     throw new ArgumentException("Некорректное значение");
                 }
-                
             }
-
             else if (Regex.IsMatch(name, _russianRegex) ||
                 Regex.IsMatch(name, _englishRegex))
             {
@@ -188,6 +194,7 @@ namespace ClassesLab1
             return correctName;
         }
 
+        //TODO: XML
         /// <summary>
         /// Проверяет написание фамилии и имени на одинаковом языке./>.
         /// </summary>
@@ -207,6 +214,7 @@ namespace ClassesLab1
             return sameLanguage;
         }
 
+        //TODO: XML
         /// <summary>
         /// Проверяет возраст на корректность./>.
         /// </summary>

@@ -16,7 +16,6 @@ namespace Lab1
             PersonList personList1 = new PersonList();
             PersonList personList2 = new PersonList();
             
-                             
             personList1.AddPerson(Person.GetRandomPerson());
             personList1.AddPerson(Person.GetRandomPerson());
             personList1.AddPerson(Person.GetRandomPerson());
@@ -58,9 +57,7 @@ namespace Lab1
             
             Console.ReadKey();
             Console.WriteLine("Очищение второго списка:");
-            Console.WriteLine(personList2.PersonInfo());
-
-            
+            Console.WriteLine(personList2.PersonInfo());            
         }
     }
 }

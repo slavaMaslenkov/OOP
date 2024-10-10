@@ -10,6 +10,8 @@ using System.Xml.Linq;
 
 namespace Lab1
 {
+
+    //TODO: XML
     public class ConsolePerson
     {
         /// <summary>
@@ -70,6 +72,7 @@ namespace Lab1
             return person;           
         }
 
+        //TODO: XML
         public static void ParseAction(Action action)
         {
             while (true)

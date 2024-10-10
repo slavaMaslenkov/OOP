@@ -93,6 +93,7 @@ namespace ClassesLab1
              return _personList.Count();
         }
 
+        //TODO: XML
         private void CheckIndexAvailability(int index)
         {
             if (index < 0)
