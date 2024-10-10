@@ -11,7 +11,11 @@ using System.Xml.Linq;
 namespace Lab1
 {
 
-    //TODO: XML
+    //TODO: XML+
+    /// <summary>
+    /// Метод заполнения данных о Людях с клавиатуры.
+    /// </summary>
+    /// <returns>Объект класса Person.</returns>
     public class ConsolePerson
     {
         /// <summary>
@@ -39,7 +43,7 @@ namespace Lab1
                 () =>
                 {
                      Console.WriteLine("Введите возраст:");
-                     person.Age = Convert.ToInt32(Console.ReadLine());
+                     person.Age = Convert.ToInt64(Console.ReadLine());
                 },
 
                 () =>
@@ -72,7 +76,11 @@ namespace Lab1
             return person;           
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Обработчик исключений.
+        /// </summary>
+        /// <param name="action">Действие, которое требует проверки.</param>
         public static void ParseAction(Action action)
         {
             while (true)
