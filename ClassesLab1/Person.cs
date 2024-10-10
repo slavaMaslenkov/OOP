@@ -140,6 +140,11 @@ namespace ClassesLab1
                         "Введите число из диапазона от 0 до 120.");
 
                 }
+                else if (!(value is int))
+                {
+                    throw new ArgumentException(
+                        "Введите число из диапазона от 0 до 120.");
+                }
                 else
                 {
                     _age = IsCorrectAge(value);
