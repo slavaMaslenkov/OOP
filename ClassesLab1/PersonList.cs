@@ -93,7 +93,6 @@ namespace ClassesLab1
              return _personList.Count();
         }
 
-        //TODO: XML+
         /// <summary>
         /// Метод получения индекса объекта, если тот имеется в списке.
         /// </summary>

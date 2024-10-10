@@ -11,7 +11,6 @@ using System.Xml.Linq;
 namespace Lab1
 {
 
-    //TODO: XML+
     /// <summary>
     /// Метод заполнения данных о Людях с клавиатуры.
     /// </summary>
@@ -43,7 +42,7 @@ namespace Lab1
                 () =>
                 {
                      Console.WriteLine("Введите возраст:");
-                     person.Age = Convert.ToInt64(Console.ReadLine());
+                     person.Age = Convert.ToInt32(Console.ReadLine());
                 },
 
                 () =>
@@ -76,7 +75,6 @@ namespace Lab1
             return person;           
         }
 
-        //TODO: XML+
         /// <summary>
         /// Обработчик исключений.
         /// </summary>
@@ -103,7 +101,6 @@ namespace Lab1
 
                 }
             }
-
         }
     }
 }

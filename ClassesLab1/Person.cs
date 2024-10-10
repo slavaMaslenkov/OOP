@@ -72,7 +72,6 @@ namespace ClassesLab1
             Gender = gender;
         }
 
-        //TODO: XML+
         /// <summary>
         /// Определение свойства Name.
         /// </summary>
@@ -96,7 +95,6 @@ namespace ClassesLab1
             }
         }
 
-        //TODO: XML+
         /// <summary>
         /// Определение свойства Surname.
         /// </summary>
@@ -125,7 +123,6 @@ namespace ClassesLab1
             } 
         }
 
-        //TODO: XML+
         /// <summary>
         /// Определение свойства Age.
         /// </summary>
@@ -150,13 +147,11 @@ namespace ClassesLab1
             }
         }
 
-        //TODO: XML+
         /// <summary>
         /// Определение свойства Gender.
         /// </summary>
         public Gender Gender {get;set;}
 
-        //TODO: XML+
         /// <summary>
         /// Проверяет корректность введенных данных.
         /// </summary>
@@ -207,7 +202,6 @@ namespace ClassesLab1
             return correctName;
         }
 
-        //TODO: XML+
         /// <summary>
         /// Проверяет написание фамилии и имени на одинаковом языке.
         /// </summary>
@@ -230,7 +224,6 @@ namespace ClassesLab1
             return sameLanguage;
         }
 
-        //TODO: XML+
         /// <summary>
         /// Проверяет возраст на корректность./>.
         /// </summary>
@@ -291,6 +284,5 @@ namespace ClassesLab1
 
             return randomPerson;
         }
-
     }
 }
