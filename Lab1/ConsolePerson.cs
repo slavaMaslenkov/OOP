@@ -42,7 +42,7 @@ namespace Lab1
                 () =>
                 {
                      Console.WriteLine("Введите возраст:");
-                     person.Age = Convert.ToInt32(Console.ReadLine());
+                     person.Age = Convert.ToInt64(Console.ReadLine());
                 },
 
                 () =>
