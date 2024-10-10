@@ -72,7 +72,10 @@ namespace ClassesLab1
             Gender = gender;
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Определение свойства Name.
+        /// </summary>
         public string Name 
         { 
             get
@@ -93,7 +96,10 @@ namespace ClassesLab1
             }
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Определение свойства Surname.
+        /// </summary>
         public string Surname 
         {
             get
@@ -119,7 +125,10 @@ namespace ClassesLab1
             } 
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Определение свойства Age.
+        /// </summary>
         public int Age 
         {
             get
@@ -141,14 +150,18 @@ namespace ClassesLab1
             }
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Определение свойства Gender.
+        /// </summary>
         public Gender Gender {get;set;}
 
-        //TODO: XML
+        //TODO: XML+
         /// <summary>
-        /// Проверяет корректность введенных данных./>.
+        /// Проверяет корректность введенных данных.
         /// </summary>
-        /// <returns>Корректное имя или фамилия./>.</returns>
+        /// /// <param name="name">Слово, которое требует проверки.</param>
+        /// <returns>Корректное имя или фамилия.</returns>
         public string IsCorrectName(string name)
         {
             string correctName;
@@ -194,10 +207,12 @@ namespace ClassesLab1
             return correctName;
         }
 
-        //TODO: XML
+        //TODO: XML+
         /// <summary>
-        /// Проверяет написание фамилии и имени на одинаковом языке./>.
+        /// Проверяет написание фамилии и имени на одинаковом языке.
         /// </summary>
+        /// <param name="name">Имя.</param>
+        /// <param name="surname">Фамилия.</param>
         /// <returns>Булевое выражение./>.</returns>
         public bool IsSameLanguage(string name, string surname)
         {
@@ -214,10 +229,11 @@ namespace ClassesLab1
             return sameLanguage;
         }
 
-        //TODO: XML
+        //TODO: XML+
         /// <summary>
         /// Проверяет возраст на корректность./>.
         /// </summary>
+        /// <param name="age">Имя.</param>
         /// <returns>Возраст/>.</returns>
         public int IsCorrectAge(int age)
         {
