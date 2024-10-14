@@ -93,6 +93,7 @@ namespace Lab1
                     var exceptionType = ex.GetType();
                     if (exceptionType == typeof(FormatException) ||
                         exceptionType == typeof(ArgumentOutOfRangeException) ||
+                        exceptionType == typeof(OverflowException) ||
                         exceptionType == typeof(ArgumentException) ||
                         exceptionType == typeof(InvalidOperationException))
                     {

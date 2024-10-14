@@ -133,17 +133,12 @@ namespace ClassesLab1
                 return _age;
             }
             set
-            {
-                if (value > _maxAge || value < _minAge)
+            {               
+                if (value > _maxAge || value < _minAge )
                 {
                     throw new ArgumentException(
                         "Введите число из диапазона от 0 до 120.");
 
-                }
-                else if (!(value is int))
-                {
-                    throw new ArgumentException(
-                        "Введите число из диапазона от 0 до 120.");
                 }
                 else
                 {
