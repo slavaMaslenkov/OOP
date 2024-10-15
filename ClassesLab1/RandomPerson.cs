@@ -63,8 +63,6 @@ namespace ClassesLab1
         /// </summary>
         public static void GetAdultInfo(Adult person)
         {
-            
-            
             Random rnd = new Random();
             int work_status = rnd.Next(2);
             if (work_status == 1)
@@ -120,7 +118,7 @@ namespace ClassesLab1
         /// Создает рандомный объект класса Child.
         /// </summary>
         /// <returns>Объект класса Child .</returns>
-        public static Adult GetChild(Child person1)
+        public static Child GetRandomChild(Child person1)
         {
             Random rnd = new Random();
             Gender gender = (Gender)rnd.Next(Enum.GetNames(typeof(Gender)).Length);
@@ -147,7 +145,7 @@ namespace ClassesLab1
             else
             {
                 Random rnd = new Random();
-                string[] kindergarten = { "Гимназия", "Лицей", "Шокла №25", "Школа №5" };
+                string[] kindergarten = { "Гимназия", "Лицей", "Школа №25", "Школа №5" };
                 person.Kindergarten = kindergarten[rnd.Next(kindergarten.Length - 1)];
             }
             
@@ -158,7 +156,47 @@ namespace ClassesLab1
         /// </summary>
         public static void GetParent(Child person)
         {
-            
+            Random rnd = new Random();
+            int number_parents = rnd.Next(3);
+            if (number_parents == 1)
+            {
+                person.ParentF = null;
+                person.ParentM = null;
+            }
+            else if (number_parents == 2)
+            {
+                Gender gender = (Gender)rnd.Next(Enum.GetNames(typeof(Gender)).Length);
+                Adult person2 = new Adult();
+                GetPerson(gender, person2);
+                GetAdultInfo(person2);
+                person2.Partner = null;
+                if (gender == Gender.Male)
+                {
+                    person.ParentM = person2;
+                    person.ParentF = null;
+                }
+                else
+                {
+                    person.ParentF = person2;
+                    person.ParentM = null;
+                }
+
+            }
+            else
+            {
+                Adult person1 = new Adult();
+                GetPerson(Gender.Male, person1);
+                GetAdultInfo(person1);
+                Adult person2 = new Adult();
+                GetPerson(Gender.Female, person2);
+                GetAdultInfo(person2);
+                person1.Partner = person2;
+                person2.Partner = person1;
+                person2.Surname = person1.Surname + "а";
+
+                person.ParentF = person2;
+                person.ParentM = person1;
+            }
         }
     }
 }

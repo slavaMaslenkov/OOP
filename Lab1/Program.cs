@@ -60,8 +60,8 @@ namespace Lab1
             Console.WriteLine("Очищение второго списка:");
             Console.WriteLine(personList2.PersonInfo());*/
 
-            Adult Slava = new Adult();
-            RandomPerson.GetRandomAdult(Slava);
+            Child Slava = new Child();
+            RandomPerson.GetRandomChild(Slava);
             Console.WriteLine(Slava.GetInfo());
             
         }

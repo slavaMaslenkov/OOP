@@ -58,10 +58,29 @@ namespace ClassesLab1
         /// <returns>Информация об объекте.</returns>
         public override string GetInfo()
         {
+            string info;
+            if (ParentF == null && ParentM == null)
+            {
+                info = "Нет родителей";
+            }
+            else if (ParentF == null)
+            {
+                info = $"{ParentM.Name + " " + ParentM.Surname}";
+            }
+            else if (ParentM == null)
+            {
+                info = $"{ParentF.Name + " " + ParentF.Surname}";
+            }
+            else
+            {
+                info = $"{ParentF.Name + " " + ParentF.Surname}" + " "+
+                    $"{ParentM.Name + " " + ParentM.Surname}";
+            }
+
             return $"Имя: {Name}\tФамилия: {Surname}" +
                     $"\tВозраст: {Age}\tПол: {Gender}" +
-                    $"\tОтец: {ParentM}" +
-                    $"\tМать: {ParentF}\tУчреждение: {Kindergarten}\n";
+                    $"\tРодители: {info}" +
+                    $"\tУчреждение: {Kindergarten}\n";
         }
                     
     }
