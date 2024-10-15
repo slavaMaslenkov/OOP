@@ -61,7 +61,7 @@ namespace ClassesLab1
             return $"Имя: {Name}\tФамилия: {Surname}" +
                     $"\tВозраст: {Age}\tПол: {Gender}" +
                     $"\tОтец: {ParentM}" +
-                    $"\tМать: {ParentF}\tДетский сад: {Kindergarten}\n";
+                    $"\tМать: {ParentF}\tУчреждение: {Kindergarten}\n";
         }
                     
     }
