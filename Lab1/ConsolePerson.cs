@@ -18,7 +18,7 @@ namespace Lab1
         /// <returns>Объект класса Person.</returns>
         public static Person ReadConsolePerson()
         {
-            Person person = new Person();
+            Adult person = new Adult();
 
             List<Action> actions = new List<Action>
             {

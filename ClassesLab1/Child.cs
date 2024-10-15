@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassesLab1
 {
-    internal class Child : Person
+    public class Child : Person
     {
         /// <summary>
         /// Родитель мужчина.
@@ -59,8 +59,8 @@ namespace ClassesLab1
         public override string GetInfo()
         {
             return $"Имя: {Name}\tФамилия: {Surname}" +
-                    $"\tВозраст: {Age}\tПол: {Gender}+" +
-                    $"\tОтец: {ParentM}+" +
+                    $"\tВозраст: {Age}\tПол: {Gender}" +
+                    $"\tОтец: {ParentM}" +
                     $"\tМать: {ParentF}\tДетский сад: {Kindergarten}\n";
         }
                     

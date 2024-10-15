@@ -59,8 +59,10 @@ namespace Lab1
             Console.ReadKey();
             Console.WriteLine("Очищение второго списка:");
             Console.WriteLine(personList2.PersonInfo());*/
-            Adult Edik = new Adult();
 
+            Adult Slava = new Adult();
+            RandomPerson.GetRandomAdult(Slava);
+            Console.WriteLine(Slava.GetInfo());
             
         }
     }
