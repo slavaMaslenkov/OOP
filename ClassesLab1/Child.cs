@@ -92,7 +92,15 @@ namespace ClassesLab1
                     $"\tРодители: {info}" +
                     $"\tУчреждение: {Kindergarten}\n";
         }
-                    
+
+        /// <summary>
+        /// Возвращает строку с информацией об объекте.
+        /// </summary>
+        /// <returns>Информация об объекте.</returns>
+        public string AreYouChild()
+        {
+            return $"Я ребенок!";
+        }
     }
 
 }

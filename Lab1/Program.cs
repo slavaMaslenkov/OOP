@@ -6,75 +6,50 @@ namespace Lab1
     /// <summary>
     /// Класс Program.
     /// </summary>
-    internal class Program
+    public class Program
     {
         /// <summary>
         /// Метод Main.
         /// </summary>
-        public static void Main()
+        internal static void Main()
         {
             PersonList personList1 = new PersonList();
-            for (int i = 1; i < 7; i++)
+            for (int i = 0; i < 7; i++)
             {
                 Random rnd = new Random();
                 int ChildOrAdult = rnd.Next(2);
                 if (ChildOrAdult == 1)
                 {
-                    personList1.AddPerson(GetRandomChild());
+                    personList1.AddPerson(RandomPerson.GetRandomAdult());
+                }
+                else
+                {
+                    personList1.AddPerson(RandomPerson.GetRandomChild());
                 }
             }
-
-            /*PersonList personList1 = new PersonList();
-            PersonList personList2 = new PersonList();
-            
-                             
-            personList1.AddPerson(Person.GetRandomPerson());
-            personList1.AddPerson(Person.GetRandomPerson());
-            personList1.AddPerson(Person.GetRandomPerson());
-            personList2.AddPerson(Person.GetRandomPerson());
-            personList2.AddPerson(Person.GetRandomPerson());
-            personList2.AddPerson(Person.GetRandomPerson());
 
             Console.ReadKey();
             Console.WriteLine("Вывод первого списка:");
             Console.WriteLine(personList1.PersonInfo());
 
-            Console.ReadKey();
-            Console.WriteLine("Вывод второго списка:");
-            Console.WriteLine(personList2.PersonInfo());
+            var people = personList1.GetPersonByIndex(3);
 
-            ///Person Slava = new("Slava", "Maslenkov", 15, 0);
-            personList1.AddPerson(ConsolePerson.ReadConsolePerson());
-            Console.ReadKey();
-            Console.WriteLine("Добавление нового человека в первый список:");
-            Console.WriteLine(personList1.PersonInfo());
+            Type typePeople = people.GetType();
 
-            personList2.AddPerson(personList1.GetPersonByIndex(1));
-            
-            Console.ReadKey();
-            Console.WriteLine("Копирование второго человека из 1 списка в конец 2:");
-            Console.WriteLine(personList2.PersonInfo());
-            
-            personList1.RemovePersonByIndex(1);
-            
-            Console.ReadKey();
-            Console.WriteLine("Удаление второго человека из 1 списка:");
-            Console.WriteLine(personList1.PersonInfo());
+            Console.WriteLine($"Тип данных 4-го человека списке:" +
+                $" {typePeople}");
 
-            Console.ReadKey();
-            Console.WriteLine("Вывод второго списка:");
-            Console.WriteLine(personList2.PersonInfo());
+            if (typePeople == typeof(Adult))
+            {
+                Console.WriteLine(((Adult)people).AreYouAdult());
+            }
 
-            personList2.ClearPersonList();
-            
-            Console.ReadKey();
-            Console.WriteLine("Очищение второго списка:");
-            Console.WriteLine(personList2.PersonInfo());*/
+            if (typePeople == typeof(Child))
+            {
+                Console.WriteLine(((Child)people).AreYouChild());
+            }
 
-            Child Slava = new Child();
-            RandomPerson.GetRandomChild(Slava);
-            Console.WriteLine(Slava.GetInfo());
-            
+            _ = Console.ReadKey();
         }
     }
 }

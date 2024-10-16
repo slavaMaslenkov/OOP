@@ -118,7 +118,7 @@ namespace ClassesLab1
 
             for (int index = 0; index < _personList.Count; index++)
             {
-                list += (_personList[index].GetInfo() + new string('_', 100) + "\n");
+                list += (_personList[index].GetInfo() + new string('_', 200) + "\n");
             }
 
             return list;

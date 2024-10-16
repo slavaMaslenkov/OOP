@@ -92,5 +92,14 @@ namespace ClassesLab1
                     $"\tСерия паспорта: {SeriesOfPassport}\tПартнер: {info}"+
                     $"\tМесто работы: {Job}\n";
         }
+
+        /// <summary>
+        /// Возвращает строку с информацией об объекте.
+        /// </summary>
+        /// <returns>Информация об объекте.</returns>
+        public string AreYouAdult()
+        {
+            return $"Я взрослый.";
+        }
     }
 }
