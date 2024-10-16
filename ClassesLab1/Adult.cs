@@ -66,7 +66,6 @@ namespace ClassesLab1
 
         public string NumberOfPassport { get; set; }
         public string SeriesOfPassport { get; set; }
-
         public Adult Partner { get; set; }
         public string Job { get; set; }
 

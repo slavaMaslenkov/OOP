@@ -13,11 +13,10 @@ namespace ClassesLab1
     /// <returns>ОБъект класса Person .</returns>
     public static class RandomPerson
     {
-        
         /// <summary>
         /// Создает рандомный объект класса Adult.
         /// </summary>
-        /// <returns>ОБъект класса Child .</returns>
+        /// <returns>Объект класса Child .</returns>
         public static Adult GetRandomAdult()
         {
             Adult person1 = new Adult();
@@ -33,6 +32,9 @@ namespace ClassesLab1
 
         /// <summary>
         /// Получаем характеристику персоны.
+        /// <summary>
+        /// <param name="gender">Имя объекта.</param>
+        /// <param name="person">Имя объекта.</param>
         /// </summary>
         public static void GetPerson(Gender gender, Person person)
         {
@@ -61,7 +63,8 @@ namespace ClassesLab1
 
         /// <summary>
         /// Получаем характеристику взрослого.
-        /// </summary>
+        /// <summary>
+        /// <param name="person">Имя объекта.</param>
         public static void GetAdultInfo(Adult person)
         {
             Random rnd = new Random();
@@ -76,14 +79,15 @@ namespace ClassesLab1
                 person.Job = "Безработный";
             }
 
-            person.NumberOfPassport = rnd.Next(0,1000000).ToString("D6");
+            person.NumberOfPassport = rnd.Next(0, 1000000).ToString("D6");
             person.SeriesOfPassport = rnd.Next(0, 10000).ToString("D4");
         }
 
         /// <summary>
         /// Получаем характеристику персоны.
         /// </summary>
-        /// <returns>Взрослого человека</returns>
+        /// <param name="gender">Пол объекта.</param>
+        /// <param name="person">Имя объекта.</param>
         public static void GetPartner(Gender gender, Adult person)
         {
             Random rnd = new Random();
@@ -158,6 +162,7 @@ namespace ClassesLab1
         /// <summary>
         /// Получаем характеристику ребенка.
         /// </summary>
+        /// <param name="person">Имя объекта.</param>
         public static void GetChildInfo(Child person)
         {
             if (person.Age < 7)
@@ -172,12 +177,12 @@ namespace ClassesLab1
                 string[] kindergarten = { "Гимназия", "Лицей", "Школа №25", "Школа №5" };
                 person.Kindergarten = kindergarten[rnd.Next(kindergarten.Length - 1)];
             }
-            
         }
 
         /// <summary>
         /// Получаем родителей ребенка.
         /// </summary>
+        /// <param name="person">Имя объекта.</param>
         public static void GetParent(Child person)
         {
             Random rnd = new Random();

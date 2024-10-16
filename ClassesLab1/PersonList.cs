@@ -41,7 +41,6 @@ namespace ClassesLab1
         /// Метод удаление объекта по индексу.
         /// </summary>
         /// <param name="index">Индекс объекта.</param>
-        /// <returns>Объект класса Person.</returns>
         public void RemovePersonByIndex(int index)
         {
             CheckIndexAvailability(index);
@@ -52,7 +51,7 @@ namespace ClassesLab1
         /// Метод получения объекта из списка по индексу.
         /// </summary>
         /// <param name="index">Индекс объекта.</param>
-        /// <returns>Объект класса Person.</returns>
+        /// <returns>Объект класса PersonList.</returns>
         public Person GetPersonByIndex(int index)
         {
             CheckIndexAvailability(index);
@@ -62,7 +61,7 @@ namespace ClassesLab1
         /// <summary>
         /// Метод получения индекса объекта, если тот имеется в списке.
         /// </summary>
-        /// <param name="Person">Имя объекта.</param>
+        /// <param name="person">Имя объекта.</param>
         /// <returns>Индекс объекта.</returns>
         public int GetIndexByPerson(Person person)
         {
@@ -79,7 +78,6 @@ namespace ClassesLab1
         /// <summary>
         /// Метод удаления всех объектов в списке.
         /// </summary>
-        /// <returns>Объект класса Person.</returns>
         public void ClearPersonList()
         {
              _personList.Clear();
@@ -93,6 +91,10 @@ namespace ClassesLab1
              return _personList.Count();
         }
 
+        /// <summary>
+        /// Метод проверки наличия индекса.
+        /// </summary>
+        /// <param name="index">Имя объекта.</param>
         private void CheckIndexAvailability(int index)
         {
             if (index < 0)
@@ -109,9 +111,9 @@ namespace ClassesLab1
         }
 
         /// <summary>
-        /// Возвращает строку с информацией об объектах в списке/>.
+        /// Возвращает строку с информацией об объектах в списке.
         /// </summary>
-        /// <returns>Информация об объектах/>.</returns>
+        /// <returns>Информация об объектах.</returns>
         public string PersonInfo()
         {
             string list = "";

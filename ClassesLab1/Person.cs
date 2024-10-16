@@ -90,8 +90,6 @@ namespace ClassesLab1
                 }
             }
         }
-
-        
         public string Surname 
         {
             get
@@ -141,6 +139,7 @@ namespace ClassesLab1
         /// <summary>
         /// Проверяет корректность введенных данных./>.
         /// </summary>
+        /// <param name="Name">Имя объекта.</param>
         /// <returns>Корректное имя или фамилия./>.</returns>
         public string IsCorrectName(string name)
         {
@@ -191,6 +190,8 @@ namespace ClassesLab1
         /// <summary>
         /// Проверяет написание фамилии и имени на одинаковом языке./>.
         /// </summary>
+        /// <param name="name">Имя объекта.</param>
+        /// <param name="surname">Имя объекта.</param>
         /// <returns>Булевое выражение./>.</returns>
         public bool IsSameLanguage(string name, string surname)
         {
@@ -210,6 +211,7 @@ namespace ClassesLab1
         /// <summary>
         /// Проверяет возраст на корректность./>.
         /// </summary>
+        /// <param name="age">Имя объекта.</param>
         /// <returns>Возраст/>.</returns>
         public int IsCorrectAge(int age)
         {
