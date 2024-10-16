@@ -11,15 +11,16 @@ namespace ClassesLab1
     /// Создание объекта класса RandomPerson.
     /// </summary>
     /// <returns>ОБъект класса Person .</returns>
-    public class RandomPerson
+    public static class RandomPerson
     {
         
         /// <summary>
         /// Создает рандомный объект класса Adult.
         /// </summary>
         /// <returns>ОБъект класса Child .</returns>
-        public static Adult GetRandomAdult(Adult person1)
+        public static Adult GetRandomAdult()
         {
+            Adult person1 = new Adult();
             Random rnd = new Random();
             Gender gender = (Gender)rnd.Next(Enum.GetNames(typeof(Gender)).Length);
             GetPerson(gender, person1);
@@ -55,7 +56,7 @@ namespace ClassesLab1
             }
 
             person.Gender = gender;
-            person.Age = rnd.Next(Person._minAge, Person._maxAge);
+            person.Age = rnd.Next(person.MinAge, person.MaxAge);
         }
 
         /// <summary>
@@ -118,8 +119,9 @@ namespace ClassesLab1
         /// Создает рандомный объект класса Child.
         /// </summary>
         /// <returns>Объект класса Child .</returns>
-        public static Child GetRandomChild(Child person1)
+        public static Child GetRandomChild()
         {
+            Child person1 = new Child();
             Random rnd = new Random();
             Gender gender = (Gender)rnd.Next(Enum.GetNames(typeof(Gender)).Length);
 
@@ -161,7 +163,7 @@ namespace ClassesLab1
             if (person.Age < 7)
             {
                 Random rnd = new Random();
-                string[] kindergarten = { "Русалка", "Дельфин", "Карась", "Солнышко" };
+                string[] kindergarten = { "ДС Русалка", "ДС Дельфин", "ДС Карась", "ДС Солнышко" };
                 person.Kindergarten = kindergarten[rnd.Next(kindergarten.Length - 1)];
             }
             else

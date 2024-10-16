@@ -24,6 +24,16 @@ namespace ClassesLab1
         private string _kindergarten;
 
         /// <summary>
+        /// Минимальный возраст.
+        /// </summary>
+        public override int MinAge { get; } = 0;
+
+        /// <summary>
+        /// Масимальный возраст.
+        /// </summary>
+        public override int MaxAge { get; } = 18;
+
+        /// <summary>
         /// Объект класса Child по умолчанию.
         /// </summary>
         public Child() : this("Неизвестно", "Неизвестно", 18, Gender.Male, null, null, null)

@@ -29,6 +29,16 @@ namespace ClassesLab1
         private string _job;
 
         /// <summary>
+        /// Минимальный возраст.
+        /// </summary>
+        public override int MinAge { get; } = 18;
+
+        /// <summary>
+        /// Масимальный возраст.
+        /// </summary>
+        public override int MaxAge { get; } = 120;
+
+        /// <summary>
         /// Объект класса Adult по умолчанию.
         /// </summary>
         public Adult() : this("Неизвестно", "Неизвестно", 18, Gender.Male, "0000","000000", null, null)
@@ -59,7 +69,6 @@ namespace ClassesLab1
 
         public Adult Partner { get; set; }
         public string Job { get; set; }
-
 
         /// <summary>
         /// Возвращает строку с информацией об объекте.

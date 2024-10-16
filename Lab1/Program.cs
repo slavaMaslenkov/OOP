@@ -1,4 +1,5 @@
 ﻿using ClassesLab1;
+using System;
 
 namespace Lab1
 {
@@ -12,6 +13,16 @@ namespace Lab1
         /// </summary>
         public static void Main()
         {
+            PersonList personList1 = new PersonList();
+            for (int i = 1; i < 7; i++)
+            {
+                Random rnd = new Random();
+                int ChildOrAdult = rnd.Next(2);
+                if (ChildOrAdult == 1)
+                {
+                    personList1.AddPerson(GetRandomChild());
+                }
+            }
 
             /*PersonList personList1 = new PersonList();
             PersonList personList2 = new PersonList();

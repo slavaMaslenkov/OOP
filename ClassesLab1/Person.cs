@@ -44,12 +44,12 @@ namespace ClassesLab1
         /// <summary>
         /// Минимальный возраст.
         /// </summary>
-        public const int _minAge = 0;
+        public virtual int MinAge { get; } = 0;
 
         /// <summary>
         /// Масимальный возраст.
         /// </summary>
-        public const int _maxAge = 120;
+        public virtual int MaxAge { get; } = 120;
 
         /// <summary>
         /// Объект класс Person по умолчанию.
@@ -116,7 +116,7 @@ namespace ClassesLab1
                 }
             } 
         }
-        public int Age 
+        public virtual int Age 
         {
             get
             {
@@ -124,7 +124,7 @@ namespace ClassesLab1
             }
             set
             {
-                if (value > _maxAge || value < _minAge)
+                if (value > MaxAge || value < MinAge)
                 {
                     throw new ArgumentException(
                         "Введите число из диапазона от 0 до 120.");
