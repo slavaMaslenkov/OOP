@@ -127,8 +127,30 @@ namespace ClassesLab1
             GetChildInfo(person1);
             GetParent(person1);
 
+            switch (gender)
+            {
+                case Gender.Female:
+                    if (person1.ParentM != null)
+                    {
+                        person1.Surname = person1.ParentM.Surname + "а";
+                    }
+                    else if (person1.ParentM == null && person1.ParentF != null)
+                    {
+                        person1.Surname = person1.ParentF.Surname;
+                    }
+                    break;
+                case Gender.Male:
+                    if (person1.ParentM != null)
+                    {
+                        person1.Surname = person1.ParentM.Surname;
+                    }
+                    else if (person1.ParentM == null && person1.ParentF != null)
+                    {
+                        person1.Surname = person1.ParentF.Surname[..^1];
+                    }
+                    break;
+            }
             return person1;
-
         }
 
         /// <summary>
