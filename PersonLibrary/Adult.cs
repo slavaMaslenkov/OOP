@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PersonLibrary
 {
@@ -49,7 +51,7 @@ namespace PersonLibrary
         /// <summary>
         /// Объект класса Adult по умолчанию.
         /// </summary>
-        public Adult() : this("Неизвестно", "Неизвестно", 18, Gender.Male, "0000","000000", null, null)
+        public Adult() : this("Неизвестно", "Неизвестно", 18, Gender.Male, "000000","0000", null, null)
         { }
 
         /// <summary>
@@ -74,24 +76,102 @@ namespace PersonLibrary
 
         //TODO: validation
         /// <summary>
-        /// Номер пасспорта.
+        /// Gets or sets номер пасспорта.
         /// </summary>
-        public string NumberOfPassport { get; set; }
+        public string NumberOfPassport
+        {
+            get
+            {
+                return _numberOfPassport;
+            }
+            set
+            {
+                if (value.ToString().Length == 6)
+                {
+                    _numberOfPassport = value;
+                }
+                else
+                {
+                    throw new ArgumentException(
+                        "Введите шестизначное число.");
+                }
+            }
+        }
 
         /// <summary>
-        /// Серия пасспорта.
+        /// Gets or sets серия пасспорта.
         /// </summary>
-        public string SeriesOfPassport { get; set; }
+        public string SeriesOfPassport
+        {
+            get
+            {
+                return _seriesOfPassport;
+            }
+            set
+            {
+                if (value.ToString().Length == 4)
+                {
+                    _seriesOfPassport = value;
+                }
+                else
+                {
+                    throw new ArgumentException(
+                        "Введите четырехзначное число.");
+                }
+            }
+        }
 
         /// <summary>
-        /// Партнер.
+        /// Gets or sets партнер.
         /// </summary>
-        public Adult Partner { get; set; }
+        public Adult Partner
+        {
+            get
+            {
+                return _partner;
+            }
+            set
+            {
+                if (value?.Gender == Gender)
+                {
+                    throw new ArgumentException(
+                        "Однополые браки нельзя.");
+                }
+
+                if (value?.Partner is not null || Partner is not null)
+                {
+                    throw new ArgumentException
+                        ("Человек уже в браке");
+                }
+
+                if (value is not null)
+                {
+                    value = _partner;
+                }
+            }
+        }
 
         /// <summary>
-        /// Работа.
+        /// Gets or sets работа.
         /// </summary>
-        public string Job { get; set; }
+        public string Job
+        {
+            get
+            {
+                return _job;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    value = "Безработный";
+                }
+                else
+                {
+                    value = _job;
+                }
+            }
+        }
 
         /// <summary>
         /// Возвращает строку с информацией об объекте.

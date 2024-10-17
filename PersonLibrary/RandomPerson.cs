@@ -172,6 +172,7 @@ namespace PersonLibrary
                 Random random = new Random();
                 string[] educationalInstitution = { "ДС Русалка", "ДС Дельфин", "ДС Карась", "ДС Солнышко" };
                 child.EducationalInstitution = educationalInstitution[random.Next(educationalInstitution.Length - 1)];
+                Console.WriteLine(educationalInstitution[random.Next(educationalInstitution.Length - 1)]);
             }
             else
             {

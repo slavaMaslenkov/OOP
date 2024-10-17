@@ -17,13 +17,13 @@ namespace PersonLibrary
         /// <summary>
         /// Создание списка объектов класса Person.
         /// </summary>
-        List<Person> _personList = new List<Person>();
+        List<PersonBase> _personList = new List<PersonBase>();
 
         /// <summary>
         /// Метод добавления объекта типа Person в список personList.
         /// </summary>
         /// <param name="person">Объект класса Person</param>
-        public void AddPerson(Person person)
+        public void AddPerson(PersonBase person)
         {
             _personList.Add(person);
         }
@@ -32,7 +32,7 @@ namespace PersonLibrary
         /// Метод удаления объекта типа Person в списке personList.
         /// </summary>
         /// <param name="person">Объект класса Person</param>
-        public void RemovePerson(Person person)
+        public void RemovePerson(PersonBase person)
         {
             _personList.Remove(person);
         }
@@ -52,7 +52,7 @@ namespace PersonLibrary
         /// </summary>
         /// <param name="index">Индекс объекта.</param>
         /// <returns>Объект класса PersonList.</returns>
-        public Person GetPersonByIndex(int index)
+        public PersonBase GetPersonByIndex(int index)
         {
             CheckIndexAvailability(index);
             return _personList[index];
@@ -63,7 +63,7 @@ namespace PersonLibrary
         /// </summary>
         /// <param name="person">Имя объекта.</param>
         /// <returns>Индекс объекта.</returns>
-        public int GetIndexByPerson(Person person)
+        public int GetIndexByPerson(PersonBase person)
         {
             if (_personList.Contains(person))
             {

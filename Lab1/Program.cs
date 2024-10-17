@@ -1,5 +1,6 @@
 ﻿using PersonLibrary;
 using System;
+using System.Reflection;
 
 namespace Lab1
 {
@@ -16,8 +17,8 @@ namespace Lab1
             PersonList personList1 = new PersonList();
             for (int i = 0; i < 7; i++)
             {
-                Random rnd = new Random();
-                int ChildOrAdult = rnd.Next(2);
+                Random random = new Random();
+                int ChildOrAdult = random.Next(2);
                 if (ChildOrAdult == 1)
                 {
                     personList1.AddPerson(RandomPerson.GetRandomAdult());
@@ -34,22 +35,16 @@ namespace Lab1
 
             var people = personList1.GetPersonByIndex(3);
 
-            Type typePeople = people.GetType();
-
-            Console.WriteLine($"Тип данных 4-го человека списке:" +
-                $" {typePeople}");
-
-            //TODO: switch-case
-            if (typePeople == typeof(Adult))
+            //TODO: switch-case+
+            switch (people.GetType().Name)
             {
-                Console.WriteLine(((Adult)people).AreYouAdult());
+                case "Adult":
+                    Console.WriteLine(((Adult)people).AreYouAdult());
+                    break;
+                case "Child":
+                    Console.WriteLine(((Child)people).AreYouChild());
+                    break;
             }
-
-            if (typePeople == typeof(Child))
-            {
-                Console.WriteLine(((Child)people).AreYouChild());
-            }
-
             _ = Console.ReadKey();
         }
     }

@@ -63,20 +63,65 @@ namespace PersonLibrary
 
         //TODO: RSDN+
         /// <summary>
-        /// Партнер мама.
+        /// Gets or sets партнер мама.
         /// </summary>
-        public Adult Father { get; set; }
+        public Adult Father
+        {
+            get
+            {
+                return _father;
+            }
+            set
+            {
+                if (value?.Gender == Gender.Female)
+                {
+                    throw new ArgumentException
+                        ("Отец должен быть мужского пола.");
+                }
+            }
+        }
 
         //TODO: RSDN+
         /// <summary>
-        /// Партнер папа.
+        /// Gets or sets партнер папа.
         /// </summary>
-        public Adult Mother { get; set; }
+        public Adult Mother
+        {
+            get
+            {
+                return _mother;
+            }
+            set
+            {
+                if (value?.Gender == Gender.Male)
+                {
+                    throw new ArgumentException
+                        ("Мать должна быть женского пола.");
+                }
+            }
+        }
 
         /// <summary>
-        /// Образовательное учреждение.
+        /// Gets or sets образовательное учреждение.
         /// </summary>
-        public string EducationalInstitution { get; set; }
+        public string EducationalInstitution
+        {
+            get
+            {
+                return _educationalInstitution;
+            }
+            set
+            {
+                if (value == null || value == "")
+                {
+                    Console.WriteLine("Пустая строка");
+                }
+                else
+                {
+                    value = _educationalInstitution;
+                }
+            }
+        }
 
         /// <summary>
         /// Возвращает строку с информацией об объекте.
