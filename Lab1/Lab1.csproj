@@ -6,6 +6,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassesLab1\ClassesLab1.csproj" />
+    <ProjectReference Include="..\PersonLibrary\PersonLibrary.csproj" />
   </ItemGroup>
 </Project>

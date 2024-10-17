@@ -10,14 +10,18 @@ using System.Xml.Linq;
 
 namespace Lab1
 {
-    //TODO: XML
-    public class ConsolePerson
+    //TODO: XML+
+    /// <summary>
+    /// Метод заполнения данных о Людях с клавиатуры.
+    /// </summary>
+    /// <returns>Объект класса Person.</returns>
+    public static class ConsolePerson
     {
         /// <summary>
         /// Чтение объекта класса Person с консоли.
         /// </summary>
         /// <returns>Объект класса Person.</returns>
-        public static Person ReadConsolePerson()
+        public static PersonBase ReadConsolePerson()
         {
             Adult person = new Adult();
 
@@ -71,7 +75,11 @@ namespace Lab1
             return person;           
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Обработчик исключений.
+        /// </summary>
+        /// <param name="action">Действие, которое требует проверки.</param>
         public static void ParseAction(Action action)
         {
             while (true)
