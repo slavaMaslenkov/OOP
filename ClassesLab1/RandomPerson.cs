@@ -27,7 +27,6 @@ namespace ClassesLab1
             GetPartner(gender, person1);
 
             return person1;
-
         }
 
         /// <summary>
@@ -39,6 +38,7 @@ namespace ClassesLab1
         public static void GetPerson(Gender gender, Person person)
         {
             Random rnd = new Random();
+            //TODO: RSDN
             string[] namesM = { "Некит", "Юра", "Вася", "Растик", "Приус",
                 "Слава", "Эдик", "Вова", "Даня", "Коля" };
             string[] namesF = { "Катя", "Оля", "Наташа", "Света", "Галя",
@@ -91,6 +91,7 @@ namespace ClassesLab1
         public static void GetPartner(Gender gender, Adult person)
         {
             Random rnd = new Random();
+            //TODO: RSDN
             int marital_status = rnd.Next(2);
             if (marital_status == 1)
             {
@@ -125,6 +126,7 @@ namespace ClassesLab1
         /// <returns>Объект класса Child .</returns>
         public static Child GetRandomChild()
         {
+            //TODO: RSDN
             Child person1 = new Child();
             Random rnd = new Random();
             Gender gender = (Gender)rnd.Next(Enum.GetNames(typeof(Gender)).Length);

@@ -6,23 +6,28 @@ using System.Threading.Tasks;
 
 namespace ClassesLab1
 {
+    //TODO: XML
     public class Adult : Person
     {
+        //TODO: not using
         /// <summary>
         /// Номер паспорта.
         /// </summary>
         private string _numberOfPassport;
 
+        //TODO: not using
         /// <summary>
         /// Серия паспорта.
         /// </summary>
         private string _seriesOfPassport;
 
+        //TODO: not using
         /// <summary>
         /// Состояние брака.
         /// </summary>
         private Adult _partner;
 
+        //TODO: not using
         /// <summary>
         /// Место работы.
         /// </summary>
@@ -64,6 +69,7 @@ namespace ClassesLab1
             Job = job;
         }
 
+        //TODO: validation
         public string NumberOfPassport { get; set; }
         public string SeriesOfPassport { get; set; }
         public Adult Partner { get; set; }
@@ -82,7 +88,7 @@ namespace ClassesLab1
             }
             else
             {
-               info = Partner.Name +" "+ Partner.Surname;
+               info = Partner.Name + " " + Partner.Surname;
             }
 
             return $"Имя: {Name}\tФамилия: {Surname}" +

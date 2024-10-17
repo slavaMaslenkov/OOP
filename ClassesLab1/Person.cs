@@ -6,6 +6,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace ClassesLab1
 {
+    //TODO: RSDN?
     /// <summary>
     /// Класс Person, содержащий: имя, фамилию, возраст, пол.
     /// </summary>
@@ -90,6 +91,7 @@ namespace ClassesLab1
                 }
             }
         }
+        //TODO: XML
         public string Surname 
         {
             get
@@ -114,6 +116,8 @@ namespace ClassesLab1
                 }
             } 
         }
+
+        //TODO: XML
         public virtual int Age 
         {
             get
@@ -125,6 +129,7 @@ namespace ClassesLab1
                 if (value > MaxAge || value < MinAge)
                 {
                     throw new ArgumentException(
+                        //TODO: to const
                         "Введите число из диапазона от 0 до 120.");
 
                 }
@@ -134,6 +139,8 @@ namespace ClassesLab1
                 }
             }
         }
+
+        //TODO: XML
         public Gender Gender {get;set;}
 
         /// <summary>
@@ -150,12 +157,13 @@ namespace ClassesLab1
             {
 
                 string[] words = name.Split(new char[] { '-' });
-                if (words.Length == 2) 
-                { 
-                    if (Regex.IsMatch(words[0], _russianRegex) &&
-                    Regex.IsMatch(words[1], _russianRegex) ||
-                    (Regex.IsMatch(words[0], _englishRegex)
-                    && Regex.IsMatch(words[1], _englishRegex)))
+                if (words.Length == 2)
+                {
+                    //TODO: RSDN
+                    if (Regex.IsMatch(words[0], _russianRegex)
+                        && Regex.IsMatch(words[1], _russianRegex) ||
+                        (Regex.IsMatch(words[0], _englishRegex)
+                        && Regex.IsMatch(words[1], _englishRegex)))
                     {
                         words[0] = textInfo.ToTitleCase(words[0]);
                         words[1] = textInfo.ToTitleCase(words[1]);
@@ -171,18 +179,19 @@ namespace ClassesLab1
                 {
                     throw new ArgumentException("Некорректное значение");
                 }
-                
-            }
-
-            else if (Regex.IsMatch(name, _russianRegex) ||
-                Regex.IsMatch(name, _englishRegex))
-            {
-                correctName = textInfo.ToTitleCase(name);
             }
             else
             {
-                throw new ArgumentException("Имя и фамилия должны " +
-                    "содержать только русские или английские буквы.");
+                if (Regex.IsMatch(name, _russianRegex)
+                    || Regex.IsMatch(name, _englishRegex))
+                {
+                    correctName = textInfo.ToTitleCase(name);
+                }
+                else
+                {
+                    throw new ArgumentException("Имя и фамилия должны " +
+                        "содержать только русские или английские буквы.");
+                }
             }
             return correctName;
         }

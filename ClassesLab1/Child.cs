@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassesLab1
 {
+    //TODO: XML
     public class Child : Person
     {
         /// <summary>
@@ -57,9 +58,12 @@ namespace ClassesLab1
             Kindergarten = kindergarten;
         }
 
+        //TODO: RSDN
         public Adult ParentM { get; set; }
 
+        //TODO: RSDN
         public Adult ParentF { get; set; }
+
         public string Kindergarten { get; set; }
 
         /// <summary>

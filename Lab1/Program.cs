@@ -39,6 +39,7 @@ namespace Lab1
             Console.WriteLine($"Тип данных 4-го человека списке:" +
                 $" {typePeople}");
 
+            //TODO: switch-case
             if (typePeople == typeof(Adult))
             {
                 Console.WriteLine(((Adult)people).AreYouAdult());
