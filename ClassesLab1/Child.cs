@@ -15,17 +15,17 @@ namespace PersonLibrary
         /// <summary>
         /// Родитель мужчина.
         /// </summary>
-        private Adult _parentM;
+        private Adult _father;
 
         /// <summary>
         /// Родитель женщина.
         /// </summary>
-        private Adult _parentF;
+        private Adult _mother;
 
         /// <summary>
         /// РОдитель женщина.
         /// </summary>
-        private string _kindergarten;
+        private string _educationalInstitution;
 
         /// <summary>
         /// Минимальный возраст.
@@ -50,24 +50,33 @@ namespace PersonLibrary
         /// <param name="surname">Фамилия.</param>
         /// <param name="age">Возраст.</param>
         /// <param name="gender">Пол.</param>
-        /// <param name="parentM">Родитель мужчина.</param>
-        /// <param name="parentF">РОдитель женщина.</param>
-        /// <param name="kindergarten">Детский сад.</param>
-        public Child(string name, string surname, int age, Gender gender, Adult parentM,
-            Adult parentF, string kindergarten) : base(name, surname, age, gender)
+        /// <param name="father">Родитель мужчина.</param>
+        /// <param name="mother">РОдитель женщина.</param>
+        /// <param name="educationalInstitution">Детский сад.</param>
+        public Child(string name, string surname, int age, Gender gender, Adult father,
+            Adult mother, string educationalInstitution) : base(name, surname, age, gender)
         {
-            ParentM = parentM;
-            ParentF = parentF;
-            Kindergarten = kindergarten;
+            Father = father;
+            Mother = mother;
+            EducationalInstitution = educationalInstitution;
         }
 
-        //TODO: RSDN
-        public Adult ParentM { get; set; }
+        //TODO: RSDN+
+        /// <summary>
+        /// Партнер мама.
+        /// </summary>
+        public Adult Father { get; set; }
 
-        //TODO: RSDN
-        public Adult ParentF { get; set; }
+        //TODO: RSDN+
+        /// <summary>
+        /// Партнер папа.
+        /// </summary>
+        public Adult Mother { get; set; }
 
-        public string Kindergarten { get; set; }
+        /// <summary>
+        /// Образовательное учреждение.
+        /// </summary>
+        public string EducationalInstitution { get; set; }
 
         /// <summary>
         /// Возвращает строку с информацией об объекте.
@@ -76,28 +85,28 @@ namespace PersonLibrary
         public override string GetInfo()
         {
             string info;
-            if (ParentF == null && ParentM == null)
+            if (Mother == null && Father == null)
             {
                 info = "Нет родителей";
             }
-            else if (ParentF == null)
+            else if (Mother == null)
             {
-                info = $"{ParentM.Name + " " + ParentM.Surname}";
+                info = $"{Father.Name + " " + Father.Surname}";
             }
-            else if (ParentM == null)
+            else if (Father == null)
             {
-                info = $"{ParentF.Name + " " + ParentF.Surname}";
+                info = $"{Mother.Name + " " + Mother.Surname}";
             }
             else
             {
-                info = $"{ParentF.Name + " " + ParentF.Surname}" + " "+
-                    $"{ParentM.Name + " " + ParentM.Surname}";
+                info = $"{Mother.Name + " " + Mother.Surname}" + " "+
+                    $"{Father.Name + " " + Father.Surname}";
             }
 
             return $"Имя: {Name}\tФамилия: {Surname}" +
                     $"\tВозраст: {Age}\tПол: {Gender}" +
                     $"\tРодители: {info}" +
-                    $"\tУчреждение: {Kindergarten}\n";
+                    $"\tУчреждение: {EducationalInstitution}\n";
         }
 
         /// <summary>

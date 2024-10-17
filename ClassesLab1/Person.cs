@@ -172,9 +172,10 @@ namespace PersonLibrary
                 string[] words = name.Split(new char[] { '-' });
                 if (words.Length == 2)
                 {
-                    //TODO: RSDN
-                    if (   (Regex.IsMatch(words[0], _russianRegex) 
-                        && Regex.IsMatch(words[1], _russianRegex)) ||
+                    //TODO: RSDN+
+                    if ((Regex.IsMatch(words[0], _russianRegex)
+                        && Regex.IsMatch(words[1], _russianRegex))
+                        ||
                         (Regex.IsMatch(words[0], _englishRegex)
                         && Regex.IsMatch(words[1], _englishRegex)))
                     {

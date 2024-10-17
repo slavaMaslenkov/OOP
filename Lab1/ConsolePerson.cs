@@ -1,4 +1,4 @@
-﻿using ClassesLab1;
+﻿using PersonLibrary;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

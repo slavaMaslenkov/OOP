@@ -73,9 +73,24 @@ namespace PersonLibrary
         }
 
         //TODO: validation
+        /// <summary>
+        /// Номер пасспорта.
+        /// </summary>
         public string NumberOfPassport { get; set; }
+
+        /// <summary>
+        /// Серия пасспорта.
+        /// </summary>
         public string SeriesOfPassport { get; set; }
+
+        /// <summary>
+        /// Партнер.
+        /// </summary>
         public Adult Partner { get; set; }
+
+        /// <summary>
+        /// Работа.
+        /// </summary>
         public string Job { get; set; }
 
         /// <summary>

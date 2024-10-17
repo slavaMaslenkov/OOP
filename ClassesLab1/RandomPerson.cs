@@ -19,104 +19,104 @@ namespace PersonLibrary
         /// <returns>Объект класса Child .</returns>
         public static Adult GetRandomAdult()
         {
-            Adult person1 = new Adult();
-            Random rnd = new Random();
-            Gender gender = (Gender)rnd.Next(Enum.GetNames(typeof(Gender)).Length);
-            GetPerson(gender, person1);
-            GetAdultInfo(person1);
-            GetPartner(gender, person1);
+            Adult adult = new Adult();
+            Random random = new Random();
+            Gender gender = (Gender)random.Next(Enum.GetNames(typeof(Gender)).Length);
+            GetPerson(gender, adult);
+            GetAdultInfo(adult);
+            GetPartner(gender, adult);
 
-            return person1;
+            return adult;
         }
 
         /// <summary>
         /// Получаем характеристику персоны.
         /// <summary>
         /// <param name="gender">Имя объекта.</param>
-        /// <param name="person">Имя объекта.</param>
+        /// <param name="adult">Имя объекта.</param>
         /// </summary>
-        public static void GetPerson(Gender gender, Person person)
+        public static void GetPerson(Gender gender, PersonBase adult)
         {
-            Random rnd = new Random();
-            //TODO: RSDN
-            string[] namesM = { "Некит", "Юра", "Вася", "Растик", "Приус",
+            Random random = new Random();
+            //TODO: RSDN+
+            string[] namesMale = { "Некит", "Юра", "Вася", "Растик", "Руслан",
                 "Слава", "Эдик", "Вова", "Даня", "Коля" };
-            string[] namesF = { "Катя", "Оля", "Наташа", "Света", "Галя",
-                "Изабелла", "Жанна", "Снежанна", "Коляска", "Юлька" };
+            string[] namesFemale = { "Катя", "Оля", "Наташа", "Света", "Галя",
+                "Изабелла", "Жанна", "Снежанна", "Ира", "Юля" };
             string[] surnames = { "Катяшкин", "Олечкин", "Наташечкин",
                 "Светов", "Галов", "Славин", "Эдиксон", "Вовчанин", "Данон", "Коликов" };
             
             if (gender == Gender.Male)
             {
-                person.Name = namesM[rnd.Next(namesM.Length - 1)];
-                person.Surname = surnames[rnd.Next(surnames.Length - 1)];
+                adult.Name = namesMale[random.Next(namesMale.Length - 1)];
+                adult.Surname = surnames[random.Next(surnames.Length - 1)];
             }
             else
             {
-                person.Name = namesF[rnd.Next(namesF.Length - 1)];
-                person.Surname = surnames[rnd.Next(surnames.Length - 1)] + 'а';
+                adult.Name = namesFemale[random.Next(namesFemale.Length - 1)];
+                adult.Surname = surnames[random.Next(surnames.Length - 1)] + 'а';
             }
 
-            person.Gender = gender;
-            person.Age = rnd.Next(person.MinAge, person.MaxAge);
+            adult.Gender = gender;
+            adult.Age = random.Next(adult.MinAge, adult.MaxAge);
         }
 
         /// <summary>
         /// Получаем характеристику взрослого.
         /// <summary>
-        /// <param name="person">Имя объекта.</param>
-        public static void GetAdultInfo(Adult person)
+        /// <param name="adult">Имя объекта.</param>
+        public static void GetAdultInfo(Adult adult)
         {
-            Random rnd = new Random();
-            int work_status = rnd.Next(2);
-            if (work_status == 1)
+            Random random = new Random();
+            int workStatus = random.Next(2);
+            if (workStatus == 1)
             {
                 string[] work = { "50Ohm", "Open AI", "ХК Сибирь", "Microsoft", "Binance" };
-                person.Job = work[rnd.Next(work.Length - 1)];
+                adult.Job = work[random.Next(work.Length - 1)];
             }
             else
             {
-                person.Job = "Безработный";
+                adult.Job = "Безработный";
             }
 
-            person.NumberOfPassport = rnd.Next(0, 1000000).ToString("D6");
-            person.SeriesOfPassport = rnd.Next(0, 10000).ToString("D4");
+            adult.NumberOfPassport = random.Next(0, 1000000).ToString("D6");
+            adult.SeriesOfPassport = random.Next(0, 10000).ToString("D4");
         }
 
         /// <summary>
         /// Получаем характеристику персоны.
         /// </summary>
         /// <param name="gender">Пол объекта.</param>
-        /// <param name="person">Имя объекта.</param>
-        public static void GetPartner(Gender gender, Adult person)
+        /// <param name="adult">Имя объекта.</param>
+        public static void GetPartner(Gender gender, Adult adult)
         {
-            Random rnd = new Random();
-            //TODO: RSDN
-            int marital_status = rnd.Next(2);
-            if (marital_status == 1)
+            Random random = new Random();
+            //TODO: RSDN+
+            int maritalStatus = random.Next(2);
+            if (maritalStatus == 1)
             {
                 if (gender == Gender.Male)
                 {
                     Adult person2 = new Adult();
                     GetPerson(Gender.Female, person2);
                     GetAdultInfo(person2);
-                    person.Partner = person2;
-                    person2.Partner = person;
-                    person2.Surname = person.Surname + "а";
+                    adult.Partner = person2;
+                    person2.Partner = adult;
+                    person2.Surname = adult.Surname + "а";
                 }
                 else
                 {
                     Adult person2 = new Adult();
                     GetPerson(Gender.Male, person2);
                     GetAdultInfo(person2);
-                    person.Partner = person2;
-                    person2.Partner = person;
-                    person.Surname = person2.Surname + "а";
+                    adult.Partner = person2;
+                    person2.Partner = adult;
+                    adult.Surname = person2.Surname + "а";
                 }
             }
             else
             {
-                person.Partner = null;
+                adult.Partner = null;
             }
         }
 
@@ -126,107 +126,107 @@ namespace PersonLibrary
         /// <returns>Объект класса Child .</returns>
         public static Child GetRandomChild()
         {
-            //TODO: RSDN
-            Child person1 = new Child();
-            Random rnd = new Random();
-            Gender gender = (Gender)rnd.Next(Enum.GetNames(typeof(Gender)).Length);
+            //TODO: RSDN+
+            Child child = new Child();
+            Random random = new Random();
+            Gender gender = (Gender)random.Next(Enum.GetNames(typeof(Gender)).Length);
 
-            GetPerson(gender, person1);
-            GetChildInfo(person1);
-            GetParent(person1);
+            GetPerson(gender, child);
+            GetChildInfo(child);
+            GetParent(child);
 
             switch (gender)
             {
                 case Gender.Female:
-                    if (person1.ParentM != null)
+                    if (child.Father != null)
                     {
-                        person1.Surname = person1.ParentM.Surname + "а";
+                        child.Surname = child.Father.Surname + "а";
                     }
-                    else if (person1.ParentM == null && person1.ParentF != null)
+                    else if (child.Father == null && child.Mother != null)
                     {
-                        person1.Surname = person1.ParentF.Surname;
+                        child.Surname = child.Mother.Surname;
                     }
                     break;
                 case Gender.Male:
-                    if (person1.ParentM != null)
+                    if (child.Father != null)
                     {
-                        person1.Surname = person1.ParentM.Surname;
+                        child.Surname = child.Father.Surname;
                     }
-                    else if (person1.ParentM == null && person1.ParentF != null)
+                    else if (child.Father == null && child.Mother != null)
                     {
-                        person1.Surname = person1.ParentF.Surname[..^1];
+                        child.Surname = child.Mother.Surname[..^1];
                     }
                     break;
             }
-            return person1;
+            return child;
         }
 
         /// <summary>
         /// Получаем характеристику ребенка.
         /// </summary>
-        /// <param name="person">Имя объекта.</param>
-        public static void GetChildInfo(Child person)
+        /// <param name="child">Имя объекта.</param>
+        public static void GetChildInfo(Child child)
         {
-            if (person.Age < 7)
+            if (child.Age < 7)
             {
-                Random rnd = new Random();
-                string[] kindergarten = { "ДС Русалка", "ДС Дельфин", "ДС Карась", "ДС Солнышко" };
-                person.Kindergarten = kindergarten[rnd.Next(kindergarten.Length - 1)];
+                Random random = new Random();
+                string[] educationalInstitution = { "ДС Русалка", "ДС Дельфин", "ДС Карась", "ДС Солнышко" };
+                child.EducationalInstitution = educationalInstitution[random.Next(educationalInstitution.Length - 1)];
             }
             else
             {
-                Random rnd = new Random();
-                string[] kindergarten = { "Гимназия", "Лицей", "Школа №25", "Школа №5" };
-                person.Kindergarten = kindergarten[rnd.Next(kindergarten.Length - 1)];
+                Random random = new Random();
+                string[] educationalInstitution = { "Гимназия", "Лицей", "Школа №25", "Школа №5" };
+                child.EducationalInstitution = educationalInstitution[random.Next(educationalInstitution.Length - 1)];
             }
         }
 
         /// <summary>
         /// Получаем родителей ребенка.
         /// </summary>
-        /// <param name="person">Имя объекта.</param>
-        public static void GetParent(Child person)
+        /// <param name="child">Имя объекта.</param>
+        public static void GetParent(Child child)
         {
-            Random rnd = new Random();
-            int number_parents = rnd.Next(3);
-            if (number_parents == 1)
+            Random random = new Random();
+            int numberParents = random.Next(3);
+            if (numberParents == 1)
             {
-                person.ParentF = null;
-                person.ParentM = null;
+                child.Mother = null;
+                child.Father = null;
             }
-            else if (number_parents == 2)
+            else if (numberParents == 2)
             {
-                Gender gender = (Gender)rnd.Next(Enum.GetNames(typeof(Gender)).Length);
-                Adult person2 = new Adult();
-                GetPerson(gender, person2);
-                GetAdultInfo(person2);
-                person2.Partner = null;
+                Gender gender = (Gender)random.Next(Enum.GetNames(typeof(Gender)).Length);
+                Adult adult = new Adult();
+                GetPerson(gender, adult);
+                GetAdultInfo(adult);
+                adult.Partner = null;
                 if (gender == Gender.Male)
                 {
-                    person.ParentM = person2;
-                    person.ParentF = null;
+                    child.Father = adult;
+                    child.Mother = null;
                 }
                 else
                 {
-                    person.ParentF = person2;
-                    person.ParentM = null;
+                    child.Mother = adult;
+                    child.Father = null;
                 }
 
             }
             else
             {
-                Adult person1 = new Adult();
-                GetPerson(Gender.Male, person1);
-                GetAdultInfo(person1);
-                Adult person2 = new Adult();
-                GetPerson(Gender.Female, person2);
-                GetAdultInfo(person2);
-                person1.Partner = person2;
-                person2.Partner = person1;
-                person2.Surname = person1.Surname + "а";
+                Adult adult = new Adult();
+                GetPerson(Gender.Male, adult);
+                GetAdultInfo(adult);
+                Adult adultPartner = new Adult();
+                GetPerson(Gender.Female, adultPartner);
+                GetAdultInfo(adultPartner);
+                adult.Partner = adultPartner;
+                adultPartner.Partner = adult;
+                adultPartner.Surname = adult.Surname + "а";
 
-                person.ParentF = person2;
-                person.ParentM = person1;
+                child.Mother = adultPartner;
+                child.Father = adult;
             }
         }
     }
