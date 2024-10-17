@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassesLab1
+namespace PersonLibrary
 {
     /// <summary>
     /// Возможные значения пола.

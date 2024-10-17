@@ -4,13 +4,13 @@ using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace ClassesLab1
+namespace PersonLibrary
 {
-    //TODO: RSDN?
+    //TODO: RSDN?+
     /// <summary>
     /// Класс Person, содержащий: имя, фамилию, возраст, пол.
     /// </summary>
-    public abstract class Person
+    public abstract class PersonBase
     {
         /// <summary>
         /// Имя.
@@ -55,7 +55,7 @@ namespace ClassesLab1
         /// <summary>
         /// Объект класс Person по умолчанию.
         /// </summary>
-        public Person() : this("Неизвестно", "Неизвестно", 18, Gender.Male)
+        public PersonBase() : this("Неизвестно", "Неизвестно", 18, Gender.Male)
         { }
 
         /// <summary>
@@ -65,13 +65,17 @@ namespace ClassesLab1
         /// <param name="surname">Фамилия.</param>
         /// <param name="age">Возраст.</param>
         /// <param name="gender">Пол.</param>
-        public Person(string name, string surname, int age, Gender gender)
+        public PersonBase(string name, string surname, int age, Gender gender)
         {
             Name = name;
             Surname = surname;
             Age = age;
             Gender = gender;
         }
+
+        /// <summary>
+        /// Имя.
+        /// </summary>
         public string Name 
         { 
             get
@@ -91,7 +95,10 @@ namespace ClassesLab1
                 }
             }
         }
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Фамилия.
+        /// </summary>
         public string Surname 
         {
             get
@@ -117,7 +124,10 @@ namespace ClassesLab1
             } 
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Возраст.
+        /// </summary>
         public virtual int Age 
         {
             get
@@ -129,8 +139,8 @@ namespace ClassesLab1
                 if (value > MaxAge || value < MinAge)
                 {
                     throw new ArgumentException(
-                        //TODO: to const
-                        "Введите число из диапазона от 0 до 120.");
+                        //TODO: to const+
+                        $"Введите число из диапазона от {MinAge} до {MaxAge}.");
 
                 }
                 else
@@ -140,8 +150,11 @@ namespace ClassesLab1
             }
         }
 
-        //TODO: XML
-        public Gender Gender {get;set;}
+        //TODO: XML+
+        /// <summary>
+        /// Пол.
+        /// </summary>
+        public Gender Gender { get; set; }
 
         /// <summary>
         /// Проверяет корректность введенных данных./>.
@@ -160,8 +173,8 @@ namespace ClassesLab1
                 if (words.Length == 2)
                 {
                     //TODO: RSDN
-                    if (Regex.IsMatch(words[0], _russianRegex)
-                        && Regex.IsMatch(words[1], _russianRegex) ||
+                    if (   (Regex.IsMatch(words[0], _russianRegex) 
+                        && Regex.IsMatch(words[1], _russianRegex)) ||
                         (Regex.IsMatch(words[0], _englishRegex)
                         && Regex.IsMatch(words[1], _englishRegex)))
                     {
@@ -182,8 +195,8 @@ namespace ClassesLab1
             }
             else
             {
-                if (Regex.IsMatch(name, _russianRegex)
-                    || Regex.IsMatch(name, _englishRegex))
+                if (Regex.IsMatch(name, _russianRegex) ||
+                    Regex.IsMatch(name, _englishRegex))
                 {
                     correctName = textInfo.ToTitleCase(name);
                 }

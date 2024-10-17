@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace ClassesLab1
+namespace PersonLibrary
 {
     /// <summary>
     /// Класс PersonList, описывающий абстракцию списка,

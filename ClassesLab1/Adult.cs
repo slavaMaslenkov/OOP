@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassesLab1
+namespace PersonLibrary
 {
-    //TODO: XML
-    public class Adult : Person
+    //TODO: XML+
+    /// <summary>
+    /// Класс взрослый человек.
+    /// </summary>
+    public class Adult : PersonBase
     {
         //TODO: not using
         /// <summary>

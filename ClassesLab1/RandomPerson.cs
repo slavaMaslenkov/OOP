@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassesLab1
+namespace PersonLibrary
 {
     /// <summary>
     /// Создание объекта класса RandomPerson.

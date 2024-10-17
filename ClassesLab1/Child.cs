@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassesLab1
+namespace PersonLibrary
 {
-    //TODO: XML
-    public class Child : Person
+    //TODO: XML+
+    /// <summary>
+    /// Класс определяющий ребенка.
+    /// </summary>
+    public class Child : PersonBase
     {
         /// <summary>
         /// Родитель мужчина.
