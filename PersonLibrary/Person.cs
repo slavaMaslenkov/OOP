@@ -76,7 +76,7 @@ namespace PersonLibrary
         /// <summary>
         /// Имя.
         /// </summary>
-        public string Name 
+        public string Name
         { 
             get
             {

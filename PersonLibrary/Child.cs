@@ -23,7 +23,7 @@ namespace PersonLibrary
         private Adult _mother;
 
         /// <summary>
-        /// РОдитель женщина.
+        /// Образовательное учреждение.
         /// </summary>
         private string _educationalInstitution;
 
@@ -75,11 +75,15 @@ namespace PersonLibrary
             {
                 if (value?.Gender == Gender.Female)
                 {
-                    throw new ArgumentException
-                        ("Отец должен быть мужского пола.");
+                    throw new ArgumentException(
+                        "Отец должен быть мужского пола.");
+                }
+                else
+                {
+                   _father = value;
                 }
             }
-        }
+        } 
 
         //TODO: RSDN+
         /// <summary>
@@ -95,8 +99,12 @@ namespace PersonLibrary
             {
                 if (value?.Gender == Gender.Male)
                 {
-                    throw new ArgumentException
-                        ("Мать должна быть женского пола.");
+                    throw new ArgumentException(
+                        "Мать должна быть женского пола.");
+                }
+                else
+                {
+                     _mother = value;
                 }
             }
         }
@@ -112,13 +120,13 @@ namespace PersonLibrary
             }
             set
             {
-                if (value == null || value == "")
+                if (string.IsNullOrEmpty(value))
                 {
-                    Console.WriteLine("Пустая строка");
+                    value = "В образовательное учреждение не ходит.";
                 }
                 else
                 {
-                    value = _educationalInstitution;
+                    _educationalInstitution = value;
                 }
             }
         }

@@ -138,15 +138,9 @@ namespace PersonLibrary
                         "Однополые браки нельзя.");
                 }
 
-                if (value?.Partner is not null || Partner is not null)
-                {
-                    throw new ArgumentException
-                        ("Человек уже в браке");
-                }
-
                 if (value is not null)
                 {
-                    value = _partner;
+                    _partner = value;
                 }
             }
         }
@@ -168,7 +162,7 @@ namespace PersonLibrary
                 }
                 else
                 {
-                    value = _job;
+                     _job = value;
                 }
             }
         }

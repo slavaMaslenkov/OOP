@@ -167,16 +167,14 @@ namespace PersonLibrary
         /// <param name="child">Имя объекта.</param>
         public static void GetChildInfo(Child child)
         {
+            Random random = new Random();
             if (child.Age < 7)
             {
-                Random random = new Random();
                 string[] educationalInstitution = { "ДС Русалка", "ДС Дельфин", "ДС Карась", "ДС Солнышко" };
                 child.EducationalInstitution = educationalInstitution[random.Next(educationalInstitution.Length - 1)];
-                Console.WriteLine(educationalInstitution[random.Next(educationalInstitution.Length - 1)]);
             }
             else
             {
-                Random random = new Random();
                 string[] educationalInstitution = { "Гимназия", "Лицей", "Школа №25", "Школа №5" };
                 child.EducationalInstitution = educationalInstitution[random.Next(educationalInstitution.Length - 1)];
             }
