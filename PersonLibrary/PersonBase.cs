@@ -8,7 +8,7 @@ namespace PersonLibrary
 {
     //TODO: RSDN?+
     /// <summary>
-    /// Класс Person, содержащий: имя, фамилию, возраст, пол.
+    /// Класс PersonBase, содержащий: имя, фамилию, возраст, пол.
     /// </summary>
     public abstract class PersonBase
     {
