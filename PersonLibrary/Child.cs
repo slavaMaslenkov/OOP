@@ -122,7 +122,7 @@ namespace PersonLibrary
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    value = "В образовательное учреждение не ходит.";
+                    _educationalInstitution = "В образовательное учреждение не ходит.";
                 }
                 else
                 {
