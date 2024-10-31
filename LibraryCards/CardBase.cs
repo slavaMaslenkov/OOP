@@ -10,7 +10,7 @@ namespace LibraryCards
     public abstract class CardBase
     {
         /// <summary>
-        /// Фамилия И.О.
+        /// Фамилия И.О. автора.
         /// </summary>
         private string _fullName;
 
@@ -58,22 +58,20 @@ namespace LibraryCards
         /// <summary>
         /// Объект класс CardBase по умолчанию.
         /// </summary>
-        public CardBase() : this("Неизвестно", "Неизвестно", 1900, 100)
+        public CardBase() : this("Неизвестно", "Неизвестно", 1900)
         { }
 
         /// <summary>
-        /// Конструктор класса Person.
+        /// Конструктор класса CardBase.
         /// </summary>
         /// <param name="fullName">Имя.</param>
         /// <param name="name">Фамилия.</param>
         /// <param name="year">Возраст.</param>
-        /// <param name="sheet">Пол.</param>
-        public CardBase(string fullName, string name, int year, int sheet)
+        public CardBase(string fullName, string name, int year)
         {
             Fullname = fullName;
             Name = name;
             Year = year;
-            Sheet = sheet;
         }
 
         /// <summary>
@@ -82,8 +80,8 @@ namespace LibraryCards
         /// <returns>Данные об издании.</returns>
         public virtual string GetInfo()
         {
-            return $"Имя: {Name}, Фамилия: {LastName}," +
-                   $" Возраст: {Age}, Пол: {Gender}";
+            /*return $"Имя: {Name}, Фамилия: {LastName}," +
+                   $" Возраст: {Age}, Пол: {Gender}";*/
         }
     }
 }
