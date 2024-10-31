@@ -7,7 +7,11 @@ using System.Xml.Linq;
 
 namespace LibraryCards
 {
-    //TODO: XML
+    //TODO: XML+
+    /// <summary>
+    /// Класс создания библ. карточки по стате из журнала.
+    /// </summary>
+    /// <returns>Объект класса Magazine.</returns>
     public class Magazine : CardBase
     {
         /// <summary>
@@ -25,45 +29,46 @@ namespace LibraryCards
         /// </summary>
         private string _additionalInformation;
 
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Начальная страница.
         /// </summary>
-        private int StartSheet;
+        private int _startSheet;
 
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Последняя странца.
         /// </summary>
-        private int EndSheet;
+        private int _endSheet;
 
         /// <summary>
-        /// Объект класс CardBase по умолчанию.
+        /// Объект класс Magazine по умолчанию.
         /// </summary>
         /// //TODO: RSDN
-        public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 1900, 0, 1)
+        public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно", 1, "Неизвестно", 1900, 0, 1)
         { }
 
         /// <summary>
-        /// Конструктор класса Person.
+        /// Конструктор класса Magazine.
         /// </summary>
-        /// <param name="fullName">Имя.</param>
-        /// <param name="name">Фамилия.</param>
-        /// <param name="placeOfPublication">Имя.</param>
-        /// <param name="publishingHouse">Фамилия.</param>
-        /// <param name="additionalInformation">Возраст.</param>
+        /// <param name="fullName">ФИО автора.</param>
+        /// <param name="name">Название работы.</param>
+        /// <param name="nameOfMagazine">Название журнала.</param>
+        /// <param name="numberOfMagazine">Номер журнала.</param>
+        /// <param name="additionalInformation">Сведение об издании.</param>
         /// <param name="year">Год издания.</param>
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
-        /// TODO: цепочка конструкторов
-        public Magazine(string fullName, string name, string placeOfPublication,
-            string publishingHouse, string additionalInformation, int year, int startSheet, int endSheet)
+        /// TODO: цепочка конструкторов+
+        public Magazine(string fullName, string name, string nameOfMagazine,
+            int numberOfMagazine, string additionalInformation, int year, 
+            int startSheet, int endSheet) : base(fullName, name, year)
 
         {
             Fullname = fullName;
             Name = name;
-            PlaceOfPublication = placeOfPublication;
-            PublishingHouse = publishingHouse;
+            NameOfMagazine = nameOfMagazine;
+            NumberOfMagazine = numberOfMagazine;
             AdditionalInformation = additionalInformation;
             Year = year;
             StartSheet = startSheet;

@@ -7,8 +7,12 @@ using System.Xml.Linq;
 
 namespace LibraryCards
 {
-    //TODO: XML
-    internal class Sbornik
+    //TODO: XML+
+    /// <summary>
+    /// Класс создания библ. карточки по статье из сборника.
+    /// </summary>
+    /// <returns>Объект класса Book.</returns>
+    internal class Sbornik : CardBase
     {
         /// <summary>
         /// Название сборника.
@@ -30,28 +34,28 @@ namespace LibraryCards
         /// </summary>
         private string _additionalInformation;
 
-        //// <summary>
+        /// <summary>
         /// НАчальная страница.
         /// </summary>
-        private int StartSheet;
+        private int _startSheet;
 
         /// <summary>
         /// Последняя странца.
         /// </summary>
-        private int EndSheet;
+        private int _endSheet;
 
         /// <summary>
-        /// Объект класс CardBase по умолчанию.
+        /// Объект класс Sbornik по умолчанию.
         /// </summary>
         public Sbornik() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
             "Неизвестно", "Неизвестно", 1900, 0,1)
         { }
 
         /// <summary>
-        /// Конструктор класса Person.
+        /// Конструктор класса Sbornik.
         /// </summary>
         /// <param name="fullName">Фамилия И.О. автора.</param>
-        /// <param name="name">Фамилия.</param>
+        /// <param name="name">Название работы.</param>
         /// <param name="placeOfPublication">Место публикации.</param>
         /// <param name="publishingHouse">Издательство.</param>
         /// <param name="nameOfSbornik">Название сборника.</param>
@@ -59,17 +63,20 @@ namespace LibraryCards
         /// <param name="year">Год издания.</param>
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
-        /// TODO: цепочка конструкторов
-        public Book(string fullName, string name, string placeOfPublication,
-            string publishingHouse, string additionalInformation, int year, int sheet)
+        /// TODO: цепочка конструкторов+
+        public Sbornik(string fullName, string name, string nameOfSbornik,
+            string placeOfPublication, string publishingHouse, string additionalInformation, 
+            int year, int startSheet, int endSheet) : base(fullName, name, year)
         {
             Fullname = fullName;
             Name = name;
+            NameOfSbornik = nameOfSbornik;
             PlaceOfPublication = placeOfPublication;
             PublishingHouse = publishingHouse;
             AdditionalInformation = additionalInformation;
             Year = year;
-            Sheet = sheet;
+            StartSheet = startSheet;
+            EndSheet = endSheet;
         }
 
         /// <summary>

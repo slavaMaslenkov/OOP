@@ -64,8 +64,8 @@ namespace LibraryCards
         /// <summary>
         /// Конструктор класса CardBase.
         /// </summary>
-        /// <param name="fullName">Имя.</param>
-        /// <param name="name">Фамилия.</param>
+        /// <param name="fullName">ФИО автора.</param>
+        /// <param name="name">Название работы.</param>
         /// <param name="year">Возраст.</param>
         public CardBase(string fullName, string name, int year)
         {
@@ -75,13 +75,26 @@ namespace LibraryCards
         }
 
         /// <summary>
+        /// Метод изменения порядка ФИО в ИОФ.
+        /// </summary>
+        /// <returns>Данные об издании.</returns>
+        public virtual string ReverseFullname(string fullName)
+        {
+            string[] parts = fullName.Split(' ');
+            string reverseFullname = parts[1] +" "+ parts[0];
+
+            return reverseFullname;
+
+        }
+
+        /// <summary>
         /// Метод вывода библиотечной карточки.
         /// </summary>
         /// <returns>Данные об издании.</returns>
         public virtual string GetInfo()
         {
-            /*return $"Имя: {Name}, Фамилия: {LastName}," +
-                   $" Возраст: {Age}, Пол: {Gender}";*/
+            return $"{Fullname} {Name}/" +
+                   $"{ReverseFullname(Fullname)}.— {Year}.";
         }
     }
 }

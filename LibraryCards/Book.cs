@@ -7,7 +7,11 @@ using System.Xml.Linq;
 
 namespace LibraryCards
 {
-    //TODO: XML
+    //TODO: XML+
+    /// <summary>
+    /// Класс создания библ. карточки по книге.
+    /// </summary>
+    /// <returns>Объект класса Book.</returns>
     public class Book : CardBase
     {
         /// <summary>
@@ -31,25 +35,27 @@ namespace LibraryCards
         private int _sheet;
 
         /// <summary>
-        /// Объект класс CardBase по умолчанию.
+        /// Объект класс Book по умолчанию.
         /// </summary>
-        /// //TODO: RSDN
-        public Book() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 1900, 100)
+        /// //TODO: RSDN+
+        public Book() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
+            "Неизвестно", 1900, 100)
         { }
 
         /// <summary>
-        /// Конструктор класса Person.
+        /// Конструктор класса Book.
         /// </summary>
-        /// <param name="fullName">Имя.</param>
-        /// <param name="name">Фамилия.</param>
-        /// <param name="placeOfPublication">Имя.</param>
-        /// <param name="publishingHouse">Фамилия.</param>
-        /// <param name="additionalInformation">Возраст.</param>
-        /// <param name="year">Возраст.</param>
-        /// <param name="sheet">Пол.</param>
-        /// TODO: цепочка конструкторов
+        /// <param name="fullName">ФИО автора.</param>
+        /// <param name="name">Название работы.</param>
+        /// <param name="placeOfPublication">Место издания.</param>
+        /// <param name="publishingHouse">Издательство.</param>
+        /// <param name="additionalInformation">Сведение об издании.</param>
+        /// <param name="year">Год издания.</param>
+        /// <param name="sheet">Количество страниц.</param>
+        /// TODO: цепочка конструкторов+
         public Book(string fullName, string name, string placeOfPublication, 
-            string publishingHouse, string additionalInformation, int year, int sheet)
+            string publishingHouse, string additionalInformation, 
+            int year, int sheet) : base(fullName, name, year)
         {
             Fullname = fullName;
             Name = name;
