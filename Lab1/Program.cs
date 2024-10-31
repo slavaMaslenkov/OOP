@@ -33,17 +33,20 @@ namespace Lab1
             Console.WriteLine("Вывод первого списка:");
             Console.WriteLine(personList1.PersonInfo());
 
-            //TODO: rename
-            var people = personList1.GetPersonByIndex(3);
+            /*Adult Slava = new Adult("Слава", "Масленков", 23, Gender.Male, "1a1111", "1111", null,"Oeprator");
+            Console.WriteLine(Slava.GetInfo());*/
 
-            //TODO: switch-case
-            switch (people.GetType().Name)
+            //TODO: rename+
+            var person = personList1.GetPersonByIndex(3);
+
+            //TODO: switch-case+
+            switch (person)
             {
-                case "Adult":
-                    Console.WriteLine(((Adult)people).AreYouAdult());
+                case Adult adult:
+                    Console.WriteLine(((Adult)person).AreYouAdult());
                     break;
-                case "Child":
-                    Console.WriteLine(((Child)people).AreYouChild());
+                case Child child:
+                    Console.WriteLine(((Child)person).AreYouChild());
                     break;
             }
             _ = Console.ReadKey();

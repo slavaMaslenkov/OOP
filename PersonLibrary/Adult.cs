@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.WebSockets;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -22,6 +23,11 @@ namespace PersonLibrary
         /// Серия паспорта.
         /// </summary>
         private string _seriesOfPassport;
+
+        /// <summary>
+        /// Регулярное выражение, выявляющее олько цифры.
+        /// </summary>
+        private const string _numberRegex = @"^\d+$";
 
         /// <summary>
         /// Состояние брака.
@@ -82,7 +88,7 @@ namespace PersonLibrary
             }
             set
             {
-                if (value.ToString().Length == 6)
+                if (value.ToString().Length == 6 && IsCorrectNumber(value))
                 {
                     _numberOfPassport = value;
                 }
@@ -106,7 +112,7 @@ namespace PersonLibrary
             }
             set
             {
-                if (value.ToString().Length == 4)
+                if (value.ToString().Length == 4 && IsCorrectNumber(value))
                 {
                     _seriesOfPassport = value;
                 }
@@ -185,6 +191,26 @@ namespace PersonLibrary
                     $"\tНомер паспорта: {NumberOfPassport}"+
                     $"\tСерия паспорта: {SeriesOfPassport}\tПартнер: {info}"+
                     $"\tМесто работы: {Job}\n";
+        }
+
+        /// <summary>
+        /// Проверяет число на корректность./>.
+        /// </summary>
+        /// <param name="number">Имя объекта.</param>
+        /// <returns>Корректное число/>.</returns>
+        public bool IsCorrectNumber(string number)
+        {
+            bool correctNUmber = false;
+            if (Regex.IsMatch(number, _numberRegex) && !string.IsNullOrEmpty(number))
+            {
+                correctNUmber = true;
+            }
+            else
+            {
+                correctNUmber = false;
+            }
+
+            return correctNUmber;
         }
 
         /// <summary>
