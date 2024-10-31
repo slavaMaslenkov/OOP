@@ -36,10 +36,8 @@ namespace Lab1
             /*Adult Slava = new Adult("Слава", "Масленков", 23, Gender.Male, "1a1111", "1111", null,"Oeprator");
             Console.WriteLine(Slava.GetInfo());*/
 
-            //TODO: rename+
             var person = personList1.GetPersonByIndex(3);
 
-            //TODO: switch-case+
             switch (person)
             {
                 case Adult adult:
