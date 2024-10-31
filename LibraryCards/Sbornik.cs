@@ -7,6 +7,7 @@ using System.Xml.Linq;
 
 namespace LibraryCards
 {
+    //TODO: XML
     internal class Sbornik
     {
         /// <summary>
@@ -58,6 +59,7 @@ namespace LibraryCards
         /// <param name="year">Год издания.</param>
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
+        /// TODO: цепочка конструкторов
         public Book(string fullName, string name, string placeOfPublication,
             string publishingHouse, string additionalInformation, int year, int sheet)
         {

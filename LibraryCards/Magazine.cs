@@ -7,6 +7,7 @@ using System.Xml.Linq;
 
 namespace LibraryCards
 {
+    //TODO: XML
     public class Magazine : CardBase
     {
         /// <summary>
@@ -24,11 +25,13 @@ namespace LibraryCards
         /// </summary>
         private string _additionalInformation;
 
+        //TODO: RSDN
         /// <summary>
         /// Начальная страница.
         /// </summary>
         private int StartSheet;
 
+        //TODO: RSDN
         /// <summary>
         /// Последняя странца.
         /// </summary>
@@ -37,6 +40,7 @@ namespace LibraryCards
         /// <summary>
         /// Объект класс CardBase по умолчанию.
         /// </summary>
+        /// //TODO: RSDN
         public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 1900, 0, 1)
         { }
 
@@ -51,8 +55,10 @@ namespace LibraryCards
         /// <param name="year">Год издания.</param>
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
+        /// TODO: цепочка конструкторов
         public Magazine(string fullName, string name, string placeOfPublication,
             string publishingHouse, string additionalInformation, int year, int startSheet, int endSheet)
+
         {
             Fullname = fullName;
             Name = name;

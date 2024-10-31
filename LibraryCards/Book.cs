@@ -7,6 +7,7 @@ using System.Xml.Linq;
 
 namespace LibraryCards
 {
+    //TODO: XML
     public class Book : CardBase
     {
         /// <summary>
@@ -32,6 +33,7 @@ namespace LibraryCards
         /// <summary>
         /// Объект класс CardBase по умолчанию.
         /// </summary>
+        /// //TODO: RSDN
         public Book() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 1900, 100)
         { }
 
@@ -45,6 +47,7 @@ namespace LibraryCards
         /// <param name="additionalInformation">Возраст.</param>
         /// <param name="year">Возраст.</param>
         /// <param name="sheet">Пол.</param>
+        /// TODO: цепочка конструкторов
         public Book(string fullName, string name, string placeOfPublication, 
             string publishingHouse, string additionalInformation, int year, int sheet)
         {
