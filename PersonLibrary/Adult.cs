@@ -8,31 +8,26 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PersonLibrary
 {
-    //TODO: XML+
     /// <summary>
     /// Класс взрослый человек.
     /// </summary>
     public class Adult : PersonBase
     {
-        //TODO: not using
         /// <summary>
         /// Номер паспорта.
         /// </summary>
         private string _numberOfPassport;
 
-        //TODO: not using
         /// <summary>
         /// Серия паспорта.
         /// </summary>
         private string _seriesOfPassport;
 
-        //TODO: not using
         /// <summary>
         /// Состояние брака.
         /// </summary>
         private Adult _partner;
 
-        //TODO: not using
         /// <summary>
         /// Место работы.
         /// </summary>
@@ -51,7 +46,8 @@ namespace PersonLibrary
         /// <summary>
         /// Объект класса Adult по умолчанию.
         /// </summary>
-        public Adult() : this("Неизвестно", "Неизвестно", 18, Gender.Male, "000000","0000", null, null)
+        public Adult() : this("Неизвестно", "Неизвестно", 18, Gender.Male, 
+            "000000","0000", null, null)
         { }
 
         /// <summary>
@@ -74,7 +70,7 @@ namespace PersonLibrary
             Job = job;
         }
 
-        //TODO: validation
+        //BUG: change
         /// <summary>
         /// Gets or sets номер пасспорта.
         /// </summary>
@@ -98,6 +94,7 @@ namespace PersonLibrary
             }
         }
 
+        //BUG: change
         /// <summary>
         /// Gets or sets серия пасспорта.
         /// </summary>

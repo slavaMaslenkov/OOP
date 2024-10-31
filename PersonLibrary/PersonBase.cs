@@ -6,7 +6,6 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace PersonLibrary
 {
-    //TODO: RSDN?+
     /// <summary>
     /// Класс PersonBase, содержащий: имя, фамилию, возраст, пол.
     /// </summary>
@@ -95,7 +94,7 @@ namespace PersonLibrary
                 }
             }
         }
-        //TODO: XML+
+
         /// <summary>
         /// Фамилия.
         /// </summary>
@@ -124,7 +123,6 @@ namespace PersonLibrary
             } 
         }
 
-        //TODO: XML+
         /// <summary>
         /// Возраст.
         /// </summary>
@@ -139,7 +137,6 @@ namespace PersonLibrary
                 if (value > MaxAge || value < MinAge)
                 {
                     throw new ArgumentException(
-                        //TODO: to const+
                         $"Введите число из диапазона от {MinAge} до {MaxAge}.");
 
                 }
@@ -150,7 +147,6 @@ namespace PersonLibrary
             }
         }
 
-        //TODO: XML+
         /// <summary>
         /// Пол.
         /// </summary>
@@ -172,7 +168,6 @@ namespace PersonLibrary
                 string[] words = name.Split(new char[] { '-' });
                 if (words.Length == 2)
                 {
-                    //TODO: RSDN+
                     if ((Regex.IsMatch(words[0], _russianRegex)
                         && Regex.IsMatch(words[1], _russianRegex))
                         ||
@@ -253,6 +248,5 @@ namespace PersonLibrary
         /// Возвращает строку с информацией об объекте.
         /// </summary>
         public abstract string GetInfo();
-
     }
 }

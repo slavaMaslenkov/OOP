@@ -38,7 +38,6 @@ namespace PersonLibrary
         public static void GetPerson(Gender gender, PersonBase adult)
         {
             Random random = new Random();
-            //TODO: RSDN+
             string[] namesMale = { "Некит", "Юра", "Вася", "Растик", "Руслан",
                 "Слава", "Эдик", "Вова", "Даня", "Коля" };
             string[] namesFemale = { "Катя", "Оля", "Наташа", "Света", "Галя",
@@ -91,7 +90,6 @@ namespace PersonLibrary
         public static void GetPartner(Gender gender, Adult adult)
         {
             Random random = new Random();
-            //TODO: RSDN+
             int maritalStatus = random.Next(2);
             if (maritalStatus == 1)
             {
@@ -126,7 +124,6 @@ namespace PersonLibrary
         /// <returns>Объект класса Child .</returns>
         public static Child GetRandomChild()
         {
-            //TODO: RSDN+
             Child child = new Child();
             Random random = new Random();
             Gender gender = (Gender)random.Next(Enum.GetNames(typeof(Gender)).Length);
@@ -170,11 +167,13 @@ namespace PersonLibrary
             Random random = new Random();
             if (child.Age < 7)
             {
+                //TODO: RSDN
                 string[] educationalInstitution = { "ДС Русалка", "ДС Дельфин", "ДС Карась", "ДС Солнышко" };
                 child.EducationalInstitution = educationalInstitution[random.Next(educationalInstitution.Length - 1)];
             }
             else
             {
+                //TODO: RSDN
                 string[] educationalInstitution = { "Гимназия", "Лицей", "Школа №25", "Школа №5" };
                 child.EducationalInstitution = educationalInstitution[random.Next(educationalInstitution.Length - 1)];
             }

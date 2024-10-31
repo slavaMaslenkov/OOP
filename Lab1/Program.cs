@@ -33,9 +33,10 @@ namespace Lab1
             Console.WriteLine("Вывод первого списка:");
             Console.WriteLine(personList1.PersonInfo());
 
+            //TODO: rename
             var people = personList1.GetPersonByIndex(3);
 
-            //TODO: switch-case+
+            //TODO: switch-case
             switch (people.GetType().Name)
             {
                 case "Adult":

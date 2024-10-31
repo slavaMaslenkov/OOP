@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace PersonLibrary
 {
-    //TODO: XML+
     /// <summary>
     /// Класс определяющий ребенка.
     /// </summary>
@@ -61,7 +60,6 @@ namespace PersonLibrary
             EducationalInstitution = educationalInstitution;
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Gets or sets партнер мама.
         /// </summary>
@@ -85,7 +83,6 @@ namespace PersonLibrary
             }
         } 
 
-        //TODO: RSDN+
         /// <summary>
         /// Gets or sets партнер папа.
         /// </summary>
