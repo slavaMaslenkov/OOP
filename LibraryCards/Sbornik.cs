@@ -47,15 +47,17 @@ namespace LibraryCards
         /// <summary>
         /// Объект класс Sbornik по умолчанию.
         /// </summary>
-        public Sbornik() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
+        public Sbornik() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
             "Неизвестно", "Неизвестно", 1900, 0,1)
         { }
 
         /// <summary>
         /// Конструктор класса Sbornik.
         /// </summary>
-        /// <param name="fullName">Фамилия И.О. автора.</param>
-        /// <param name="name">Название работы.</param>
+        /// <param name="surname">Фамилия автора.</param>
+        /// <param name="name">ФИО автора.</param>
+        /// <param name="patronymic">ФИО автора.</param>
+        /// <param name="title">Название работы.</param>
         /// <param name="placeOfPublication">Место публикации.</param>
         /// <param name="publishingHouse">Издательство.</param>
         /// <param name="nameOfSbornik">Название сборника.</param>
@@ -64,12 +66,14 @@ namespace LibraryCards
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
         /// TODO: цепочка конструкторов+
-        public Sbornik(string fullName, string name, string nameOfSbornik,
+        public Sbornik(string surname, string name, string patronymic, string title, string nameOfSbornik,
             string placeOfPublication, string publishingHouse, string additionalInformation, 
-            int year, int startSheet, int endSheet) : base(fullName, name, year)
+            int year, int startSheet, int endSheet) : base(surname, name, patronymic, title, year)
         {
-            Fullname = fullName;
+            Surname = surname;
             Name = name;
+            Patronymic = patronymic;
+            Title = title;
             NameOfSbornik = nameOfSbornik;
             PlaceOfPublication = placeOfPublication;
             PublishingHouse = publishingHouse;

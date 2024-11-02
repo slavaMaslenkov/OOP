@@ -47,15 +47,17 @@ namespace LibraryCards
         /// Объект класс Dissertation по умолчанию.
         /// </summary>
         /// //TODO: RSDN+
-        public Dissertation() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно",
+        public Dissertation() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно",
             "Неизвестно", "Неизвестно", "Неизвестно", 1900, 100)
         { }
 
         /// <summary>
         /// Конструктор класса Dissertation.
         /// </summary>
-        /// <param name="fullName">ФИО автора.</param>
-        /// <param name="name">Название работы.</param>
+        /// <param name="surname">Фамилия автора.</param>
+        /// <param name="name">ФИО автора.</param>
+        /// <param name="patronymic">ФИО автора.</param>
+        /// <param name="title">Название работы.</param>
         /// <param name="kindOfDissert">Вид диссертации.</param>
         /// <param name="branchOfScience">Отрасль наук.</param>
         /// <param name="specialtyCode">Код специальности.</param>
@@ -63,12 +65,14 @@ namespace LibraryCards
         /// <param name="nameOfSpeciality">Название специальности.</param>
         /// <param name="year">Год издания.</param>
         /// <param name="sheet">Количество страниц.</param>
-        public Dissertation(string fullName, string name, string kindOfDissert,
-            string branchOfScience, int specialtyCode, string organization,
-            string nameOfSpeciality, int year, int sheet) : base(fullName, name, year)
+        public Dissertation(string surname, string name, string patronymic, string title, string kindOfDissert,
+            string branchOfScience, string specialtyCode, string organization,
+            string nameOfSpeciality, int year, int sheet) : base(surname, name, patronymic, title, year)
         {
-            Fullname = fullName;
+            Surname = surname;
             Name = name;
+            Patronymic = patronymic;
+            Title = title;
             KindOfDissert = kindOfDissert;
             BranchOfScience = branchOfScience;
             SpecialtyCode = specialtyCode;

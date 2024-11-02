@@ -45,14 +45,16 @@ namespace LibraryCards
         /// Объект класс Magazine по умолчанию.
         /// </summary>
         /// //TODO: RSDN
-        public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно", 1, "Неизвестно", 1900, 0, 1)
+        public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 1, "Неизвестно", 1900, 0, 1)
         { }
 
         /// <summary>
         /// Конструктор класса Magazine.
         /// </summary>
-        /// <param name="fullName">ФИО автора.</param>
-        /// <param name="name">Название работы.</param>
+        /// <param name="surname">Фамилия автора.</param>
+        /// <param name="name">ФИО автора.</param>
+        /// <param name="patronymic">ФИО автора.</param>
+        /// <param name="title">Название работы.</param>
         /// <param name="nameOfMagazine">Название журнала.</param>
         /// <param name="numberOfMagazine">Номер журнала.</param>
         /// <param name="additionalInformation">Сведение об издании.</param>
@@ -60,13 +62,15 @@ namespace LibraryCards
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
         /// TODO: цепочка конструкторов+
-        public Magazine(string fullName, string name, string nameOfMagazine,
+        public Magazine(string surname, string name, string patronymic, string title, string nameOfMagazine,
             int numberOfMagazine, string additionalInformation, int year, 
-            int startSheet, int endSheet) : base(fullName, name, year)
+            int startSheet, int endSheet) : base(surname, name, patronymic, title, year)
 
         {
-            Fullname = fullName;
+            Surname = surname;
             Name = name;
+            Patronymic = patronymic;
+            Title = title;
             NameOfMagazine = nameOfMagazine;
             NumberOfMagazine = numberOfMagazine;
             AdditionalInformation = additionalInformation;
