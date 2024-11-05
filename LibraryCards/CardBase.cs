@@ -207,7 +207,7 @@ namespace LibraryCards
         /// <summary>
         /// Проверяет корректность введенных данных./>.
         /// </summary>
-        /// <param name="Name">Имя объекта.</param>
+        /// <param name="name">Имя объекта.</param>
         /// <returns>Корректное имя или фамилия./>.</returns>
         public static string IsCorrectName(string name)
         {
@@ -303,7 +303,7 @@ namespace LibraryCards
         /// </summary>
         /// <param name="year">Имя объекта.</param>
         /// <returns>Возраст/>.</returns>
-        public int IsCorrectYear(int year)
+        public static int IsCorrectYear(int year)
         {
             string stringAge = Convert.ToString(year);
             if (Regex.IsMatch(stringAge, _ageRegex) && !string.IsNullOrEmpty(stringAge))

@@ -71,6 +71,53 @@ namespace LibraryCards
         }
 
         /// <summary>
+        /// Место издания.
+        /// </summary>
+        public string PlaceOfPublication
+        {
+            get
+            {
+                return _placeOfPublication;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _placeOfPublication = TitleSplitAndJoin(value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Издательство.
+        /// </summary>
+        public string PublishingHouse
+        {
+            get
+            {
+                return _publishingHouse;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _publishingHouse = TitleSplitAndJoin(value);
+                }
+            }
+        }
+
+
+        /// <summary>
         /// Метод вывода библиотечной карточки.
         /// </summary>
         /// <returns>Данные об издании.</returns>
