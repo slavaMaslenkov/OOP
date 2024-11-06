@@ -40,7 +40,7 @@ namespace LibraryCards
         /// <summary>
         /// Последняя странца.
         /// </summary>
-        private int _endSheet;
+        private string _endSheet;
 
         /// <summary>
         /// Регулярное выражение, выявляющее цифры.
@@ -51,7 +51,8 @@ namespace LibraryCards
         /// Объект класс Magazine по умолчанию.
         /// </summary>
         /// //TODO: RSDN
-        public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 1, "Неизвестно", 1900, 0, 1)
+        public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно",
+            "Неизвестно", 1, "Неизвестно", 1900, 1, null)
         { }
 
         /// <summary>
@@ -68,9 +69,10 @@ namespace LibraryCards
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
         /// TODO: цепочка конструкторов+
-        public Magazine(string surname, string name, string patronymic, string title, string nameOfMagazine,
-            int numberOfMagazine, string additionalInformation, int year, 
-            int startSheet, int endSheet) : base(surname, name, patronymic, title, year)
+        public Magazine(string surname, string name, string patronymic, 
+            string title, string nameOfMagazine, int numberOfMagazine, 
+            string additionalInformation, int year, int startSheet, 
+            string endSheet) : base(surname, name, patronymic, title, year)
 
         {
             Surname = surname;
@@ -109,7 +111,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Количество страниц.
+        /// Номер магазина.
         /// </summary>
         public int NumberOfMagazine
         {
@@ -178,22 +180,13 @@ namespace LibraryCards
         /// <summary>
         /// Последняя страница.
         /// </summary>
-        public int EndSheet
+        public string EndSheet
         {
             get => _endSheet;
 
             set
             {
-                if ( value? < StartSheet)
-                {
-                    throw new ArgumentException(
-                        $"Введите число больше {StartSheet}.");
-
-                }
-                else if (value? == StartSheet)
-                {
-                    _endSheet = null;
-                }
+                _endSheet = IsCorrectSheet(value);
             }
         }
 
@@ -201,17 +194,32 @@ namespace LibraryCards
         /// Проверяет страницу на корректность./>.
         /// </summary>
         /// <param name="endSheet">Имя объекта.</param>
-        /// <returns>Возраст/>.</returns>
-        public static int IsCorrectSheet(int endSheet)
+        /// <returns>True or False/>.</returns>
+        public string IsCorrectSheet(string endSheet)
         {
-            string stringAge = Convert.ToString(endSheet);
-            if (Regex.IsMatch(stringAge, _ageRegex) && !string.IsNullOrEmpty(stringAge))
+            if (Regex.IsMatch(endSheet, _ageRegex))
             {
-                return Convert.ToInt16(stringAge);
+                int intEndSheet = Convert.ToInt16(endSheet);
+                if (intEndSheet < StartSheet)
+                {
+                    throw new ArgumentException($"Введите число больше {StartSheet}.");
+                }
+                else if (intEndSheet == StartSheet)
+                {
+                    return null;
+                }
+                else
+                {
+                    return endSheet;
+                }
+            }
+            else if (endSheet == null)
+            {
+                return null;
             }
             else
             {
-                throw new ArgumentException("Введите только число.");
+                throw new ArgumentException($"Введите последнюю страницу.");
             }
         }
 

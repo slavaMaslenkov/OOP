@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -26,7 +27,7 @@ namespace LibraryCards
         /// <summary>
         /// Код специальности.
         /// </summary>
-        private int _specialtyCode;
+        private string _specialtyCode;
 
         /// <summary>
         /// Организация, где проходила защита.
@@ -44,11 +45,16 @@ namespace LibraryCards
         private int _sheet;
 
         /// <summary>
+        /// Регулярное выражение, определяющее код.
+        /// </summary>
+        private const string _codeRegex = @"^\d{2}\.\d{2}\.\d{2}$";
+
+        /// <summary>
         /// Объект класс Dissertation по умолчанию.
         /// </summary>
         /// //TODO: RSDN+
-        public Dissertation() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно",
-            "Неизвестно", "Неизвестно", "Неизвестно", 1900, 100)
+        public Dissertation() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
+            "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 1900, 100)
         { }
 
         /// <summary>
@@ -80,6 +86,141 @@ namespace LibraryCards
             NameOfSpeciality = nameOfSpeciality;
             Year = year;
             Sheet = sheet;
+        }
+
+        /// <summary>
+        /// Количество страниц.
+        /// </summary>
+        public int Sheet
+        {
+            get => _sheet;
+
+            set
+            {
+                if (value > MaxSheet || value < MinSheet)
+                {
+                    throw new ArgumentException(
+                        $"Введите число из диапазона от {MinSheet} до {MaxSheet}.");
+
+                }
+                else
+                {
+                    _sheet = IsCorrectYear(value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Количество страниц.
+        /// </summary>
+        public string SpecialtyCode
+        {
+            get => _specialtyCode;
+
+            set
+            {
+                if (Regex.IsMatch(value, _codeRegex))
+                {
+                    _specialtyCode = value;
+                }
+                else
+                {
+                    throw new ArgumentException(
+                        $"Введите код в формате __.__.__ .");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Вид диссертации.
+        /// </summary>
+        public string KindOfDissert
+        {
+            get
+            {
+                return _kindOfDissert;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _kindOfDissert = TitleSplitAndJoin(value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Отрасль наук.
+        /// </summary>
+        public string BranchOfScience
+        {
+            get
+            {
+                return _branchOfScience;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _branchOfScience = TitleSplitAndJoin(value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Организация.
+        /// </summary>
+        public string Organization
+        {
+            get
+            {
+                return _organization;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _organization = TitleSplitAndJoin(value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Отрасль наук.
+        /// </summary>
+        public string NameOfSpeciality
+        {
+            get
+            {
+                return _nameOfSpeciality;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _nameOfSpeciality = TitleSplitAndJoin(value);
+                }
+            }
         }
 
         /// <summary>
