@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -116,25 +117,63 @@ namespace LibraryCards
             }
         }
 
+        /// <summary>
+        /// Сведение об издании.
+        /// </summary>
+        public string AdditionalInformation
+        {
+            get
+            {
+                return _additionalInformation;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _additionalInformation = TitleSplitAndJoin(value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Количество страниц.
+        /// </summary>
+        public int Sheet
+        {
+            get => _sheet;
+
+            set
+            {
+                if (value > MaxSheet || value < MinSheet)
+                {
+                    throw new ArgumentException(
+                        $"Введите число из диапазона от {MinSheet} до {MaxSheet}.");
+
+                }
+                else
+                {
+                    _sheet = IsCorrectYear(value);
+                }
+            }
+        }
+
 
         /// <summary>
         /// Метод вывода библиотечной карточки.
         /// </summary>
         /// <returns>Данные об издании.</returns>
-        public virtual string GetInfo()
+        public override string GetInfo()
         {
-            /*return $"Имя: {Name}, Фамилия: {LastName}," +
-                   $" Возраст: {Age}, Пол: {Gender}";*/
+            return $"{MakeSample(Surname, Name, Patronymic)}\t{Title}\t/" +
+                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}.\t" +
+                   $" -\t{AdditionalInformation}–{PlaceOfPublication}\t:" +
+                   $"\t{PublishingHouse},\t{Year}.\t-\t{Sheet}\t с.";
         }
 
-        /// <summary>
-        /// Метод добавления автора.
-        /// </summary>
-        /// <returns>Автора издания.</returns>
-        public string AddAuthor()
-        {
-            /*return $"Имя: {Name}, Фамилия: {LastName}," +
-                   $" Возраст: {Age}, Пол: {Gender}";*/
-        }
     }
 }

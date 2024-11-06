@@ -38,7 +38,7 @@ namespace LibraryCards
         private const string _russianRegex = @"(^[а-яА-Я]+(-[а-яА-Я]+)*$)";
 
         /// <summary>
-        /// Регулярное выражение, выявляющее английские буквы.
+        /// Регулярное выражение, выявляющее цифры.
         /// </summary>
         private const string _ageRegex = @"^\d+$";
 

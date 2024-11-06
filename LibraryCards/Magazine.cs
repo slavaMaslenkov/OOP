@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -42,6 +43,11 @@ namespace LibraryCards
         private int _endSheet;
 
         /// <summary>
+        /// Регулярное выражение, выявляющее цифры.
+        /// </summary>
+        private const string _ageRegex = @"^\d+$";
+
+        /// <summary>
         /// Объект класс Magazine по умолчанию.
         /// </summary>
         /// //TODO: RSDN
@@ -80,6 +86,136 @@ namespace LibraryCards
         }
 
         /// <summary>
+        /// Название журнала.
+        /// </summary>
+        public string NameOfMagazine
+        {
+            get
+            {
+                return _nameOfMagazine;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _nameOfMagazine = TitleSplitAndJoin(value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Количество страниц.
+        /// </summary>
+        public int NumberOfMagazine
+        {
+            get => _numberOfMagazine;
+
+            set
+            {
+                if (value > MaxSheet || value < MinSheet)
+                {
+                    throw new ArgumentException(
+                        $"Введите число из диапазона от {MinSheet} до {MaxSheet}.");
+
+                }
+                else
+                {
+                    _numberOfMagazine = IsCorrectYear(value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Сведение об издании.
+        /// </summary>
+        public string AdditionalInformation
+        {
+            get
+            {
+                return _additionalInformation;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _additionalInformation = TitleSplitAndJoin(value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Начальная страница.
+        /// </summary>
+        public int StartSheet
+        {
+            get => _startSheet;
+
+            set
+            {
+                if (value > MaxSheet || value < MinSheet)
+                {
+                    throw new ArgumentException(
+                        $"Введите число из диапазона от {MinSheet} до {MaxSheet}.");
+
+                }
+                else
+                {
+                    _startSheet = IsCorrectYear(value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Последняя страница.
+        /// </summary>
+        public int EndSheet
+        {
+            get => _endSheet;
+
+            set
+            {
+                if ( value? < StartSheet)
+                {
+                    throw new ArgumentException(
+                        $"Введите число больше {StartSheet}.");
+
+                }
+                else if (value? == StartSheet)
+                {
+                    _endSheet = null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Проверяет страницу на корректность./>.
+        /// </summary>
+        /// <param name="endSheet">Имя объекта.</param>
+        /// <returns>Возраст/>.</returns>
+        public static int IsCorrectSheet(int endSheet)
+        {
+            string stringAge = Convert.ToString(endSheet);
+            if (Regex.IsMatch(stringAge, _ageRegex) && !string.IsNullOrEmpty(stringAge))
+            {
+                return Convert.ToInt16(stringAge);
+            }
+            else
+            {
+                throw new ArgumentException("Введите только число.");
+            }
+        }
+
+        /// <summary>
         /// Метод вывода библиотечной карточки.
         /// </summary>
         /// <returns>Данные об издании.</returns>
@@ -89,14 +225,5 @@ namespace LibraryCards
                    $" Возраст: {Age}, Пол: {Gender}";*/
         }
 
-        /// <summary>
-        /// Метод добавления автора.
-        /// </summary>
-        /// <returns>Автора издания.</returns>
-        public string AddAuthor()
-        {
-            /*return $"Имя: {Name}, Фамилия: {LastName}," +
-                   $" Возраст: {Age}, Пол: {Gender}";*/
-        }
     }
 }

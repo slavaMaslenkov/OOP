@@ -92,14 +92,5 @@ namespace LibraryCards
                    $" Возраст: {Age}, Пол: {Gender}";*/
         }
 
-        /// <summary>
-        /// Метод добавления автора.
-        /// </summary>
-        /// <returns>Автора издания.</returns>
-        public string AddAuthor()
-        {
-            /*return $"Имя: {Name}, Фамилия: {LastName}," +
-                   $" Возраст: {Age}, Пол: {Gender}";*/
-        }
     }
 }
