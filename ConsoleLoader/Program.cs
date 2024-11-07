@@ -23,12 +23,13 @@ namespace ConsoleLoader
 
                 switch (userInput.KeyChar)
                 {
-                    case 'х':
-                    case 'x':
-                    case 'X':
+                    case 'x':  
+                    case 'X':  
+                    case 'х':  
                     case 'Х':
                         {
-                            return;
+                            Environment.Exit(0);
+                            break;
                         }
                     default:
                         {
@@ -37,7 +38,7 @@ namespace ConsoleLoader
                 }
 
                 CardBase card = CardsReader.ReadCard();
-                Console.WriteLine($"Привет ");
+                Console.WriteLine(card.GetInfo());
             }
         }
     }

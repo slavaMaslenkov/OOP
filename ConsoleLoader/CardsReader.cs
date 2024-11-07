@@ -17,7 +17,7 @@ namespace ConsoleLoader
         /// </summary>
         /// <returns>Движение.</returns>
         /// <exception cref="ArgumentException"></exception>
-        public static CardBase ReadMotion()
+        public static CardBase ReadCard()
         {
             CardBase card = new Sbornik();
 
@@ -199,7 +199,7 @@ namespace ConsoleLoader
 
                 () =>
                 {
-                    Console.Write("Введите последнюю страницу (если есть): ");
+                    Console.Write("Введите последнюю страницу: ");
                     magazine.EndSheet =Console.ReadLine();
                 }
             };
@@ -273,7 +273,7 @@ namespace ConsoleLoader
 
                 () =>
                 {
-                    Console.Write("Введите последнюю страницу (если есть): ");
+                    Console.Write("Введите последнюю страницу: ");
                     sbornik.EndSheet =Console.ReadLine();
                 }
             };
@@ -411,4 +411,4 @@ namespace ConsoleLoader
         }
     }
 }
-}
+

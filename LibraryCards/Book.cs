@@ -121,14 +121,18 @@ namespace LibraryCards
         /// Сведение об издании.
         /// </summary>
         public string AdditionalInformation
-        {
-            get
-            {
-                return _additionalInformation;
-            }
+        { 
+            get => _additionalInformation;
             set
             {
-                _additionalInformation = TitleSplitAndJoin(value);
+                if (value == "")
+                {
+                    _additionalInformation = null;
+                }
+                else
+                {
+                    _additionalInformation = $"- {value}";
+                }
             }
         }
 
@@ -163,7 +167,7 @@ namespace LibraryCards
         {
             return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
                    $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}." +
-                   $" - {AdditionalInformation}–{PlaceOfPublication} :" +
+                   $" {AdditionalInformation}–{PlaceOfPublication} :" +
                    $" {PublishingHouse}, {Year}. - {Sheet} с.";
         }
 

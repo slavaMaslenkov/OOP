@@ -170,7 +170,7 @@ namespace LibraryCards
             {
                 return null;
             }
-            else if (Regex.IsMatch(endSheet, _ageRegex))
+            if (Regex.IsMatch(endSheet, _ageRegex))
             {
                 int intEndSheet = Convert.ToInt16(endSheet);
                 if (intEndSheet < StartSheet)
