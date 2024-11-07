@@ -13,7 +13,7 @@ namespace LibraryCards
     /// Класс создания библ. карточки по статье из сборника.
     /// </summary>
     /// <returns>Объект класса Book.</returns>
-    internal class Sbornik : CardBase
+    public class Sbornik : CardBase
     {
         /// <summary>
         /// Название сборника.
@@ -49,7 +49,7 @@ namespace LibraryCards
         /// Объект класс Sbornik по умолчанию.
         /// </summary>
         public Sbornik() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
-            "Неизвестно", 1900, 0,null)
+            "Неизвестно", 1900, 1,null)
         { }
 
         /// <summary>
@@ -193,7 +193,11 @@ namespace LibraryCards
         /// <returns>True or False/>.</returns>
         public string IsCorrectSheet(string endSheet)
         {
-            if (Regex.IsMatch(endSheet, _ageRegex))
+            if (endSheet == null)
+            {
+                return null;
+            }
+            else if (Regex.IsMatch(endSheet, _ageRegex))
             {
                 int intEndSheet = Convert.ToInt16(endSheet);
                 if (intEndSheet < StartSheet)
@@ -206,12 +210,8 @@ namespace LibraryCards
                 }
                 else
                 {
-                    return endSheet;
+                    return $"-{endSheet}";
                 }
-            }
-            else if (endSheet == null)
-            {
-                return null;
             }
             else
             {
@@ -225,10 +225,10 @@ namespace LibraryCards
         /// <returns>Данные об издании.</returns>
         public override string GetInfo()
         {
-            return $"{MakeSample(Surname, Name, Patronymic)}\t{Title}\t/" +
-                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}.\t" +
-                   $" //\t{NameOfSbornik}.\t–{PlaceOfPublication}:\t-№{PublishingHouse},\t" +
-                   $"\t{Year}.\t-\tС.\t{StartSheet}-{EndSheet}.";
+            return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
+                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}. " +
+                   $"// {NameOfSbornik}. –{PlaceOfPublication}: - №{PublishingHouse}," +
+                   $" {Year}. - С. {StartSheet}{EndSheet}.";
         }
 
     }

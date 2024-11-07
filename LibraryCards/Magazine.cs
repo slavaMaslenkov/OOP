@@ -166,7 +166,11 @@ namespace LibraryCards
         /// <returns>True or False/>.</returns>
         public string IsCorrectSheet(string endSheet)
         {
-            if (Regex.IsMatch(endSheet, _ageRegex))
+            if (endSheet == null)
+            {
+                return null;
+            }
+            else if (Regex.IsMatch(endSheet, _ageRegex))
             {
                 int intEndSheet = Convert.ToInt16(endSheet);
                 if (intEndSheet < StartSheet)
@@ -179,12 +183,8 @@ namespace LibraryCards
                 }
                 else
                 {
-                    return endSheet;
+                    return $"-{endSheet}";
                 }
-            }
-            else if (endSheet == null)
-            {
-                return null;
             }
             else
             {
@@ -198,10 +198,10 @@ namespace LibraryCards
         /// <returns>Данные об издании.</returns>
         public override string GetInfo()
         {
-            return $"{MakeSample(Surname, Name, Patronymic)}\t{Title}\t/" +
-                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}.\t" +
-                   $" //\t{NameOfMagazine}.\t–{Year}.\t-№" +
-                   $"\t{NumberOfMagazine}.\t-\tС.\t{StartSheet}-{EndSheet}.";
+            return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
+                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}." +
+                   $" // {NameOfMagazine}. – {Year}. - №" +
+                   $"{NumberOfMagazine}. - С. {StartSheet}{EndSheet}.";
         }
 
     }

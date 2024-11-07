@@ -59,8 +59,8 @@ namespace LibraryCards
         /// </summary>
         /// //TODO: RSDN+
         public Dissertation() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
-            "Неизвестно", "Неизвестно", "Неизвестно", 
-            "Неизвестно", "Неизвестно", "Неизвестно", 1900, 100)
+            "Неизвестно", "Неизвестно", "Неизвестно",
+            "00.00.00", "Неизвестно", "Неизвестно", 1900, 100)
         { }
 
         /// <summary>
@@ -261,11 +261,11 @@ namespace LibraryCards
         /// <returns>Данные об издании.</returns>
         public override string GetInfo()
         {
-            return $"{MakeSample(Surname, Name, Patronymic)}\t{Title}\t:" +
-                   $"\tспециальность\t{SpecialtyCode}\t«{NameOfSpeciality}»\t:" +
-                   $"\tДиссертация на соискание\t{BranchOfScience}\t/\t" +
-                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}.\t;" +
-                   $"\t{Organization}.\t-\t{City}.\t-\t{Year}.\t-\t{Sheet}\t с.";
+            return $"{MakeSample(Surname, Name, Patronymic)} {Title} :" +
+                   $" специальность {SpecialtyCode} «{NameOfSpeciality}» :" +
+                   $" Диссертация на соискание {BranchOfScience} / " +
+                   $"{Surname} {Name} {Patronymic} ; " +
+                   $"{Organization}. - {City}. - {Year}. - {Sheet} с.";
         }
 
     }

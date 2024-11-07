@@ -169,10 +169,10 @@ namespace LibraryCards
         /// <returns>Данные об издании.</returns>
         public override string GetInfo()
         {
-            return $"{MakeSample(Surname, Name, Patronymic)}\t{Title}\t/" +
-                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}.\t" +
-                   $" -\t{AdditionalInformation}–{PlaceOfPublication}\t:" +
-                   $"\t{PublishingHouse},\t{Year}.\t-\t{Sheet}\t с.";
+            return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
+                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}." +
+                   $" - {AdditionalInformation}–{PlaceOfPublication} :" +
+                   $" {PublishingHouse}, {Year}. - {Sheet} с.";
         }
 
     }

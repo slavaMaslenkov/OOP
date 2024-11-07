@@ -277,9 +277,7 @@ namespace LibraryCards
         /// <returns>Данные об издании.</returns>
         public static string MakeSample(string surname, string name, string patronymic)
         {
-            string nameLetter = name.Substring(1);
-            string patronymicLetter = patronymic.Substring(1);
-            string shortFullname =$"{surname + " " + nameLetter + "." + patronymicLetter + "."}";
+            string shortFullname =$"{surname + " " + name[0] + "." + patronymic[0] + "."}";
 
             return shortFullname;
 

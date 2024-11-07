@@ -11,8 +11,11 @@ namespace ConsoleLoader
         internal static void Main()
         {
             Console.WriteLine("Hello, World!");
-            Book Slava = new Book("Слава", "Масленков", "Эдуардович", "Книга", "Абакан", "СТС", "ADD", 2022,122);
+            Book Slava = new Book("Масленков", "Слава", "Эдуардович", "Книга", "Абакан", "СТС", "ADD", 2022,122);
             Console.WriteLine(Slava.GetInfo());
+
+            Sbornik Dis = new Sbornik();
+            Console.WriteLine(Dis.GetInfo());
         }
     }
 }
