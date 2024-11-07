@@ -40,6 +40,11 @@ namespace LibraryCards
         private string _nameOfSpeciality;
 
         /// <summary>
+        /// Город, где получена специальность.
+        /// </summary>
+        private string _city;
+
+        /// <summary>
         /// Количество страниц.
         /// </summary>
         private int _sheet;
@@ -54,7 +59,8 @@ namespace LibraryCards
         /// </summary>
         /// //TODO: RSDN+
         public Dissertation() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
-            "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 1900, 100)
+            "Неизвестно", "Неизвестно", "Неизвестно", 
+            "Неизвестно", "Неизвестно", "Неизвестно", 1900, 100)
         { }
 
         /// <summary>
@@ -69,9 +75,11 @@ namespace LibraryCards
         /// <param name="specialtyCode">Код специальности.</param>
         /// <param name="organization">Организация, где проходила защита.</param>
         /// <param name="nameOfSpeciality">Название специальности.</param>
+        /// <param name="city">Город, где получена специальность.</param>
         /// <param name="year">Год издания.</param>
         /// <param name="sheet">Количество страниц.</param>
-        public Dissertation(string surname, string name, string patronymic, string title, string kindOfDissert,
+        public Dissertation(string surname, string name, string patronymic, 
+            string title, string kindOfDissert, string city,
             string branchOfScience, string specialtyCode, string organization,
             string nameOfSpeciality, int year, int sheet) : base(surname, name, patronymic, title, year)
         {
@@ -83,6 +91,7 @@ namespace LibraryCards
             BranchOfScience = branchOfScience;
             SpecialtyCode = specialtyCode;
             Organization = organization;
+            City = city;
             NameOfSpeciality = nameOfSpeciality;
             Year = year;
             Sheet = sheet;
@@ -150,6 +159,29 @@ namespace LibraryCards
                 else
                 {
                     _kindOfDissert = TitleSplitAndJoin(value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Город, где получена специальность.
+        /// </summary>
+        public string City
+        {
+            get
+            {
+                return _city;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _city = TitleSplitAndJoin(value);
                 }
             }
         }
@@ -227,10 +259,13 @@ namespace LibraryCards
         /// Метод вывода библиотечной карточки.
         /// </summary>
         /// <returns>Данные об издании.</returns>
-        public virtual string GetInfo()
+        public override string GetInfo()
         {
-            /*return $"Имя: {Name}, Фамилия: {LastName}," +
-                   $" Возраст: {Age}, Пол: {Gender}";*/
+            return $"{MakeSample(Surname, Name, Patronymic)}\t{Title}\t:" +
+                   $"\tспециальность\t{SpecialtyCode}\t«{NameOfSpeciality}»\t:" +
+                   $"\tДиссертация на соискание\t{BranchOfScience}\t/\t" +
+                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}.\t;" +
+                   $"\t{Organization}.\t-\t{City}.\t-\t{Year}.\t-\t{Sheet}\t с.";
         }
 
     }

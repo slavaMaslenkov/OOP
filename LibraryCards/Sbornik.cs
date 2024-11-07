@@ -31,11 +31,6 @@ namespace LibraryCards
         private string _placeOfPublication;
 
         /// <summary>
-        /// Сведение об издании.
-        /// </summary>
-        private string _additionalInformation;
-
-        /// <summary>
         /// НАчальная страница.
         /// </summary>
         private int _startSheet;
@@ -54,7 +49,7 @@ namespace LibraryCards
         /// Объект класс Sbornik по умолчанию.
         /// </summary>
         public Sbornik() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
-            "Неизвестно", "Неизвестно", 1900, 0,null)
+            "Неизвестно", 1900, 0,null)
         { }
 
         /// <summary>
@@ -67,13 +62,12 @@ namespace LibraryCards
         /// <param name="placeOfPublication">Место публикации.</param>
         /// <param name="publishingHouse">Издательство.</param>
         /// <param name="nameOfSbornik">Название сборника.</param>
-        /// <param name="additionalInformation">Дополнительная информация.</param>
         /// <param name="year">Год издания.</param>
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
         /// TODO: цепочка конструкторов+
         public Sbornik(string surname, string name, string patronymic, string title, string nameOfSbornik,
-            string placeOfPublication, string publishingHouse, string additionalInformation, 
+            string placeOfPublication, string publishingHouse, 
             int year, int startSheet, string endSheet) : base(surname, name, patronymic, title, year)
         {
             Surname = surname;
@@ -83,7 +77,6 @@ namespace LibraryCards
             NameOfSbornik = nameOfSbornik;
             PlaceOfPublication = placeOfPublication;
             PublishingHouse = publishingHouse;
-            AdditionalInformation = additionalInformation;
             Year = year;
             StartSheet = startSheet;
             EndSheet = endSheet;
@@ -108,29 +101,6 @@ namespace LibraryCards
                 else
                 {
                     _nameOfSbornik = TitleSplitAndJoin(value);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Сведение об издании.
-        /// </summary>
-        public string AdditionalInformation
-        {
-            get
-            {
-                return _additionalInformation;
-            }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException(
-                        "Введена пустая строка.");
-                }
-                else
-                {
-                    _additionalInformation = TitleSplitAndJoin(value);
                 }
             }
         }
@@ -253,10 +223,12 @@ namespace LibraryCards
         /// Метод вывода библиотечной карточки.
         /// </summary>
         /// <returns>Данные об издании.</returns>
-        public virtual string GetInfo()
+        public override string GetInfo()
         {
-            /*return $"Имя: {Name}, Фамилия: {LastName}," +
-                   $" Возраст: {Age}, Пол: {Gender}";*/
+            return $"{MakeSample(Surname, Name, Patronymic)}\t{Title}\t/" +
+                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}.\t" +
+                   $" //\t{NameOfSbornik}.\t–{PlaceOfPublication}:\t-№{PublishingHouse},\t" +
+                   $"\t{Year}.\t-\tС.\t{StartSheet}-{EndSheet}.";
         }
 
     }

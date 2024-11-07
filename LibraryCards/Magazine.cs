@@ -25,11 +25,6 @@ namespace LibraryCards
         /// </summary>
         private int _numberOfMagazine;
 
-        /// <summary>
-        /// Сведение об издании.
-        /// </summary>
-        private string _additionalInformation;
-
         //TODO: RSDN+
         /// <summary>
         /// Начальная страница.
@@ -51,8 +46,8 @@ namespace LibraryCards
         /// Объект класс Magazine по умолчанию.
         /// </summary>
         /// //TODO: RSDN
-        public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно",
-            "Неизвестно", 1, "Неизвестно", 1900, 1, null)
+        public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно",
+            "Неизвестно", "Неизвестно", 1, 1900, 1, null)
         { }
 
         /// <summary>
@@ -64,14 +59,12 @@ namespace LibraryCards
         /// <param name="title">Название работы.</param>
         /// <param name="nameOfMagazine">Название журнала.</param>
         /// <param name="numberOfMagazine">Номер журнала.</param>
-        /// <param name="additionalInformation">Сведение об издании.</param>
         /// <param name="year">Год издания.</param>
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
         /// TODO: цепочка конструкторов+
         public Magazine(string surname, string name, string patronymic, 
-            string title, string nameOfMagazine, int numberOfMagazine, 
-            string additionalInformation, int year, int startSheet, 
+            string title, string nameOfMagazine, int numberOfMagazine, int year, int startSheet, 
             string endSheet) : base(surname, name, patronymic, title, year)
 
         {
@@ -81,7 +74,6 @@ namespace LibraryCards
             Title = title;
             NameOfMagazine = nameOfMagazine;
             NumberOfMagazine = numberOfMagazine;
-            AdditionalInformation = additionalInformation;
             Year = year;
             StartSheet = startSheet;
             EndSheet = endSheet;
@@ -128,29 +120,6 @@ namespace LibraryCards
                 else
                 {
                     _numberOfMagazine = IsCorrectYear(value);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Сведение об издании.
-        /// </summary>
-        public string AdditionalInformation
-        {
-            get
-            {
-                return _additionalInformation;
-            }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException(
-                        "Введена пустая строка.");
-                }
-                else
-                {
-                    _additionalInformation = TitleSplitAndJoin(value);
                 }
             }
         }
@@ -227,10 +196,12 @@ namespace LibraryCards
         /// Метод вывода библиотечной карточки.
         /// </summary>
         /// <returns>Данные об издании.</returns>
-        public virtual string GetInfo()
+        public override string GetInfo()
         {
-            /*return $"Имя: {Name}, Фамилия: {LastName}," +
-                   $" Возраст: {Age}, Пол: {Gender}";*/
+            return $"{MakeSample(Surname, Name, Patronymic)}\t{Title}\t/" +
+                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}.\t" +
+                   $" //\t{NameOfMagazine}.\t–{Year}.\t-№" +
+                   $"\t{NumberOfMagazine}.\t-\tС.\t{StartSheet}-{EndSheet}.";
         }
 
     }
