@@ -6,16 +6,39 @@ namespace ConsoleLoader
     /// <summary>
     /// Класс Program.
     /// </summary>
-    public class Program
+    internal class Program
     {
-        internal static void Main()
+        /// <summary>
+        /// Метод Main.
+        /// </summary>
+        static void Main()
         {
-            Console.WriteLine("Hello, World!");
-            Book Slava = new Book("Масленков", "Слава", "Эдуардович", "Книга", "Абакан", "СТС", "ADD", 2022,122);
-            Console.WriteLine(Slava.GetInfo());
+            while (true)
+            {
+                Console.WriteLine("Для выхода из программы нажмите \'x\'\n" +
+                    "Для начала работы нажмите любую другую клавишу...");
 
-            Sbornik Dis = new Sbornik();
-            Console.WriteLine(Dis.GetInfo());
+                ConsoleKeyInfo userInput = Console.ReadKey(true);
+                Console.WriteLine();
+
+                switch (userInput.KeyChar)
+                {
+                    case 'х':
+                    case 'x':
+                    case 'X':
+                    case 'Х':
+                        {
+                            return;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+
+                CardBase card = CardsReader.ReadCard();
+                Console.WriteLine($"Привет ");
+            }
         }
     }
 }

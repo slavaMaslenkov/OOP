@@ -40,7 +40,7 @@ namespace LibraryCards
         /// </summary>
         /// //TODO: RSDN+
         public Book() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
-            "Неизвестно", 1900, 100)
+            null, 1900, 100)
         { }
 
         /// <summary>
@@ -128,15 +128,7 @@ namespace LibraryCards
             }
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException(
-                        "Введена пустая строка.");
-                }
-                else
-                {
-                    _additionalInformation = TitleSplitAndJoin(value);
-                }
+                _additionalInformation = TitleSplitAndJoin(value);
             }
         }
 

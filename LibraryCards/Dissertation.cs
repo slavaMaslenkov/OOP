@@ -158,7 +158,7 @@ namespace LibraryCards
                 }
                 else
                 {
-                    _kindOfDissert = TitleSplitAndJoin(value);
+                    _kindOfDissert = value;
                 }
             }
         }
@@ -263,7 +263,7 @@ namespace LibraryCards
         {
             return $"{MakeSample(Surname, Name, Patronymic)} {Title} :" +
                    $" специальность {SpecialtyCode} «{NameOfSpeciality}» :" +
-                   $" Диссертация на соискание {BranchOfScience} / " +
+                   $" Диссертация на соискание {KindOfDissert} {BranchOfScience} / " +
                    $"{Surname} {Name} {Patronymic} ; " +
                    $"{Organization}. - {City}. - {Year}. - {Sheet} с.";
         }
