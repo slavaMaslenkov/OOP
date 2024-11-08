@@ -1,7 +1,6 @@
 ﻿using LibraryCards;
 
 namespace ConsoleLoader
-
 {
     /// <summary>
     /// Класс Program.

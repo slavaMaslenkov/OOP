@@ -8,7 +8,6 @@ using System.Xml.Linq;
 
 namespace LibraryCards
 {
-    //TODO: XML+
     /// <summary>
     /// Класс создания библ. карточки по стате из журнала.
     /// </summary>
@@ -25,13 +24,11 @@ namespace LibraryCards
         /// </summary>
         private int _numberOfMagazine;
 
-        //TODO: RSDN+
         /// <summary>
         /// Начальная страница.
         /// </summary>
         private int _startSheet;
 
-        //TODO: RSDN+
         /// <summary>
         /// Последняя странца.
         /// </summary>
@@ -45,7 +42,6 @@ namespace LibraryCards
         /// <summary>
         /// Объект класс Magazine по умолчанию.
         /// </summary>
-        /// //TODO: RSDN
         public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно",
             "Неизвестно", "Неизвестно", 1, 1900, 1, null)
         { }
@@ -62,7 +58,6 @@ namespace LibraryCards
         /// <param name="year">Год издания.</param>
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
-        /// TODO: цепочка конструкторов+
         public Magazine(string surname, string name, string patronymic, 
             string title, string nameOfMagazine, int numberOfMagazine, int year, int startSheet, 
             string endSheet) : base(surname, name, patronymic, title, year)
@@ -203,6 +198,5 @@ namespace LibraryCards
                    $" // {NameOfMagazine}. – {Year}. - №" +
                    $"{NumberOfMagazine}. - С. {StartSheet}{EndSheet}.";
         }
-
     }
 }

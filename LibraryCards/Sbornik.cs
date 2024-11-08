@@ -65,7 +65,7 @@ namespace LibraryCards
         /// <param name="year">Год издания.</param>
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
-        /// TODO: цепочка конструкторов+
+        /// //TODO: RSDN
         public Sbornik(string surname, string name, string patronymic, string title, string nameOfSbornik,
             string placeOfPublication, string publishingHouse, 
             int year, int startSheet, string endSheet) : base(surname, name, patronymic, title, year)
