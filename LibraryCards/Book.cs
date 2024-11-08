@@ -32,14 +32,19 @@ namespace LibraryCards
         /// <summary>
         /// Количество страниц.
         /// </summary>
-        private int _sheet;
+        private string _sheet;
+
+        /// <summary>
+        /// Регулярное выражение, выявляющее цифры.
+        /// </summary>
+        private const string _ageRegex = @"^-?\d+$";
 
         /// <summary>
         /// Объект класс Book по умолчанию.
         /// </summary>
-        /// //TODO: RSDN
-        public Book() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
-            null, 1900, 100)
+        /// //TODO: RSDN+
+        public Book() : this("Неизвестно", "Неизвестно", "Неизвестно", 
+            "Неизвестно", "Неизвестно", "Неизвестно", null, "1900", "100")
         { }
 
         /// <summary>
@@ -54,10 +59,11 @@ namespace LibraryCards
         /// <param name="additionalInformation">Сведение об издании.</param>
         /// <param name="year">Год издания.</param>
         /// <param name="sheet">Количество страниц.</param>
-        /// //TODO: RSDN
-        public Book(string surname, string name, string patronymic, string title, string placeOfPublication, 
-            string publishingHouse, string additionalInformation, 
-            int year, int sheet) : base(surname, name, patronymic, title, year)
+        /// //TODO: RSDN+
+        public Book(string surname, string name, string patronymic, 
+            string title, string placeOfPublication, string publishingHouse, 
+            string additionalInformation, string year, 
+            string sheet) : base(surname, name, patronymic, title, year)
         {
             Surname = surname;
             Name = name;
@@ -138,22 +144,40 @@ namespace LibraryCards
         /// <summary>
         /// Количество страниц.
         /// </summary>
-        public int Sheet
+        public string Sheet
         {
             get => _sheet;
 
             set
             {
-                if (value > MaxSheet || value < MinSheet)
+                _sheet = IsCorrectSheet(value);
+            }
+        }
+
+        /// <summary>
+        /// Проверяет страницу на корректность./>.
+        /// </summary>
+        /// <param name="sheet">Имя объекта.</param>
+        /// <returns>Страницы/>.</returns>
+        public string IsCorrectSheet(string sheet)
+        {
+            if (Regex.IsMatch(sheet, _ageRegex)
+                && !string.IsNullOrEmpty(sheet))
+            {
+                int sheetInt = Convert.ToInt16(sheet);
+                if (sheetInt > MaxSheet || sheetInt < MinSheet)
                 {
                     throw new ArgumentException(
-                        $"Введите число из диапазона от {MinSheet} до {MaxSheet}.");
-
+                        $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
                 }
                 else
                 {
-                    _sheet = IsCorrectYear(value);
+                    return sheet;
                 }
+            }
+            else
+            {
+                throw new ArgumentException("Введите только число.");
             }
         }
 

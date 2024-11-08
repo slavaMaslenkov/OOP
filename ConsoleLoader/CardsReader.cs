@@ -126,13 +126,13 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите год издания: ");
-                    book.Year = Convert.ToInt32(Console.ReadLine());
+                    book.Year = Console.ReadLine();
                 },
 
                 () =>
                 {
                     Console.Write("Введите количество страниц: ");
-                    book.Sheet = Convert.ToInt32(Console.ReadLine());
+                    book.Sheet = Console.ReadLine();
                 }
             };
 
@@ -188,13 +188,13 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите год издания: ");
-                    magazine.Year =Convert.ToInt32(Console.ReadLine());
+                    magazine.Year =Console.ReadLine();
                 },
 
                 () =>
                 {
                     Console.Write("Введите начальную страницу: ");
-                    magazine.StartSheet =Convert.ToInt32(Console.ReadLine());
+                    magazine.StartSheet =Console.ReadLine();
                 },
 
                 () =>
@@ -262,13 +262,13 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите год издания: ");
-                    sbornik.Year =Convert.ToInt32(Console.ReadLine());
+                    sbornik.Year =Console.ReadLine();
                 },
 
                 () =>
                 {
                     Console.Write("Введите начальную страницу: ");
-                    sbornik.StartSheet =Convert.ToInt32(Console.ReadLine());
+                    sbornik.StartSheet =Console.ReadLine();
                 },
 
                 () =>
@@ -354,13 +354,13 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите год издания: ");
-                    dissertation.Year =Convert.ToInt32(Console.ReadLine());
+                    dissertation.Year =Console.ReadLine();
                 },
 
                 () =>
                 {
                     Console.Write("Введите количество страниц: ");
-                    dissertation.Sheet =Convert.ToInt32(Console.ReadLine());
+                    dissertation.Sheet =Console.ReadLine();
                 }
 
             };

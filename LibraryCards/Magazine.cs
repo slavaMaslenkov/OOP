@@ -27,7 +27,7 @@ namespace LibraryCards
         /// <summary>
         /// Начальная страница.
         /// </summary>
-        private int _startSheet;
+        private string _startSheet;
 
         /// <summary>
         /// Последняя странца.
@@ -37,13 +37,13 @@ namespace LibraryCards
         /// <summary>
         /// Регулярное выражение, выявляющее цифры.
         /// </summary>
-        private const string _ageRegex = @"^\d+$";
+        private const string _ageRegex = @"^-?\d+$";
 
         /// <summary>
         /// Объект класс Magazine по умолчанию.
         /// </summary>
         public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно",
-            "Неизвестно", "Неизвестно", 1, 1900, 1, null)
+            "Неизвестно", "Неизвестно", 1, "1900", "1", null)
         { }
 
         /// <summary>
@@ -59,8 +59,9 @@ namespace LibraryCards
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
         public Magazine(string surname, string name, string patronymic, 
-            string title, string nameOfMagazine, int numberOfMagazine, int year, int startSheet, 
-            string endSheet) : base(surname, name, patronymic, title, year)
+            string title, string nameOfMagazine, int numberOfMagazine, string year, 
+            string startSheet, string endSheet) 
+            : base(surname, name, patronymic, title, year)
 
         {
             Surname = surname;
@@ -106,15 +107,15 @@ namespace LibraryCards
 
             set
             {
-                if (value > MaxSheet || value < MinSheet)
+                if ( value < 0)
                 {
                     throw new ArgumentException(
-                        $"Введите число из диапазона от {MinSheet} до {MaxSheet}.");
+                        $"Введите положительное число.");
 
                 }
                 else
                 {
-                    _numberOfMagazine = IsCorrectYear(value);
+                    _numberOfMagazine = value;
                 }
             }
         }
@@ -122,22 +123,13 @@ namespace LibraryCards
         /// <summary>
         /// Начальная страница.
         /// </summary>
-        public int StartSheet
+        public string StartSheet
         {
             get => _startSheet;
 
             set
             {
-                if (value > MaxSheet || value < MinSheet)
-                {
-                    throw new ArgumentException(
-                        $"Введите число из диапазона от {MinSheet} до {MaxSheet}.");
-
-                }
-                else
-                {
-                    _startSheet = IsCorrectYear(value);
-                }
+               _startSheet = IsCorrectStartSheet(value);
             }
         }
 
@@ -157,6 +149,33 @@ namespace LibraryCards
         /// <summary>
         /// Проверяет страницу на корректность./>.
         /// </summary>
+        /// <param name="sheet">Имя объекта.</param>
+        /// <returns>Страницы/>.</returns>
+        public string IsCorrectStartSheet(string sheet)
+        {
+            if (Regex.IsMatch(sheet, _ageRegex)
+                && !string.IsNullOrEmpty(sheet))
+            {
+                int sheetInt = Convert.ToInt16(sheet);
+                if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                {
+                    throw new ArgumentException(
+                        $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
+                }
+                else
+                {
+                    return sheet;
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Введите только число.");
+            }
+        }
+
+        /// <summary>
+        /// Проверяет страницу на корректность./>.
+        /// </summary>
         /// <param name="endSheet">Имя объекта.</param>
         /// <returns>True or False/>.</returns>
         public string IsCorrectSheet(string endSheet)
@@ -168,11 +187,12 @@ namespace LibraryCards
             if (Regex.IsMatch(endSheet, _ageRegex))
             {
                 int intEndSheet = Convert.ToInt16(endSheet);
-                if (intEndSheet < StartSheet)
+                int startSheet = Convert.ToInt16(StartSheet);
+                if (intEndSheet < startSheet)
                 {
-                    throw new ArgumentException($"Введите число больше {StartSheet}.");
+                    throw new ArgumentException($"Введите число больше {startSheet}.");
                 }
-                else if (intEndSheet == StartSheet)
+                else if (intEndSheet == startSheet)
                 {
                     return null;
                 }

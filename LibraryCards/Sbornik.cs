@@ -33,7 +33,7 @@ namespace LibraryCards
         /// <summary>
         /// НАчальная страница.
         /// </summary>
-        private int _startSheet;
+        private string _startSheet;
 
         /// <summary>
         /// Последняя странца.
@@ -43,13 +43,13 @@ namespace LibraryCards
         /// <summary>
         /// Регулярное выражение, выявляющее цифры.
         /// </summary>
-        private const string _ageRegex = @"^\d+$";
+        private const string _ageRegex = @"^-?\d+$";
 
         /// <summary>
         /// Объект класс Sbornik по умолчанию.
         /// </summary>
-        public Sbornik() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
-            "Неизвестно", 1900, 1,null)
+        public Sbornik() : this("Неизвестно", "Неизвестно", "Неизвестно", 
+            "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "1900", "1",null)
         { }
 
         /// <summary>
@@ -65,10 +65,11 @@ namespace LibraryCards
         /// <param name="year">Год издания.</param>
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
-        /// //TODO: RSDN
-        public Sbornik(string surname, string name, string patronymic, string title, string nameOfSbornik,
-            string placeOfPublication, string publishingHouse, 
-            int year, int startSheet, string endSheet) : base(surname, name, patronymic, title, year)
+        /// //TODO: RSDN+
+        public Sbornik(string surname, string name, string patronymic, 
+            string title, string nameOfSbornik, string placeOfPublication, 
+            string publishingHouse, string year, string startSheet, 
+            string endSheet) : base(surname, name, patronymic, title, year)
         {
             Surname = surname;
             Name = name;
@@ -154,22 +155,13 @@ namespace LibraryCards
         /// <summary>
         /// Начальная страница.
         /// </summary>
-        public int StartSheet
+        public string StartSheet
         {
             get => _startSheet;
 
             set
             {
-                if (value > MaxSheet || value < MinSheet)
-                {
-                    throw new ArgumentException(
-                        $"Введите число из диапазона от {MinSheet} до {MaxSheet}.");
-
-                }
-                else
-                {
-                    _startSheet = IsCorrectYear(value);
-                }
+               _startSheet = IsCorrectStartSheet(value);
             }
         }
 
@@ -189,6 +181,33 @@ namespace LibraryCards
         /// <summary>
         /// Проверяет страницу на корректность./>.
         /// </summary>
+        /// <param name="sheet">Имя объекта.</param>
+        /// <returns>Страницы/>.</returns>
+        public string IsCorrectStartSheet(string sheet)
+        {
+            if (Regex.IsMatch(sheet, _ageRegex)
+                && !string.IsNullOrEmpty(sheet))
+            {
+                int sheetInt = Convert.ToInt16(sheet);
+                if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                {
+                    throw new ArgumentException(
+                        $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
+                }
+                else
+                {
+                    return sheet;
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Введите только число.");
+            }
+        }
+
+        /// <summary>
+        /// Проверяет страницу на корректность./>.
+        /// </summary>
         /// <param name="endSheet">Имя объекта.</param>
         /// <returns>True or False/>.</returns>
         public string IsCorrectSheet(string endSheet)
@@ -197,14 +216,15 @@ namespace LibraryCards
             {
                 return null;
             }
-            else if (Regex.IsMatch(endSheet, _ageRegex))
+            if (Regex.IsMatch(endSheet, _ageRegex))
             {
                 int intEndSheet = Convert.ToInt16(endSheet);
-                if (intEndSheet < StartSheet)
+                int startSheet = Convert.ToInt16(StartSheet);
+                if (intEndSheet < startSheet)
                 {
-                    throw new ArgumentException($"Введите число больше {StartSheet}.");
+                    throw new ArgumentException($"Введите число больше {startSheet}.");
                 }
-                else if (intEndSheet == StartSheet)
+                else if (intEndSheet == startSheet)
                 {
                     return null;
                 }

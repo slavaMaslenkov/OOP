@@ -40,13 +40,13 @@ namespace LibraryCards
         /// <summary>
         /// Регулярное выражение, выявляющее цифры.
         /// </summary>
-        private const string _ageRegex = @"^\d+$";
+        private const string _ageRegex = @"^-?\d+$";
 
 
         /// <summary>
         /// Год издания.
         /// </summary>
-        private int _year;
+        private string _year;
 
         /// <summary>
         /// Минимальный год издания.
@@ -71,7 +71,8 @@ namespace LibraryCards
         /// <summary>
         /// Объект класс CardBase по умолчанию.
         /// </summary>
-        public CardBase() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 1900)
+        public CardBase() : this("Неизвестно", "Неизвестно", 
+            "Неизвестно", "Неизвестно", "1900")
         { }
 
         /// <summary>
@@ -82,7 +83,8 @@ namespace LibraryCards
         /// <param name="patronymic">ФИО автора.</param>
         /// <param name="title">Название работы.</param>
         /// <param name="year">Возраст.</param>
-        public CardBase(string surname, string name, string patronymic, string title, int year)
+        public CardBase(string surname, string name, string patronymic, 
+            string title, string year)
         {
             Surname = surname;
             Name = name;
@@ -185,22 +187,13 @@ namespace LibraryCards
         /// <summary>
         /// Возраст.
         /// </summary>
-        public virtual int Year
+        public virtual string Year
         {
             get => _year;
 
             set
             {
-                if (value > MaxYear || value < MinYear)
-                {
-                    throw new ArgumentException(
-                        $"Введите год из диапазона от {MinYear} до {MaxYear}.");
-
-                }
-                else
-                {
-                    _year = IsCorrectYear(value);
-                }
+               _year = IsCorrectYear(value);
             }
         }
 
@@ -229,7 +222,8 @@ namespace LibraryCards
                     }
                     else
                     {
-                        throw new ArgumentException("Составное имя и фамилия(отчество) должны" +
+                        throw new ArgumentException("Составное имя и фамилия" +
+                            "(отчество) должны" +
                             " содержать только русские буквы.");
                     }
                 }
@@ -275,9 +269,11 @@ namespace LibraryCards
         /// <param name="name">Имя объекта.</param>
         /// <param name="patronymic">Имя объекта.</param>
         /// <returns>Данные об издании.</returns>
-        public static string MakeSample(string surname, string name, string patronymic)
+        public static string MakeSample(
+            string surname, string name, string patronymic)
         {
-            string shortFullname =$"{surname + " " + name[0] + "." + patronymic[0] + "."}";
+            string shortFullname =$"{surname + " " + name[0] + "." +
+                patronymic[0] + "."}";
 
             return shortFullname;
 
@@ -286,6 +282,7 @@ namespace LibraryCards
         /// <summary>
         /// Метод изменения порядка ФИО в ИОФ.
         /// </summary>
+        /// <param name="fullName">Имя объекта.</param>
         /// <returns>Данные об издании.</returns>
         public static string ReverseFullname(string fullName)
         {
@@ -301,12 +298,21 @@ namespace LibraryCards
         /// </summary>
         /// <param name="year">Имя объекта.</param>
         /// <returns>Возраст/>.</returns>
-        public static int IsCorrectYear(int year)
+        public string IsCorrectYear(string year)
         {
-            string stringAge = Convert.ToString(year);
-            if (Regex.IsMatch(stringAge, _ageRegex) && !string.IsNullOrEmpty(stringAge))
+            if (Regex.IsMatch(year, _ageRegex) 
+                && !string.IsNullOrEmpty(year))
             {
-                return Convert.ToInt16(stringAge);
+                int yearInt = Convert.ToInt16(year);
+                if (yearInt > MaxYear || yearInt < MinYear)
+                {
+                    throw new ArgumentException(
+                        $"Введите год из диапазона от {MinYear} до {MaxYear}.");
+                }
+                else
+                {
+                    return year;
+                }
             }
             else
             {
@@ -321,7 +327,8 @@ namespace LibraryCards
         public virtual string GetInfo()
         {
             return $"{MakeSample(Surname, Name, Patronymic)} {Title}/" +
-                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}.— {Year}.";
+                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}." +
+                   $"— {Year}.";
         }
     }
 }

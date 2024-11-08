@@ -47,7 +47,7 @@ namespace LibraryCards
         /// <summary>
         /// Количество страниц.
         /// </summary>
-        private int _sheet;
+        private string _sheet;
 
         /// <summary>
         /// Регулярное выражение, определяющее код.
@@ -55,11 +55,16 @@ namespace LibraryCards
         private const string _codeRegex = @"^\d{2}\.\d{2}\.\d{2}$";
 
         /// <summary>
+        /// Регулярное выражение, выявляющее цифры.
+        /// </summary>
+        private const string _ageRegex = @"^-?\d+$";
+
+        /// <summary>
         /// Объект класс Dissertation по умолчанию.
         /// </summary>
         public Dissertation() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
             "Неизвестно", "Неизвестно", "Неизвестно",
-            "00.00.00", "Неизвестно", "Неизвестно", 1900, 100)
+            "00.00.00", "Неизвестно", "Неизвестно", "1900", "100")
         { }
 
         /// <summary>
@@ -80,7 +85,8 @@ namespace LibraryCards
         public Dissertation(string surname, string name, string patronymic, 
             string title, string kindOfDissert, string city,
             string branchOfScience, string specialtyCode, string organization,
-            string nameOfSpeciality, int year, int sheet) : base(surname, name, patronymic, title, year)
+            string nameOfSpeciality, string year, string sheet) 
+            : base(surname, name, patronymic, title, year)
         {
             Surname = surname;
             Name = name;
@@ -99,22 +105,13 @@ namespace LibraryCards
         /// <summary>
         /// Количество страниц.
         /// </summary>
-        public int Sheet
+        public string Sheet
         {
             get => _sheet;
 
             set
             {
-                if (value > MaxSheet || value < MinSheet)
-                {
-                    throw new ArgumentException(
-                        $"Введите число из диапазона от {MinSheet} до {MaxSheet}.");
-
-                }
-                else
-                {
-                    _sheet = IsCorrectYear(value);
-                }
+                _sheet = IsCorrectSheet(value);
             }
         }
 
@@ -251,6 +248,33 @@ namespace LibraryCards
                 {
                     _nameOfSpeciality = TitleSplitAndJoin(value);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Проверяет страницу на корректность./>.
+        /// </summary>
+        /// <param name="sheet">Имя объекта.</param>
+        /// <returns>Страницы/>.</returns>
+        public string IsCorrectSheet(string sheet)
+        {
+            if (Regex.IsMatch(sheet, _ageRegex)
+                && !string.IsNullOrEmpty(sheet))
+            {
+                int sheetInt = Convert.ToInt16(sheet);
+                if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                {
+                    throw new ArgumentException(
+                        $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
+                }
+                else
+                {
+                    return sheet;
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Введите только число.");
             }
         }
 
