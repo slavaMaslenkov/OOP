@@ -167,7 +167,6 @@ namespace PersonLibrary
             Random random = new Random();
             if (child.Age < 7)
             {
-                //TODO: RSDN+
                 string[] educationalInstitution = { "ДС Русалка", "ДС Дельфин",
                     "ДС Карась", "ДС Солнышко"};
                 child.EducationalInstitution = educationalInstitution[
@@ -175,7 +174,6 @@ namespace PersonLibrary
             }
             else
             {
-                //TODO: RSDN+
                 string[] educationalInstitution = { "Гимназия", "Лицей", 
                     "Школа №25", "Школа №5" };
                 child.EducationalInstitution = educationalInstitution[
