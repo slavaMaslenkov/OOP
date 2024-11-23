@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace LibraryCards
+namespace Model
 {
     /// <summary>
     /// Класс создания библ. карточки по стате из журнала.
@@ -107,15 +107,14 @@ namespace LibraryCards
 
             set
             {
-                if ( value < 0)
+                if (value < 0)
                 {
                     throw new ArgumentException(
                         $"Введите положительное число.");
-
                 }
                 else
                 {
-                    _numberOfMagazine = value;
+                    _numberOfMagazine = IsCorrectNumberOfMagazine(value);
                 }
             }
         }
@@ -129,7 +128,15 @@ namespace LibraryCards
 
             set
             {
-               _startSheet = IsCorrectStartSheet(value);
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _startSheet = IsCorrectStartSheet(value);
+                }
             }
         }
 
@@ -142,7 +149,33 @@ namespace LibraryCards
 
             set
             {
-                _endSheet = IsCorrectSheet(value);
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _endSheet = IsCorrectSheet(value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Проверяет номер журнала на корректность./>.
+        /// </summary>
+        /// <param name="numberOfMagazine">Имя объекта.</param>
+        /// <returns>Страницы/>.</returns>
+        public int IsCorrectNumberOfMagazine(int numberOfMagazine)
+        {
+            string number = Convert.ToString(numberOfMagazine);
+            if (!string.IsNullOrEmpty(number))
+            {
+                return numberOfMagazine;
+            }
+            else
+            {
+                throw new ArgumentException("Введите только число.");
             }
         }
 

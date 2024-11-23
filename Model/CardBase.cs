@@ -1,15 +1,21 @@
-﻿using System.Globalization;
+﻿using System.ComponentModel;
+using System.Globalization;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace LibraryCards
+namespace Model
 {
     /// <summary>
     /// Базовый класс создания библиотечной карточки.
     /// </summary>
     /// <returns>Объект класса CardBase.</returns>
+    [XmlInclude(typeof(Book))]
+    [XmlInclude(typeof(Dissertation))]
+    [XmlInclude(typeof(Magazine))]
+    [XmlInclude(typeof(Sbornik))]
     public abstract class CardBase
     {
         /// <summary>
@@ -324,6 +330,7 @@ namespace LibraryCards
         /// Метод вывода библиотечной карточки.
         /// </summary>
         /// <returns>Данные об издании.</returns>
+        [DisplayName("Библиотечная карточка")]
         public virtual string GetInfo()
         {
             return $"{MakeSample(Surname, Name, Patronymic)} {Title}/" +

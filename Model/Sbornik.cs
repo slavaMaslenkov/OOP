@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace LibraryCards
+namespace Model
 {
     //TODO: XML+
     /// <summary>
@@ -161,7 +161,15 @@ namespace LibraryCards
 
             set
             {
-               _startSheet = IsCorrectStartSheet(value);
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _startSheet = IsCorrectStartSheet(value);
+                }
             }
         }
 
@@ -174,7 +182,15 @@ namespace LibraryCards
 
             set
             {
-                _endSheet = IsCorrectSheet(value);
+                if(string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
+                }
+                else
+                {
+                    _endSheet = IsCorrectSheet(value);
+                }
             }
         }
 

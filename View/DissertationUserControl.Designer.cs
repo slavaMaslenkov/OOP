@@ -31,7 +31,7 @@
             _sheetTextBox = new TextBox();
             _sheetLabel = new Label();
             _yearTextBox = new TextBox();
-            _specialityCodeTextBox = new TextBox();
+            _specialtyCodeTextBox = new TextBox();
             _yearLabel = new Label();
             _specialtyCodeLabel = new Label();
             _branchOfScienceTextBox = new TextBox();
@@ -77,12 +77,12 @@
             _yearTextBox.Size = new Size(100, 23);
             _yearTextBox.TabIndex = 33;
             // 
-            // _specialityCodeTextBox
+            // _specialtyCodeTextBox
             // 
-            _specialityCodeTextBox.Location = new Point(165, 217);
-            _specialityCodeTextBox.Name = "_specialityCodeTextBox";
-            _specialityCodeTextBox.Size = new Size(100, 23);
-            _specialityCodeTextBox.TabIndex = 32;
+            _specialtyCodeTextBox.Location = new Point(165, 217);
+            _specialtyCodeTextBox.Name = "_specialtyCodeTextBox";
+            _specialtyCodeTextBox.Size = new Size(100, 23);
+            _specialtyCodeTextBox.TabIndex = 32;
             // 
             // _yearLabel
             // 
@@ -259,7 +259,7 @@
             Controls.Add(_sheetTextBox);
             Controls.Add(_sheetLabel);
             Controls.Add(_yearTextBox);
-            Controls.Add(_specialityCodeTextBox);
+            Controls.Add(_specialtyCodeTextBox);
             Controls.Add(_yearLabel);
             Controls.Add(_specialtyCodeLabel);
             Controls.Add(_branchOfScienceTextBox);
@@ -282,29 +282,29 @@
 
         #endregion
 
-        private TextBox _sheetTextBox;
-        private Label _sheetLabel;
-        private TextBox _yearTextBox;
-        private TextBox _specialityCodeTextBox;
-        private Label _yearLabel;
-        private Label _specialtyCodeLabel;
-        private TextBox _branchOfScienceTextBox;
-        private TextBox _kindOfDissertTextBox;
-        private Label _branchOfScienceLabel;
-        private Label _kindOfDissertLabel;
-        private TextBox _nameOfBookTextBox;
-        private TextBox _patronymicTextBox;
-        private TextBox _nameTextBox;
-        private TextBox _surnameTextBox;
-        private Label _titleLabel;
-        private Label _patronymicLabel;
-        private Label _nameLabel;
-        private Label _surnameLabel;
-        private Label _organizationLabel;
-        private TextBox _organizationTextBox;
-        private Label _nameOfSpecialitylabel;
-        private TextBox _nameOfSpecialityTextBox;
-        private Label _cityLabel;
-        private TextBox _cityTextBox;
+        internal TextBox _sheetTextBox;
+        internal Label _sheetLabel;
+        internal TextBox _yearTextBox;
+        internal TextBox _specialtyCodeTextBox;
+        internal Label _yearLabel;
+        internal Label _specialtyCodeLabel;
+        internal TextBox _branchOfScienceTextBox;
+        internal TextBox _kindOfDissertTextBox;
+        internal Label _branchOfScienceLabel;
+        internal Label _kindOfDissertLabel;
+        internal TextBox _nameOfBookTextBox;
+        internal TextBox _patronymicTextBox;
+        internal TextBox _nameTextBox;
+        internal TextBox _surnameTextBox;
+        internal Label _titleLabel;
+        internal Label _patronymicLabel;
+        internal Label _nameLabel;
+        internal Label _surnameLabel;
+        internal Label _organizationLabel;
+        internal TextBox _organizationTextBox;
+        internal Label _nameOfSpecialitylabel;
+        internal TextBox _nameOfSpecialityTextBox;
+        internal Label _cityLabel;
+        internal TextBox _cityTextBox;
     }
 }

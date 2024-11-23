@@ -34,9 +34,9 @@
             _dissertationRadioButton = new RadioButton();
             _bookRadioButton = new RadioButton();
             _parametersGroupBox = new GroupBox();
-            bookUserControl1 = new BookUserControl();
+            _addButton = new Button();
+            _closeButton = new Button();
             _cardTypeGroupBox.SuspendLayout();
-            _parametersGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // _cardTypeGroupBox
@@ -98,27 +98,39 @@
             // 
             // _parametersGroupBox
             // 
-            _parametersGroupBox.Controls.Add(bookUserControl1);
             _parametersGroupBox.Location = new Point(5, 155);
             _parametersGroupBox.Name = "_parametersGroupBox";
-            _parametersGroupBox.Size = new Size(352, 424);
+            _parametersGroupBox.Size = new Size(352, 448);
             _parametersGroupBox.TabIndex = 1;
             _parametersGroupBox.TabStop = false;
             _parametersGroupBox.Text = "Параметры карточки";
             // 
-            // bookUserControl1
+            // _addButton
             // 
-            bookUserControl1.Location = new Point(0, 22);
-            bookUserControl1.Name = "bookUserControl1";
-            bookUserControl1.Size = new Size(275, 322);
-            bookUserControl1.TabIndex = 0;
+            _addButton.Location = new Point(5, 609);
+            _addButton.Name = "_addButton";
+            _addButton.Size = new Size(96, 23);
+            _addButton.TabIndex = 6;
+            _addButton.Text = "Добавить";
+            _addButton.UseVisualStyleBackColor = true;
+            // 
+            // _closeButton
+            // 
+            _closeButton.Location = new Point(117, 609);
+            _closeButton.Name = "_closeButton";
+            _closeButton.Size = new Size(96, 23);
+            _closeButton.TabIndex = 7;
+            _closeButton.Text = "Закрыть";
+            _closeButton.UseVisualStyleBackColor = true;
             // 
             // AddForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(369, 584);
+            ClientSize = new Size(369, 634);
+            Controls.Add(_closeButton);
+            Controls.Add(_addButton);
             Controls.Add(_parametersGroupBox);
             Controls.Add(_cardTypeGroupBox);
             MaximizeBox = false;
@@ -127,7 +139,6 @@
             Text = "Добавить";
             _cardTypeGroupBox.ResumeLayout(false);
             _cardTypeGroupBox.PerformLayout();
-            _parametersGroupBox.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -140,6 +151,10 @@
         private RadioButton _dissertationRadioButton;
         private GroupBox _parametersGroupBox;
         private BookUserControl bookUserControl;
-        private BookUserControl bookUserControl1;
+        private SbornikUserControl sbornikUserControl;
+        private MagazineUserControl magazineUserControl;
+        private DissertationUserControl dissertationUserControl;
+        private Button _addButton;
+        private Button _closeButton;
     }
 }

@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace LibraryCards
+namespace Model
 {
     /// <summary>
     /// Класс создания библ. карточки по диссертации.
@@ -124,7 +124,8 @@ namespace LibraryCards
 
             set
             {
-                if (Regex.IsMatch(value, _codeRegex))
+                if (Regex.IsMatch(value, _codeRegex) 
+                    && !string.IsNullOrEmpty(value))
                 {
                     _specialtyCode = value;
                 }

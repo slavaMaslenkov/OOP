@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             _cardTypeGroupBox = new GroupBox();
-            _bookCheckBox = new CheckBox();
-            _dissertationCheckBox = new CheckBox();
-            _magazineCheckBox = new CheckBox();
             _sbornikCheckBox = new CheckBox();
+            _magazineCheckBox = new CheckBox();
+            _dissertationCheckBox = new CheckBox();
+            _bookCheckBox = new CheckBox();
             _parametersGroupBox = new GroupBox();
-            _surnameCheckBox = new CheckBox();
-            _nameCheckBox = new CheckBox();
-            _surnameTextBox = new TextBox();
             _nameTextBox = new TextBox();
-            _okButtom = new Button();
+            _surnameTextBox = new TextBox();
+            _nameCheckBox = new CheckBox();
+            _surnameCheckBox = new CheckBox();
+            _okButton = new Button();
             _cardTypeGroupBox.SuspendLayout();
             _parametersGroupBox.SuspendLayout();
             SuspendLayout();
@@ -56,25 +56,15 @@
             _cardTypeGroupBox.TabStop = false;
             _cardTypeGroupBox.Text = "Тип карточки";
             // 
-            // _bookCheckBox
+            // _sbornikCheckBox
             // 
-            _bookCheckBox.AutoSize = true;
-            _bookCheckBox.Location = new Point(11, 27);
-            _bookCheckBox.Name = "_bookCheckBox";
-            _bookCheckBox.Size = new Size(58, 19);
-            _bookCheckBox.TabIndex = 0;
-            _bookCheckBox.Text = "Книга";
-            _bookCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // _dissertationCheckBox
-            // 
-            _dissertationCheckBox.AutoSize = true;
-            _dissertationCheckBox.Location = new Point(11, 52);
-            _dissertationCheckBox.Name = "_dissertationCheckBox";
-            _dissertationCheckBox.Size = new Size(97, 19);
-            _dissertationCheckBox.TabIndex = 1;
-            _dissertationCheckBox.Text = "Диссертация";
-            _dissertationCheckBox.UseVisualStyleBackColor = true;
+            _sbornikCheckBox.AutoSize = true;
+            _sbornikCheckBox.Location = new Point(11, 102);
+            _sbornikCheckBox.Name = "_sbornikCheckBox";
+            _sbornikCheckBox.Size = new Size(133, 19);
+            _sbornikCheckBox.TabIndex = 3;
+            _sbornikCheckBox.Text = "Статья из сборника";
+            _sbornikCheckBox.UseVisualStyleBackColor = true;
             // 
             // _magazineCheckBox
             // 
@@ -86,15 +76,25 @@
             _magazineCheckBox.Text = "Статья из журнала";
             _magazineCheckBox.UseVisualStyleBackColor = true;
             // 
-            // _sbornikCheckBox
+            // _dissertationCheckBox
             // 
-            _sbornikCheckBox.AutoSize = true;
-            _sbornikCheckBox.Location = new Point(11, 102);
-            _sbornikCheckBox.Name = "_sbornikCheckBox";
-            _sbornikCheckBox.Size = new Size(133, 19);
-            _sbornikCheckBox.TabIndex = 3;
-            _sbornikCheckBox.Text = "Статья из сборника";
-            _sbornikCheckBox.UseVisualStyleBackColor = true;
+            _dissertationCheckBox.AutoSize = true;
+            _dissertationCheckBox.Location = new Point(11, 52);
+            _dissertationCheckBox.Name = "_dissertationCheckBox";
+            _dissertationCheckBox.Size = new Size(97, 19);
+            _dissertationCheckBox.TabIndex = 1;
+            _dissertationCheckBox.Text = "Диссертация";
+            _dissertationCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _bookCheckBox
+            // 
+            _bookCheckBox.AutoSize = true;
+            _bookCheckBox.Location = new Point(11, 27);
+            _bookCheckBox.Name = "_bookCheckBox";
+            _bookCheckBox.Size = new Size(58, 19);
+            _bookCheckBox.TabIndex = 0;
+            _bookCheckBox.Text = "Книга";
+            _bookCheckBox.UseVisualStyleBackColor = true;
             // 
             // _parametersGroupBox
             // 
@@ -109,15 +109,19 @@
             _parametersGroupBox.TabStop = false;
             _parametersGroupBox.Text = "Параметры карточки";
             // 
-            // _surnameCheckBox
+            // _nameTextBox
             // 
-            _surnameCheckBox.AutoSize = true;
-            _surnameCheckBox.Location = new Point(11, 22);
-            _surnameCheckBox.Name = "_surnameCheckBox";
-            _surnameCheckBox.Size = new Size(117, 19);
-            _surnameCheckBox.TabIndex = 4;
-            _surnameCheckBox.Text = "Фамилия автора";
-            _surnameCheckBox.UseVisualStyleBackColor = true;
+            _nameTextBox.Location = new Point(171, 46);
+            _nameTextBox.Name = "_nameTextBox";
+            _nameTextBox.Size = new Size(100, 23);
+            _nameTextBox.TabIndex = 7;
+            // 
+            // _surnameTextBox
+            // 
+            _surnameTextBox.Location = new Point(171, 18);
+            _surnameTextBox.Name = "_surnameTextBox";
+            _surnameTextBox.Size = new Size(100, 23);
+            _surnameTextBox.TabIndex = 6;
             // 
             // _nameCheckBox
             // 
@@ -129,28 +133,24 @@
             _nameCheckBox.Text = "Название";
             _nameCheckBox.UseVisualStyleBackColor = true;
             // 
-            // _surnameTextBox
+            // _surnameCheckBox
             // 
-            _surnameTextBox.Location = new Point(171, 18);
-            _surnameTextBox.Name = "_surnameTextBox";
-            _surnameTextBox.Size = new Size(100, 23);
-            _surnameTextBox.TabIndex = 6;
+            _surnameCheckBox.AutoSize = true;
+            _surnameCheckBox.Location = new Point(11, 22);
+            _surnameCheckBox.Name = "_surnameCheckBox";
+            _surnameCheckBox.Size = new Size(117, 19);
+            _surnameCheckBox.TabIndex = 4;
+            _surnameCheckBox.Text = "Фамилия автора";
+            _surnameCheckBox.UseVisualStyleBackColor = true;
             // 
-            // _nameTextBox
+            // _okButton
             // 
-            _nameTextBox.Location = new Point(171, 46);
-            _nameTextBox.Name = "_nameTextBox";
-            _nameTextBox.Size = new Size(100, 23);
-            _nameTextBox.TabIndex = 7;
-            // 
-            // _okButtom
-            // 
-            _okButtom.Location = new Point(12, 238);
-            _okButtom.Name = "_okButtom";
-            _okButtom.Size = new Size(96, 23);
-            _okButtom.TabIndex = 6;
-            _okButtom.Text = "OK";
-            _okButtom.UseVisualStyleBackColor = true;
+            _okButton.Location = new Point(12, 238);
+            _okButton.Name = "_okButton";
+            _okButton.Size = new Size(96, 23);
+            _okButton.TabIndex = 6;
+            _okButton.Text = "OK";
+            _okButton.UseVisualStyleBackColor = true;
             // 
             // FilterForm
             // 
@@ -158,7 +158,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(313, 269);
-            Controls.Add(_okButtom);
+            Controls.Add(_okButton);
             Controls.Add(_parametersGroupBox);
             Controls.Add(_cardTypeGroupBox);
             MaximizeBox = false;
@@ -184,6 +184,6 @@
         private CheckBox _surnameCheckBox;
         private TextBox _nameTextBox;
         private TextBox _surnameTextBox;
-        private Button _okButtom;
+        private Button _okButton;
     }
 }

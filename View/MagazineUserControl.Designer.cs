@@ -31,7 +31,7 @@
             _endSheetTextBox = new TextBox();
             _startSheetLabel = new Label();
             _startSheetTextBox = new TextBox();
-            _additionalInformationTextBox = new TextBox();
+            _yearTextBox = new TextBox();
             _yearLabel = new Label();
             _endSheetLabel = new Label();
             _numberOfMagazineTextBox = new TextBox();
@@ -71,12 +71,12 @@
             _startSheetTextBox.Size = new Size(100, 23);
             _startSheetTextBox.TabIndex = 33;
             // 
-            // _additionalInformationTextBox
+            // _yearTextBox
             // 
-            _additionalInformationTextBox.Location = new Point(166, 214);
-            _additionalInformationTextBox.Name = "_additionalInformationTextBox";
-            _additionalInformationTextBox.Size = new Size(100, 23);
-            _additionalInformationTextBox.TabIndex = 32;
+            _yearTextBox.Location = new Point(166, 214);
+            _yearTextBox.Name = "_yearTextBox";
+            _yearTextBox.Size = new Size(100, 23);
+            _yearTextBox.TabIndex = 32;
             // 
             // _yearLabel
             // 
@@ -200,7 +200,7 @@
             Controls.Add(_endSheetTextBox);
             Controls.Add(_startSheetLabel);
             Controls.Add(_startSheetTextBox);
-            Controls.Add(_additionalInformationTextBox);
+            Controls.Add(_yearTextBox);
             Controls.Add(_yearLabel);
             Controls.Add(_endSheetLabel);
             Controls.Add(_numberOfMagazineTextBox);
@@ -223,23 +223,23 @@
 
         #endregion
 
-        private TextBox _endSheetTextBox;
-        private Label _startSheetLabel;
-        private TextBox _startSheetTextBox;
-        private TextBox _additionalInformationTextBox;
-        private Label _yearLabel;
-        private Label _endSheetLabel;
-        private TextBox _numberOfMagazineTextBox;
-        private TextBox _nameOfMagazineTextBox;
-        private Label _numberOfMagazineLabel;
-        private Label _nameOfMagazineLabel;
-        private TextBox _nameOfBookTextBox;
-        private TextBox _patronymicTextBox;
-        private TextBox _nameTextBox;
-        private TextBox _surnameTextBox;
-        private Label _titleLabel;
-        private Label _patronymicLabel;
-        private Label _nameLabel;
-        private Label _surnameLabel;
+        internal TextBox _endSheetTextBox;
+        internal Label _startSheetLabel;
+        internal TextBox _startSheetTextBox;
+        internal TextBox _yearTextBox;
+        internal Label _yearLabel;
+        internal Label _endSheetLabel;
+        internal TextBox _numberOfMagazineTextBox;
+        internal TextBox _nameOfMagazineTextBox;
+        internal Label _numberOfMagazineLabel;
+        internal Label _nameOfMagazineLabel;
+        internal TextBox _nameOfBookTextBox;
+        internal TextBox _patronymicTextBox;
+        internal TextBox _nameTextBox;
+        internal TextBox _surnameTextBox;
+        internal Label _titleLabel;
+        internal Label _patronymicLabel;
+        internal Label _nameLabel;
+        internal Label _surnameLabel;
     }
 }

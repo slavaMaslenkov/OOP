@@ -222,23 +222,23 @@
 
         #endregion
 
-        private Label _surnameLabel;
-        private Label _nameLabel;
-        private Label _patronymicLabel;
-        private Label _titleLabel;
-        private TextBox _surnameTextBox;
-        private TextBox _nameTextBox;
-        private TextBox _patronymicTextBox;
-        private TextBox _nameOfBookTextBox;
-        private Label _placeOfPublicationLabel;
-        private Label _publishingHouseLabel;
-        private TextBox _placeOfPublicationTextBox;
-        private TextBox _publishingHouseTextBox;
-        private Label _additionalInformationLabel;
-        private Label _yearLabel;
-        private TextBox _additionalInformationTextBox;
-        private TextBox _yearTextBox;
-        private Label _sheetLabel;
-        private TextBox _sheetTextBox;
+        internal Label _surnameLabel;
+        internal Label _nameLabel;
+        internal Label _patronymicLabel;
+        internal Label _titleLabel;
+        internal TextBox _surnameTextBox;
+        internal TextBox _nameTextBox;
+        internal TextBox _patronymicTextBox;
+        internal TextBox _nameOfBookTextBox;
+        internal Label _placeOfPublicationLabel;
+        internal Label _publishingHouseLabel;
+        internal TextBox _placeOfPublicationTextBox;
+        internal TextBox _publishingHouseTextBox;
+        internal Label _additionalInformationLabel;
+        internal Label _yearLabel;
+        internal TextBox _additionalInformationTextBox;
+        internal TextBox _yearTextBox;
+        internal Label _sheetLabel;
+        internal TextBox _sheetTextBox;
     }
 }

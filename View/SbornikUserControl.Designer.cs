@@ -31,7 +31,7 @@
             _endSheetTextBox = new TextBox();
             _startSheetLabel = new Label();
             _startSheetTextBox = new TextBox();
-            _additionalInformationTextBox = new TextBox();
+            _yearTextBox = new TextBox();
             _yearLabel = new Label();
             _endSheetLabel = new Label();
             _publishingHouseTextBox = new TextBox();
@@ -47,7 +47,7 @@
             _nameLabel = new Label();
             _surnameLabel = new Label();
             _nameOfSbornikLabel = new Label();
-            _nameOfSborniktextBox = new TextBox();
+            _nameOfSbornikTextBox = new TextBox();
             SuspendLayout();
             // 
             // _endSheetTextBox
@@ -73,12 +73,12 @@
             _startSheetTextBox.Size = new Size(100, 23);
             _startSheetTextBox.TabIndex = 51;
             // 
-            // _additionalInformationTextBox
+            // _yearTextBox
             // 
-            _additionalInformationTextBox.Location = new Point(155, 245);
-            _additionalInformationTextBox.Name = "_additionalInformationTextBox";
-            _additionalInformationTextBox.Size = new Size(100, 23);
-            _additionalInformationTextBox.TabIndex = 50;
+            _yearTextBox.Location = new Point(155, 245);
+            _yearTextBox.Name = "_yearTextBox";
+            _yearTextBox.Size = new Size(100, 23);
+            _yearTextBox.TabIndex = 50;
             // 
             // _yearLabel
             // 
@@ -203,23 +203,23 @@
             _nameOfSbornikLabel.TabIndex = 54;
             _nameOfSbornikLabel.Text = "Название сборника";
             // 
-            // _nameOfSborniktextBox
+            // _nameOfSbornikTextBox
             // 
-            _nameOfSborniktextBox.Location = new Point(155, 212);
-            _nameOfSborniktextBox.Name = "_nameOfSborniktextBox";
-            _nameOfSborniktextBox.Size = new Size(100, 23);
-            _nameOfSborniktextBox.TabIndex = 55;
+            _nameOfSbornikTextBox.Location = new Point(155, 212);
+            _nameOfSbornikTextBox.Name = "_nameOfSbornikTextBox";
+            _nameOfSbornikTextBox.Size = new Size(100, 23);
+            _nameOfSbornikTextBox.TabIndex = 55;
             // 
             // SbornikUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(_nameOfSborniktextBox);
+            Controls.Add(_nameOfSbornikTextBox);
             Controls.Add(_nameOfSbornikLabel);
             Controls.Add(_endSheetTextBox);
             Controls.Add(_startSheetLabel);
             Controls.Add(_startSheetTextBox);
-            Controls.Add(_additionalInformationTextBox);
+            Controls.Add(_yearTextBox);
             Controls.Add(_yearLabel);
             Controls.Add(_endSheetLabel);
             Controls.Add(_publishingHouseTextBox);
@@ -242,25 +242,25 @@
 
         #endregion
 
-        private TextBox _endSheetTextBox;
-        private Label _startSheetLabel;
-        private TextBox _startSheetTextBox;
-        private TextBox _additionalInformationTextBox;
-        private Label _yearLabel;
-        private Label _endSheetLabel;
-        private TextBox _publishingHouseTextBox;
-        private TextBox _placeOfPublicationTextBox;
-        private Label _publishingHouseLabel;
-        private Label _placeOfPublicationLabel;
-        private TextBox _nameOfBookTextBox;
-        private TextBox _patronymicTextBox;
-        private TextBox _nameTextBox;
-        private TextBox _surnameTextBox;
-        private Label _titleLabel;
-        private Label _patronymicLabel;
-        private Label _nameLabel;
-        private Label _surnameLabel;
-        private Label _nameOfSbornikLabel;
-        private TextBox _nameOfSborniktextBox;
+        internal TextBox _endSheetTextBox;
+        internal Label _startSheetLabel;
+        internal TextBox _startSheetTextBox;
+        internal TextBox _yearTextBox;
+        internal Label _yearLabel;
+        internal Label _endSheetLabel;
+        internal TextBox _publishingHouseTextBox;
+        internal TextBox _placeOfPublicationTextBox;
+        internal Label _publishingHouseLabel;
+        internal Label _placeOfPublicationLabel;
+        internal TextBox _nameOfBookTextBox;
+        internal TextBox _patronymicTextBox;
+        internal TextBox _nameTextBox;
+        internal TextBox _surnameTextBox;
+        internal Label _titleLabel;
+        internal Label _patronymicLabel;
+        internal Label _nameLabel;
+        internal Label _surnameLabel;
+        internal Label _nameOfSbornikLabel;
+        internal TextBox _nameOfSbornikTextBox;
     }
 }
