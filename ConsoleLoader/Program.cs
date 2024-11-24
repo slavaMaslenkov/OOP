@@ -1,4 +1,4 @@
-﻿using LibraryCards;
+﻿using Model;
 
 namespace ConsoleLoader
 {

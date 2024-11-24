@@ -53,7 +53,6 @@
             _cardGroupBox.TabIndex = 0;
             _cardGroupBox.TabStop = false;
             _cardGroupBox.Text = "Библиотечные карточки";
-            _cardGroupBox.Enter += groupBox1_Enter;
             // 
             // cardDataGridView
             // 
@@ -165,7 +164,7 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Библиотечные карточки";
-            Load += MainForm_Load;
+            Load += LoadMainForm;
             _cardGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cardDataGridView).EndInit();
             _editingGroupBox.ResumeLayout(false);
@@ -178,7 +177,9 @@
         private DataGridView cardDataGridView;
         private Button _saveButton;
         private Button _loadButton;
+#if DEBUG
         private Button _randomButton;
+#endif
         private GroupBox _editingGroupBox;
         private Button _clearButton;
         private Button _deleteButton;
