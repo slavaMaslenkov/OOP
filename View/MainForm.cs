@@ -77,11 +77,23 @@ namespace View
             dataGridView.AutoSizeRowsMode =
                 DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView.AutoSizeColumnsMode =
-                DataGridViewAutoSizeColumnsMode.Fill;
+                DataGridViewAutoSizeColumnsMode.None;
             dataGridView.DefaultCellStyle.WrapMode =
                 DataGridViewTriState.True;
             dataGridView.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
+
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                if (column.Name == "EditionType")
+                {
+                    column.Width = 218; 
+                }
+                else if (column.Name == "GetInfo")
+                {
+                    column.Width = 600;
+                }
+            }
         }
         
         /// <summary>

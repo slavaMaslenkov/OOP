@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            _endSheetTextBox = new TextBox();
+            _endSheetTextBox = new NumericBox();
             _startSheetLabel = new Label();
-            _startSheetTextBox = new TextBox();
-            _yearTextBox = new TextBox();
+            _startSheetTextBox = new NumericBox();
+            _yearTextBox = new NumericBox();
             _yearLabel = new Label();
             _endSheetLabel = new Label();
             _publishingHouseTextBox = new TextBox();
@@ -39,9 +39,9 @@
             _publishingHouseLabel = new Label();
             _placeOfPublicationLabel = new Label();
             _nameOfBookTextBox = new TextBox();
-            _patronymicTextBox = new TextBox();
-            _nameTextBox = new TextBox();
-            _surnameTextBox = new TextBox();
+            _patronymicTextBox = new RussianTextBox();
+            _nameTextBox = new RussianTextBox();
+            _surnameTextBox = new RussianTextBox();
             _titleLabel = new Label();
             _patronymicLabel = new Label();
             _nameLabel = new Label();

@@ -36,10 +36,10 @@
             _addButton = new Button();
             _closeButton = new Button();
             _parametersGroupBox = new GroupBox();
-            bookUserControl = new BookUserControl();
-            magazineUserControl = new MagazineUserControl();
-            sbornikUserControl = new SbornikUserControl();
             dissertationUserControl = new DissertationUserControl();
+            sbornikUserControl = new SbornikUserControl();
+            magazineUserControl = new MagazineUserControl();
+            bookUserControl = new BookUserControl();
             _cardTypeGroupBox.SuspendLayout();
             _parametersGroupBox.SuspendLayout();
             SuspendLayout();
@@ -50,9 +50,11 @@
             _cardTypeGroupBox.Controls.Add(_magazineRadioButton);
             _cardTypeGroupBox.Controls.Add(_dissertationRadioButton);
             _cardTypeGroupBox.Controls.Add(_bookRadioButton);
-            _cardTypeGroupBox.Location = new Point(5, 12);
+            _cardTypeGroupBox.Location = new Point(6, 16);
+            _cardTypeGroupBox.Margin = new Padding(3, 4, 3, 4);
             _cardTypeGroupBox.Name = "_cardTypeGroupBox";
-            _cardTypeGroupBox.Size = new Size(276, 137);
+            _cardTypeGroupBox.Padding = new Padding(3, 4, 3, 4);
+            _cardTypeGroupBox.Size = new Size(315, 183);
             _cardTypeGroupBox.TabIndex = 0;
             _cardTypeGroupBox.TabStop = false;
             _cardTypeGroupBox.Text = "Тип карточки";
@@ -60,9 +62,10 @@
             // _sbornikRadioButton
             // 
             _sbornikRadioButton.AutoSize = true;
-            _sbornikRadioButton.Location = new Point(16, 104);
+            _sbornikRadioButton.Location = new Point(18, 139);
+            _sbornikRadioButton.Margin = new Padding(3, 4, 3, 4);
             _sbornikRadioButton.Name = "_sbornikRadioButton";
-            _sbornikRadioButton.Size = new Size(132, 19);
+            _sbornikRadioButton.Size = new Size(166, 24);
             _sbornikRadioButton.TabIndex = 3;
             _sbornikRadioButton.TabStop = true;
             _sbornikRadioButton.Text = "Статья из сборника";
@@ -71,9 +74,10 @@
             // _magazineRadioButton
             // 
             _magazineRadioButton.AutoSize = true;
-            _magazineRadioButton.Location = new Point(16, 79);
+            _magazineRadioButton.Location = new Point(18, 105);
+            _magazineRadioButton.Margin = new Padding(3, 4, 3, 4);
             _magazineRadioButton.Name = "_magazineRadioButton";
-            _magazineRadioButton.Size = new Size(127, 19);
+            _magazineRadioButton.Size = new Size(159, 24);
             _magazineRadioButton.TabIndex = 2;
             _magazineRadioButton.TabStop = true;
             _magazineRadioButton.Text = "Статья из журнала";
@@ -82,9 +86,10 @@
             // _dissertationRadioButton
             // 
             _dissertationRadioButton.AutoSize = true;
-            _dissertationRadioButton.Location = new Point(16, 54);
+            _dissertationRadioButton.Location = new Point(18, 72);
+            _dissertationRadioButton.Margin = new Padding(3, 4, 3, 4);
             _dissertationRadioButton.Name = "_dissertationRadioButton";
-            _dissertationRadioButton.Size = new Size(96, 19);
+            _dissertationRadioButton.Size = new Size(120, 24);
             _dissertationRadioButton.TabIndex = 1;
             _dissertationRadioButton.TabStop = true;
             _dissertationRadioButton.Text = "Диссертация";
@@ -93,9 +98,10 @@
             // _bookRadioButton
             // 
             _bookRadioButton.AutoSize = true;
-            _bookRadioButton.Location = new Point(16, 29);
+            _bookRadioButton.Location = new Point(18, 39);
+            _bookRadioButton.Margin = new Padding(3, 4, 3, 4);
             _bookRadioButton.Name = "_bookRadioButton";
-            _bookRadioButton.Size = new Size(57, 19);
+            _bookRadioButton.Size = new Size(71, 24);
             _bookRadioButton.TabIndex = 0;
             _bookRadioButton.TabStop = true;
             _bookRadioButton.Text = "Книга";
@@ -103,18 +109,20 @@
             // 
             // _addButton
             // 
-            _addButton.Location = new Point(5, 615);
+            _addButton.Location = new Point(6, 820);
+            _addButton.Margin = new Padding(3, 4, 3, 4);
             _addButton.Name = "_addButton";
-            _addButton.Size = new Size(96, 23);
+            _addButton.Size = new Size(110, 31);
             _addButton.TabIndex = 6;
             _addButton.Text = "Добавить";
             _addButton.UseVisualStyleBackColor = true;
             // 
             // _closeButton
             // 
-            _closeButton.Location = new Point(116, 615);
+            _closeButton.Location = new Point(211, 820);
+            _closeButton.Margin = new Padding(3, 4, 3, 4);
             _closeButton.Name = "_closeButton";
-            _closeButton.Size = new Size(96, 23);
+            _closeButton.Size = new Size(110, 31);
             _closeButton.TabIndex = 7;
             _closeButton.Text = "Закрыть";
             _closeButton.UseVisualStyleBackColor = true;
@@ -125,51 +133,58 @@
             _parametersGroupBox.Controls.Add(sbornikUserControl);
             _parametersGroupBox.Controls.Add(magazineUserControl);
             _parametersGroupBox.Controls.Add(bookUserControl);
-            _parametersGroupBox.Location = new Point(5, 155);
+            _parametersGroupBox.Location = new Point(6, 207);
+            _parametersGroupBox.Margin = new Padding(3, 4, 3, 4);
             _parametersGroupBox.Name = "_parametersGroupBox";
-            _parametersGroupBox.Size = new Size(276, 454);
+            _parametersGroupBox.Padding = new Padding(3, 4, 3, 4);
+            _parametersGroupBox.Size = new Size(315, 605);
             _parametersGroupBox.TabIndex = 1;
             _parametersGroupBox.TabStop = false;
             _parametersGroupBox.Text = "Параметры карточки";
             // 
-            // bookUserControl
+            // dissertationUserControl
             // 
-            bookUserControl.Location = new Point(6, 22);
-            bookUserControl.Name = "bookUserControl";
-            bookUserControl.Size = new Size(261, 302);
-            bookUserControl.TabIndex = 0;
-            // 
-            // magazineUserControl
-            // 
-            magazineUserControl.Location = new Point(6, 22);
-            magazineUserControl.Name = "magazineUserControl";
-            magazineUserControl.Size = new Size(262, 305);
-            magazineUserControl.TabIndex = 1;
+            dissertationUserControl.Location = new Point(6, 29);
+            dissertationUserControl.Margin = new Padding(3, 5, 3, 5);
+            dissertationUserControl.Name = "dissertationUserControl";
+            dissertationUserControl.Size = new Size(301, 540);
+            dissertationUserControl.TabIndex = 3;
             // 
             // sbornikUserControl
             // 
-            sbornikUserControl.Location = new Point(6, 22);
+            sbornikUserControl.Location = new Point(7, 29);
+            sbornikUserControl.Margin = new Padding(3, 5, 3, 5);
             sbornikUserControl.Name = "sbornikUserControl";
-            sbornikUserControl.Size = new Size(263, 333);
+            sbornikUserControl.Size = new Size(301, 444);
             sbornikUserControl.TabIndex = 2;
             // 
-            // dissertationUserControl
+            // magazineUserControl
             // 
-            dissertationUserControl.Location = new Point(5, 22);
-            dissertationUserControl.Name = "dissertationUserControl";
-            dissertationUserControl.Size = new Size(263, 405);
-            dissertationUserControl.TabIndex = 3;
+            magazineUserControl.Location = new Point(7, 29);
+            magazineUserControl.Margin = new Padding(3, 5, 3, 5);
+            magazineUserControl.Name = "magazineUserControl";
+            magazineUserControl.Size = new Size(299, 407);
+            magazineUserControl.TabIndex = 1;
+            // 
+            // bookUserControl
+            // 
+            bookUserControl.Location = new Point(7, 29);
+            bookUserControl.Margin = new Padding(3, 5, 3, 5);
+            bookUserControl.Name = "bookUserControl";
+            bookUserControl.Size = new Size(298, 403);
+            bookUserControl.TabIndex = 0;
             // 
             // AddForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(293, 650);
+            ClientSize = new Size(335, 867);
             Controls.Add(_closeButton);
             Controls.Add(_addButton);
             Controls.Add(_parametersGroupBox);
             Controls.Add(_cardTypeGroupBox);
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "AddForm";
             StartPosition = FormStartPosition.CenterScreen;

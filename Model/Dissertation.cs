@@ -201,7 +201,7 @@ namespace Model
                 }
                 else
                 {
-                    _branchOfScience = TitleSplitAndJoin(value);
+                    _branchOfScience = value;
                 }
             }
         }

@@ -32,9 +32,9 @@
             _nameLabel = new Label();
             _patronymicLabel = new Label();
             _titleLabel = new Label();
-            _surnameTextBox = new TextBox();
-            _nameTextBox = new TextBox();
-            _patronymicTextBox = new TextBox();
+            _surnameTextBox = new RussianTextBox();
+            _nameTextBox = new RussianTextBox();
+            _patronymicTextBox = new RussianTextBox();
             _nameOfBookTextBox = new TextBox();
             _placeOfPublicationLabel = new Label();
             _publishingHouseLabel = new Label();
@@ -43,9 +43,9 @@
             _additionalInformationLabel = new Label();
             _yearLabel = new Label();
             _additionalInformationTextBox = new TextBox();
-            _yearTextBox = new TextBox();
+            _yearTextBox = new NumericBox();
             _sheetLabel = new Label();
-            _sheetTextBox = new TextBox();
+            _sheetTextBox = new NumericBox();
             SuspendLayout();
             // 
             // _surnameLabel
