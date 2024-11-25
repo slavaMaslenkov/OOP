@@ -162,6 +162,17 @@ namespace Model
         }
 
         /// <summary>
+        /// Тип издания.
+        /// </summary>
+        public override string EditionType
+        {
+            get
+            {
+                return "Журнал";
+            }
+        }
+
+        /// <summary>
         /// Проверяет номер журнала на корректность./>.
         /// </summary>
         /// <param name="numberOfMagazine">Имя объекта.</param>
@@ -244,12 +255,10 @@ namespace Model
         /// Метод вывода библиотечной карточки.
         /// </summary>
         /// <returns>Данные об издании.</returns>
-        public override string GetInfo()
-        {
-            return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
-                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}." +
-                   $" // {NameOfMagazine}. – {Year}. - №" +
-                   $"{NumberOfMagazine}. - С. {StartSheet}{EndSheet}.";
-        }
+        public override string GetInfo =>
+            $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
+            $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}." +
+            $" // {NameOfMagazine}. – {Year}. - №" +
+            $"{NumberOfMagazine}. - С. {StartSheet}{EndSheet}.";
     }
 }

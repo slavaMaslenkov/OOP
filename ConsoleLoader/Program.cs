@@ -37,7 +37,7 @@ namespace ConsoleLoader
                 }
 
                 CardBase card = CardsReader.ReadCard();
-                Console.WriteLine(card.GetInfo());
+                //Console.WriteLine(card.GetInfo());
             }
         }
     }

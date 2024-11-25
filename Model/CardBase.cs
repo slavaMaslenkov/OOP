@@ -1,10 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
-using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
 using System.Xml.Serialization;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Model
 {
@@ -57,29 +54,26 @@ namespace Model
         /// <summary>
         /// Минимальный год издания.
         /// </summary>
+        [Browsable(false)]
         public int MinYear { get; } = 1;
 
         /// <summary>
         /// Масимальный год издания.
         /// </summary>
+        [Browsable(false)]
         public int MaxYear { get; } = 2024;
 
         /// <summary>
         /// Минимальное количество страниц.
         /// </summary>
+        [Browsable(false)]
         public int MinSheet { get; } = 1;
 
         /// <summary>
         /// Масимальное количество страниц.
         /// </summary>
+        [Browsable(false)]
         public int MaxSheet { get; } = 5000;
-
-        /// <summary>
-        /// Объект класс CardBase по умолчанию.
-        /// </summary>
-        public CardBase() : this("Неизвестно", "Неизвестно", 
-            "Неизвестно", "Неизвестно", "1900")
-        { }
 
         /// <summary>
         /// Конструктор класса CardBase.
@@ -102,6 +96,7 @@ namespace Model
         /// <summary>
         /// Имя автора.
         /// </summary>
+        [Browsable(false)]
         public string Name
         {
             get
@@ -125,6 +120,7 @@ namespace Model
         /// <summary>
         /// Фамилия автора.
         /// </summary>
+        [Browsable(false)]
         public string Surname
         {
             get
@@ -148,6 +144,7 @@ namespace Model
         /// <summary>
         /// Отчество автора.
         /// </summary>
+        [Browsable(false)]
         public string Patronymic
         {
             get
@@ -170,6 +167,7 @@ namespace Model
         /// <summary>
         /// Название.
         /// </summary>
+        [Browsable(false)]
         public string Title
         {
             get
@@ -193,6 +191,7 @@ namespace Model
         /// <summary>
         /// Возраст.
         /// </summary>
+        [Browsable(false)]
         public virtual string Year
         {
             get => _year;
@@ -202,6 +201,12 @@ namespace Model
                _year = IsCorrectYear(value);
             }
         }
+
+        /// <summary>
+        /// Тип библиотечного издания
+        /// </summary>
+        [DisplayName("Тип издания")]
+        public virtual string EditionType { get; }
 
         /// <summary>
         /// Проверяет корректность введенных данных./>.
@@ -331,11 +336,6 @@ namespace Model
         /// </summary>
         /// <returns>Данные об издании.</returns>
         [DisplayName("Библиотечная карточка")]
-        public virtual string GetInfo()
-        {
-            return $"{MakeSample(Surname, Name, Patronymic)} {Title}/" +
-                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}." +
-                   $"— {Year}.";
-        }
+        public virtual string GetInfo { get; }
     }
 }

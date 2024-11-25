@@ -11,7 +11,7 @@
         ///  Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+       protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
@@ -160,11 +160,11 @@
             Controls.Add(_loadButton);
             Controls.Add(_saveButton);
             Controls.Add(_cardGroupBox);
+            this.Load += new System.EventHandler(this.LoadMainForm);
             MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Библиотечные карточки";
-            Load += LoadMainForm;
             _cardGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cardDataGridView).EndInit();
             _editingGroupBox.ResumeLayout(false);

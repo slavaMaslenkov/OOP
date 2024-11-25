@@ -52,7 +52,7 @@
             // 
             // _endSheetTextBox
             // 
-            _endSheetTextBox.Location = new Point(155, 313);
+            _endSheetTextBox.Location = new Point(153, 304);
             _endSheetTextBox.Name = "_endSheetTextBox";
             _endSheetTextBox.Size = new Size(100, 23);
             _endSheetTextBox.TabIndex = 53;
@@ -60,7 +60,7 @@
             // _startSheetLabel
             // 
             _startSheetLabel.AutoSize = true;
-            _startSheetLabel.Location = new Point(5, 283);
+            _startSheetLabel.Location = new Point(3, 274);
             _startSheetLabel.Name = "_startSheetLabel";
             _startSheetLabel.Size = new Size(91, 15);
             _startSheetLabel.TabIndex = 52;
@@ -68,14 +68,14 @@
             // 
             // _startSheetTextBox
             // 
-            _startSheetTextBox.Location = new Point(155, 280);
+            _startSheetTextBox.Location = new Point(153, 271);
             _startSheetTextBox.Name = "_startSheetTextBox";
             _startSheetTextBox.Size = new Size(100, 23);
             _startSheetTextBox.TabIndex = 51;
             // 
             // _yearTextBox
             // 
-            _yearTextBox.Location = new Point(155, 245);
+            _yearTextBox.Location = new Point(153, 236);
             _yearTextBox.Name = "_yearTextBox";
             _yearTextBox.Size = new Size(100, 23);
             _yearTextBox.TabIndex = 50;
@@ -83,7 +83,7 @@
             // _yearLabel
             // 
             _yearLabel.AutoSize = true;
-            _yearLabel.Location = new Point(5, 248);
+            _yearLabel.Location = new Point(3, 239);
             _yearLabel.Name = "_yearLabel";
             _yearLabel.Size = new Size(73, 15);
             _yearLabel.TabIndex = 49;
@@ -92,7 +92,7 @@
             // _endSheetLabel
             // 
             _endSheetLabel.AutoSize = true;
-            _endSheetLabel.Location = new Point(5, 316);
+            _endSheetLabel.Location = new Point(3, 307);
             _endSheetLabel.Name = "_endSheetLabel";
             _endSheetLabel.Size = new Size(91, 15);
             _endSheetLabel.TabIndex = 48;
@@ -100,14 +100,14 @@
             // 
             // _publishingHouseTextBox
             // 
-            _publishingHouseTextBox.Location = new Point(155, 179);
+            _publishingHouseTextBox.Location = new Point(153, 170);
             _publishingHouseTextBox.Name = "_publishingHouseTextBox";
             _publishingHouseTextBox.Size = new Size(100, 23);
             _publishingHouseTextBox.TabIndex = 47;
             // 
             // _placeOfPublicationTextBox
             // 
-            _placeOfPublicationTextBox.Location = new Point(155, 146);
+            _placeOfPublicationTextBox.Location = new Point(153, 137);
             _placeOfPublicationTextBox.Name = "_placeOfPublicationTextBox";
             _placeOfPublicationTextBox.Size = new Size(100, 23);
             _placeOfPublicationTextBox.TabIndex = 46;
@@ -115,7 +115,7 @@
             // _publishingHouseLabel
             // 
             _publishingHouseLabel.AutoSize = true;
-            _publishingHouseLabel.Location = new Point(5, 182);
+            _publishingHouseLabel.Location = new Point(3, 173);
             _publishingHouseLabel.Name = "_publishingHouseLabel";
             _publishingHouseLabel.Size = new Size(81, 15);
             _publishingHouseLabel.TabIndex = 45;
@@ -124,7 +124,7 @@
             // _placeOfPublicationLabel
             // 
             _placeOfPublicationLabel.AutoSize = true;
-            _placeOfPublicationLabel.Location = new Point(5, 149);
+            _placeOfPublicationLabel.Location = new Point(3, 140);
             _placeOfPublicationLabel.Name = "_placeOfPublicationLabel";
             _placeOfPublicationLabel.Size = new Size(112, 15);
             _placeOfPublicationLabel.TabIndex = 44;
@@ -132,28 +132,28 @@
             // 
             // _nameOfBookTextBox
             // 
-            _nameOfBookTextBox.Location = new Point(155, 115);
+            _nameOfBookTextBox.Location = new Point(153, 106);
             _nameOfBookTextBox.Name = "_nameOfBookTextBox";
             _nameOfBookTextBox.Size = new Size(100, 23);
             _nameOfBookTextBox.TabIndex = 43;
             // 
             // _patronymicTextBox
             // 
-            _patronymicTextBox.Location = new Point(155, 83);
+            _patronymicTextBox.Location = new Point(153, 74);
             _patronymicTextBox.Name = "_patronymicTextBox";
             _patronymicTextBox.Size = new Size(100, 23);
             _patronymicTextBox.TabIndex = 42;
             // 
             // _nameTextBox
             // 
-            _nameTextBox.Location = new Point(155, 50);
+            _nameTextBox.Location = new Point(153, 41);
             _nameTextBox.Name = "_nameTextBox";
             _nameTextBox.Size = new Size(100, 23);
             _nameTextBox.TabIndex = 41;
             // 
             // _surnameTextBox
             // 
-            _surnameTextBox.Location = new Point(155, 15);
+            _surnameTextBox.Location = new Point(153, 6);
             _surnameTextBox.Name = "_surnameTextBox";
             _surnameTextBox.Size = new Size(100, 23);
             _surnameTextBox.TabIndex = 40;
@@ -161,7 +161,7 @@
             // _titleLabel
             // 
             _titleLabel.AutoSize = true;
-            _titleLabel.Location = new Point(5, 118);
+            _titleLabel.Location = new Point(3, 109);
             _titleLabel.Name = "_titleLabel";
             _titleLabel.Size = new Size(59, 15);
             _titleLabel.TabIndex = 39;
@@ -170,7 +170,7 @@
             // _patronymicLabel
             // 
             _patronymicLabel.AutoSize = true;
-            _patronymicLabel.Location = new Point(5, 86);
+            _patronymicLabel.Location = new Point(3, 77);
             _patronymicLabel.Name = "_patronymicLabel";
             _patronymicLabel.Size = new Size(98, 15);
             _patronymicLabel.TabIndex = 38;
@@ -179,7 +179,7 @@
             // _nameLabel
             // 
             _nameLabel.AutoSize = true;
-            _nameLabel.Location = new Point(5, 53);
+            _nameLabel.Location = new Point(3, 44);
             _nameLabel.Name = "_nameLabel";
             _nameLabel.Size = new Size(71, 15);
             _nameLabel.TabIndex = 37;
@@ -188,7 +188,7 @@
             // _surnameLabel
             // 
             _surnameLabel.AutoSize = true;
-            _surnameLabel.Location = new Point(5, 18);
+            _surnameLabel.Location = new Point(3, 9);
             _surnameLabel.Name = "_surnameLabel";
             _surnameLabel.Size = new Size(98, 15);
             _surnameLabel.TabIndex = 36;
@@ -197,7 +197,7 @@
             // _nameOfSbornikLabel
             // 
             _nameOfSbornikLabel.AutoSize = true;
-            _nameOfSbornikLabel.Location = new Point(5, 215);
+            _nameOfSbornikLabel.Location = new Point(3, 206);
             _nameOfSbornikLabel.Name = "_nameOfSbornikLabel";
             _nameOfSbornikLabel.Size = new Size(115, 15);
             _nameOfSbornikLabel.TabIndex = 54;
@@ -205,7 +205,7 @@
             // 
             // _nameOfSbornikTextBox
             // 
-            _nameOfSbornikTextBox.Location = new Point(155, 212);
+            _nameOfSbornikTextBox.Location = new Point(153, 203);
             _nameOfSbornikTextBox.Name = "_nameOfSbornikTextBox";
             _nameOfSbornikTextBox.Size = new Size(100, 23);
             _nameOfSbornikTextBox.TabIndex = 55;
@@ -235,7 +235,7 @@
             Controls.Add(_nameLabel);
             Controls.Add(_surnameLabel);
             Name = "SbornikUserControl";
-            Size = new Size(273, 348);
+            Size = new Size(263, 333);
             ResumeLayout(false);
             PerformLayout();
         }

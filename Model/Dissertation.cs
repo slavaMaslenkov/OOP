@@ -253,6 +253,17 @@ namespace Model
         }
 
         /// <summary>
+        /// Тип издания.
+        /// </summary>
+        public override string EditionType
+        {
+            get
+            {
+                return "Диссертация";
+            }
+        }
+
+        /// <summary>
         /// Проверяет страницу на корректность./>.
         /// </summary>
         /// <param name="sheet">Имя объекта.</param>
@@ -283,14 +294,11 @@ namespace Model
         /// Метод вывода библиотечной карточки.
         /// </summary>
         /// <returns>Данные об издании.</returns>
-        public override string GetInfo()
-        {
-            return $"{MakeSample(Surname, Name, Patronymic)} {Title} :" +
-                   $" специальность {SpecialtyCode} «{NameOfSpeciality}» :" +
-                   $" Диссертация на соискание {KindOfDissert} {BranchOfScience} / " +
-                   $"{Surname} {Name} {Patronymic} ; " +
-                   $"{Organization}. - {City}. - {Year}. - {Sheet} с.";
-        }
-
+        public override string GetInfo =>
+            $"{MakeSample(Surname, Name, Patronymic)} {Title} :" +
+            $" специальность {SpecialtyCode} «{NameOfSpeciality}» :" +
+            $" Диссертация на соискание {KindOfDissert} {BranchOfScience} / " +
+            $"{Surname} {Name} {Patronymic} ; " +
+            $"{Organization}. - {City}. - {Year}. - {Sheet} с.";
     }
 }

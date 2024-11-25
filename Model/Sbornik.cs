@@ -49,7 +49,8 @@ namespace Model
         /// Объект класс Sbornik по умолчанию.
         /// </summary>
         public Sbornik() : this("Неизвестно", "Неизвестно", "Неизвестно", 
-            "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "1900", "1",null)
+            "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
+            "1900", "1",null)
         { }
 
         /// <summary>
@@ -195,6 +196,17 @@ namespace Model
         }
 
         /// <summary>
+        /// Тип издания.
+        /// </summary>
+        public override string EditionType
+        {
+            get
+            {
+                return "Сборник";
+            }
+        }
+
+        /// <summary>
         /// Проверяет страницу на корректность./>.
         /// </summary>
         /// <param name="sheet">Имя объекта.</param>
@@ -208,7 +220,8 @@ namespace Model
                 if (sheetInt > MaxSheet || sheetInt < MinSheet)
                 {
                     throw new ArgumentException(
-                        $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
+                        $"Введите страницу из диапазона от {MinSheet} " +
+                        $"до {MaxSheet}.");
                 }
                 else
                 {
@@ -238,7 +251,8 @@ namespace Model
                 int startSheet = Convert.ToInt16(StartSheet);
                 if (intEndSheet < startSheet)
                 {
-                    throw new ArgumentException($"Введите число больше {startSheet}.");
+                    throw new ArgumentException(
+                        $"Введите число больше {startSheet}.");
                 }
                 else if (intEndSheet == startSheet)
                 {
@@ -259,13 +273,10 @@ namespace Model
         /// Метод вывода библиотечной карточки.
         /// </summary>
         /// <returns>Данные об издании.</returns>
-        public override string GetInfo()
-        {
-            return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
-                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}. " +
-                   $"// {NameOfSbornik}. –{PlaceOfPublication}: - №{PublishingHouse}," +
-                   $" {Year}. - С. {StartSheet}{EndSheet}.";
-        }
-
+        public override string GetInfo =>
+           $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
+           $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}. " +
+           $"// {NameOfSbornik}. –{PlaceOfPublication}: - №{PublishingHouse}," +
+           $" {Year}. - С. {StartSheet}{EndSheet}.";
     }
 }

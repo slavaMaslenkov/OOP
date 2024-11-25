@@ -38,7 +38,6 @@ namespace View
         public FilterForm(BindingList<CardBase> cardList)
         {
             _cardList = cardList;
-            _cardList.ListChanged += Filter;
             InitializeComponent();
             _surnameTextBox.Enabled = false;
             _nameTextBox.Enabled = false;
@@ -145,6 +144,14 @@ namespace View
             else
             {
                 CheckParameters(_cardList);
+            }
+
+            if (_filteredCardList.Count == 0
+                || _filteredCardList is null)
+            {
+                MessageBox.Show("Совпадений не найдено.", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             CardsFiltered.Invoke(this,

@@ -18,13 +18,13 @@ namespace View
         /// Отфильтрованный список.
         /// </summary>
         private BindingList<CardBase> _filteredCardList;
-
+        
         /// <summary>
         /// Сериализация списка.
         /// </summary>
         private XmlSerializer _serializer = new XmlSerializer(
             typeof(BindingList<CardBase>));
-
+        
         /// <summary>
         /// Состояние формы добавления.
         /// </summary>
@@ -41,7 +41,7 @@ namespace View
         private bool _isFiltered = false;
 
         private bool _isFilterFormClosed = false;
-
+        
         /// <summary>
         /// Метод загрузки формы.
         /// </summary>
@@ -52,7 +52,7 @@ namespace View
             _cardList = new BindingList<CardBase>();
             CreateTable(_cardList, cardDataGridView);
         }
-
+        
         /// <summary>
         /// Метод создания таблицы на форме.
         /// </summary>
@@ -77,7 +77,7 @@ namespace View
             dataGridView.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
         }
-
+        
         /// <summary>
         /// Конструктор класса MainForm.
         /// </summary>
@@ -86,6 +86,7 @@ namespace View
             InitializeComponent();
             _addButton.Click += ClickAddButton;
             //Добавить рандом
+            
             _deleteButton.Click += ClickDeleteButton;
             _clearButton.Click += ClickClearButton;
             _saveButton.Click += ClickSaveButton;
@@ -140,7 +141,7 @@ namespace View
                 }
             }
         }
-
+        
         /// <summary>
         /// Метод сохранения списка в файл.
         /// </summary>
@@ -148,10 +149,11 @@ namespace View
         /// <param name="e">Объект, содержащий данные о событии.</param>
         private void ClickSaveButton(object sender, EventArgs e)
         {
-            if (!_cardList.Any() || _cardList is null)
+            if (_cardList.Count == 0)
             {
-                MessageBox.Show("Список пуст!", "Предупреждение",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Отсутствуют данные для сохранения.",
+                    "Данные не сохранены",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -204,7 +206,7 @@ namespace View
                     MessageBoxIcon.Error);
             }
         }
-
+        
         /// <summary>
         /// Метод нажатия на кнопку фильтра.
         /// </summary>
@@ -230,7 +232,7 @@ namespace View
 
             filterForm.Show();
         }
-
+        
         /// <summary>
         /// Метод фильтрации.
         /// </summary>
@@ -253,7 +255,7 @@ namespace View
             _isFiltered = true;
             UpdateButtonsStates();
         }
-
+        
         /// <summary>
         /// Метод нажатия на кнопку "Очистить".
         /// </summary>
@@ -280,7 +282,7 @@ namespace View
                 }
             }
         }
-
+        
         /// <summary>
         /// Метод нажатия на кнопку "Сбросить".
         /// </summary>
@@ -293,7 +295,7 @@ namespace View
             _isFiltered = false;
             UpdateButtonsStates();
         }
-
+        
         /// <summary>
         /// Метод обновления состояний кнопок.
         /// </summary>
@@ -312,7 +314,7 @@ namespace View
         /// Обработчик добавления данных.
         /// </summary>
         /// <param name="sender">Источник события.</param>
-        /// <param name="cardBase">Объект класса MotionBase.</param>
+        /// <param name="cardBase">Объект класса CardBase.</param>
         private void AddedCard(object sender, EventArgs cardBase)
         {
             CardAddedEvent addedEventArgs =

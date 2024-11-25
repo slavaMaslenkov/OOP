@@ -45,7 +45,7 @@ namespace Model
         /// </summary>
         /// //TODO: RSDN+
         public Book() : this("Неизвестно", "Неизвестно", "Неизвестно", 
-            "Неизвестно", "Неизвестно", "Неизвестно", null, "1900", "100")
+            "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "1900", "100")
         { }
 
         /// <summary>
@@ -131,13 +131,14 @@ namespace Model
             get => _additionalInformation;
             set
             {
-                if (value == "")
+                if (string.IsNullOrEmpty(value))
                 {
-                    _additionalInformation = null;
+                    throw new ArgumentException(
+                        "Введена пустая строка.");
                 }
                 else
                 {
-                    _additionalInformation = $"- {value}";
+                    _additionalInformation = value;
                 }
             }
         }
@@ -152,6 +153,17 @@ namespace Model
             set
             {
                 _sheet = IsCorrectSheet(value);
+            }
+        }
+
+        /// <summary>
+        /// Тип издания.
+        /// </summary>
+        public override string EditionType
+        {
+            get
+            {
+                return "Книга";
             }
         }
 
@@ -187,13 +199,10 @@ namespace Model
         /// Метод вывода библиотечной карточки.
         /// </summary>
         /// <returns>Данные об издании.</returns>
-        public override string GetInfo()
-        {
-            return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
-                   $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}." +
-                   $" {AdditionalInformation}–{PlaceOfPublication} :" +
-                   $" {PublishingHouse}, {Year}. - {Sheet} с.";
-        }
-
+        public override string GetInfo =>
+            $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
+            $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}." +
+            $" {AdditionalInformation}–{PlaceOfPublication} :" +
+            $" {PublishingHouse}, {Year}. - {Sheet} с.";
     }
 }

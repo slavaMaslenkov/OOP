@@ -30,12 +30,12 @@ namespace View
 
             _addButton.Click += ClickAddButton;
         }
-
+        
         /// <summary>
         /// Событие добавления карточки.
         /// </summary>
         public EventHandler CardAdded;
-
+        
         /// <summary>
         /// Метод изменения статуса карточки Книга.
         /// </summary>
