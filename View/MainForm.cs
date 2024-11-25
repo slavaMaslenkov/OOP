@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using Model;
@@ -34,6 +35,11 @@ namespace View
         /// Состояние формы фильтра.
         /// </summary>
         private bool _isFilterFormOpened = false;
+
+        /// <summary>
+        /// Создание рандома.
+        /// </summary>
+        private static readonly Random _random = new Random();
 
         /// <summary>
         /// Состояние фильтра.
@@ -85,8 +91,10 @@ namespace View
         {
             InitializeComponent();
             _addButton.Click += ClickAddButton;
-            //Добавить рандом
-            
+#if DEBUG
+            _randomButton.Click += ClickRandomButton;
+#endif
+
             _deleteButton.Click += ClickDeleteButton;
             _clearButton.Click += ClickClearButton;
             _saveButton.Click += ClickSaveButton;
@@ -115,6 +123,32 @@ namespace View
             };
 
             addForm.Show();
+        }
+
+        /// <summary>
+        /// Метод нажатия на кнопку "Random".
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Объект, содержащий данные о событии.</param>
+        private void ClickRandomButton(object sender, EventArgs e)
+        {
+            var cardTypes = Enum.GetValues(typeof(CardType)).Cast<CardType>().ToList();
+
+            var randomType = cardTypes[_random.Next(cardTypes.Count)];
+
+            CardBase randomCard;
+            try
+            {
+                randomCard = new RandomCard().GetInstance(randomType);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show($"Ошибка при создании карточки: {ex.Message}",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _cardList.Add(randomCard);
         }
 
         /// <summary>

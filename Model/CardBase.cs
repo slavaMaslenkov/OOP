@@ -206,7 +206,7 @@ namespace Model
         /// Тип библиотечного издания
         /// </summary>
         [DisplayName("Тип издания")]
-        public virtual string EditionType { get; }
+        public abstract string EditionType { get; }
 
         /// <summary>
         /// Проверяет корректность введенных данных./>.
