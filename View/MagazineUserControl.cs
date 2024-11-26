@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace View
 {
+    //TODO: XML
     public partial class MagazineUserControl : UserControl
     {
         public MagazineUserControl()

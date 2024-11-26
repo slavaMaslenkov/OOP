@@ -100,11 +100,13 @@ namespace View
         {
             try
             {
+                //TODO: зачем здесь консоль?
                 Console.WriteLine($"_surnameTextBox: {sbornikUserControl._surnameTextBox.Text}");
                 Console.WriteLine($"_startSheetTextBox: {sbornikUserControl._startSheetTextBox.Text}");
 
                 CardBase cardBase = null;
 
+                //TODO: много нарушений инкапсуляции
                 if (bookUserControl.Visible)
                 {
                     cardBase = new Book()

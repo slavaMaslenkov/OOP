@@ -46,6 +46,7 @@ namespace View
         /// </summary>
         private bool _isFiltered = false;
 
+        //TODO: XML
         private bool _isFilterFormClosed = false;
         
         /// <summary>
@@ -85,6 +86,7 @@ namespace View
 
             foreach (DataGridViewColumn column in dataGridView.Columns)
             {
+                //TODO: rewrite
                 if (column.Name == "EditionType")
                 {
                     column.Width = 218; 
