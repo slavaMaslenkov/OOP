@@ -235,11 +235,11 @@ namespace Model
                 }
                 else if (intEndSheet == startSheet)
                 {
-                    return $"-{endSheet}";
+                    return $"{endSheet}";
                 }
                 else
                 {
-                    return $"-{endSheet}";
+                    return $"{endSheet}";
                 }
             }
             else
