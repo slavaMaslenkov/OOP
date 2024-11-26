@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace View
 {
+    /// <summary>
+    /// Класс ввода кода специальности.
+    /// </summary>
     public class SpecialityCodeBox : TextBox
     {
 

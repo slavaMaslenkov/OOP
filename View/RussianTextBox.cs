@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace View
 {
+    /// <summary>
+    /// Класс ввода только русских букв.
+    /// </summary>
     public class RussianTextBox : TextBox
     {
         private readonly Regex _regex = new Regex(@"^[А-Яа-яЁё]+$");
