@@ -129,11 +129,9 @@ namespace View
                 CardAdded?.Invoke(this,
                     new CardAddedEvent(cardBase));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"Произошла ошибка: {ex.Message}",
-                    "Предупреждение", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+
             }
         }
 
