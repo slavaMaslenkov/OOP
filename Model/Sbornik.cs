@@ -8,7 +8,6 @@ using System.Xml.Linq;
 
 namespace Model
 {
-    //TODO: XML+
     /// <summary>
     /// Класс создания библ. карточки по статье из сборника.
     /// </summary>
@@ -66,7 +65,6 @@ namespace Model
         /// <param name="year">Год издания.</param>
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
-        /// //TODO: RSDN+
         public Sbornik(string surname, string name, string patronymic, 
             string title, string nameOfSbornik, string placeOfPublication, 
             string publishingHouse, string year, string startSheet, 
@@ -162,15 +160,7 @@ namespace Model
 
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException(
-                        "Введите нач.страницу.");
-                }
-                else
-                {
-                    _startSheet = IsCorrectStartSheet(value);
-                }
+                _startSheet = IsCorrectStartSheet(value);
             }
         }
 
@@ -183,15 +173,7 @@ namespace Model
 
             set
             {
-                if(string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException(
-                        "Введена конечную стр.");
-                }
-                else
-                {
-                    _endSheet = IsCorrectSheet(value);
-                }
+                _endSheet = IsCorrectSheet(value);
             }
         }
 
@@ -205,7 +187,7 @@ namespace Model
                 return "Сборник";
             }
         }
-        
+
         /// <summary>
         /// Проверяет страницу на корректность./>.
         /// </summary>
@@ -213,21 +195,28 @@ namespace Model
         /// <returns>Страницы/>.</returns>
         public string IsCorrectStartSheet(string sheet)
         {
-            Console.WriteLine("1 этап");
             if (Regex.IsMatch(sheet, _ageRegex)
                 && !string.IsNullOrEmpty(sheet))
             {
-                Console.WriteLine("2 этап");
-                int sheetInt = Convert.ToInt16(sheet);
-                if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                try
+                {
+                    int sheetInt = Convert.ToInt16(sheet);
+                    if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                    {
+                        throw new ArgumentException(
+                            $"Введите страницу из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
+                    }
+                    else
+                    {
+                        return sheet;
+                    }
+                }
+                catch (OverflowException)
                 {
                     throw new ArgumentException(
-                        $"Введите страницу из диапазона от {MinSheet} " +
-                        $"до {MaxSheet}.");
-                }
-                else
-                {
-                    return sheet;
+                            $"Введите страницу из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
                 }
             }
             else
@@ -235,7 +224,7 @@ namespace Model
                 throw new ArgumentException("Введите только число.");
             }
         }
-        
+
         /// <summary>
         /// Проверяет страницу на корректность./>.
         /// </summary>
@@ -245,20 +234,28 @@ namespace Model
         {
             if (Regex.IsMatch(endSheet, _ageRegex))
             {
-                int intEndSheet = Convert.ToInt16(endSheet);
-                int startSheet = Convert.ToInt16(StartSheet);
-                if (intEndSheet < startSheet)
+                try
+                {
+                    int intEndSheet = Convert.ToInt16(endSheet);
+                    int startSheet = Convert.ToInt16(StartSheet);
+                    if (intEndSheet < startSheet)
+                    {
+                        throw new ArgumentException($"Введите число больше {startSheet}.");
+                    }
+                    else if (intEndSheet == startSheet)
+                    {
+                        return $"{endSheet}";
+                    }
+                    else
+                    {
+                        return $"{endSheet}";
+                    }
+                }
+                catch (OverflowException ex)
                 {
                     throw new ArgumentException(
-                        $"Введите число больше {startSheet}.");
-                }
-                else if (intEndSheet == startSheet)
-                {
-                    return $"{endSheet}";
-                }
-                else
-                {
-                    return $"{endSheet}";
+                            $"Введите страницу из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
                 }
             }
             else
@@ -266,7 +263,7 @@ namespace Model
                 throw new ArgumentException($"Введите последнюю страницу.");
             }
         }
-        
+
         /// <summary>
         /// Метод вывода библиотечной карточки.
         /// </summary>

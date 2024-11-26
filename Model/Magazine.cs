@@ -22,7 +22,7 @@ namespace Model
         /// <summary>
         /// Номер журнала.
         /// </summary>
-        private int _numberOfMagazine;
+        private string _numberOfMagazine;
 
         /// <summary>
         /// Начальная страница.
@@ -43,7 +43,7 @@ namespace Model
         /// Объект класс Magazine по умолчанию.
         /// </summary>
         public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно",
-            "Неизвестно", "Неизвестно", 1, "1900", "1", "1")
+            "Неизвестно", "Неизвестно", "1", "1900", "1", "1")
         { }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Model
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
         public Magazine(string surname, string name, string patronymic, 
-            string title, string nameOfMagazine, int numberOfMagazine, string year, 
+            string title, string nameOfMagazine, string numberOfMagazine, string year, 
             string startSheet, string endSheet) 
             : base(surname, name, patronymic, title, year)
 
@@ -101,21 +101,13 @@ namespace Model
         /// <summary>
         /// Номер магазина.
         /// </summary>
-        public int NumberOfMagazine
+        public string NumberOfMagazine
         {
             get => _numberOfMagazine;
 
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(
-                        $"Введите положительное число.");
-                }
-                else
-                {
-                    _numberOfMagazine = IsCorrectNumberOfMagazine(value);
-                }
+                _numberOfMagazine = IsCorrectStartSheet(value);
             }
         }
 
@@ -128,15 +120,7 @@ namespace Model
 
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException(
-                        "Введена пустая строка.");
-                }
-                else
-                {
-                    _startSheet = IsCorrectStartSheet(value);
-                }
+                _startSheet = IsCorrectStartSheet(value);
             }
         }
 
@@ -149,15 +133,7 @@ namespace Model
 
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException(
-                        "Введена пустая строка.");
-                }
-                else
-                {
-                    _endSheet = IsCorrectSheet(value);
-                }
+                _endSheet = IsCorrectSheet(value);
             }
         }
 
@@ -173,24 +149,6 @@ namespace Model
         }
 
         /// <summary>
-        /// Проверяет номер журнала на корректность./>.
-        /// </summary>
-        /// <param name="numberOfMagazine">Имя объекта.</param>
-        /// <returns>Страницы/>.</returns>
-        public int IsCorrectNumberOfMagazine(int numberOfMagazine)
-        {
-            string number = Convert.ToString(numberOfMagazine);
-            if (!string.IsNullOrEmpty(number))
-            {
-                return numberOfMagazine;
-            }
-            else
-            {
-                throw new ArgumentException("Введите только число.");
-            }
-        }
-
-        /// <summary>
         /// Проверяет страницу на корректность./>.
         /// </summary>
         /// <param name="sheet">Имя объекта.</param>
@@ -200,15 +158,25 @@ namespace Model
             if (Regex.IsMatch(sheet, _ageRegex)
                 && !string.IsNullOrEmpty(sheet))
             {
-                int sheetInt = Convert.ToInt16(sheet);
-                if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                try
+                {
+                    int sheetInt = Convert.ToInt16(sheet);
+                    if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                    {
+                        throw new ArgumentException(
+                            $"Введите число из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
+                    }
+                    else
+                    {
+                        return sheet;
+                    }
+                }
+                catch (OverflowException)
                 {
                     throw new ArgumentException(
-                        $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
-                }
-                else
-                {
-                    return sheet;
+                            $"Введите число из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
                 }
             }
             else
@@ -226,20 +194,29 @@ namespace Model
         {
             if (Regex.IsMatch(endSheet, _ageRegex))
             {
-                int intEndSheet = Convert.ToInt16(endSheet);
-                int startSheet = Convert.ToInt16(StartSheet);
-                if (intEndSheet < startSheet)
+                try
+                {
+                    int intEndSheet = Convert.ToInt16(endSheet);
+                    int startSheet = Convert.ToInt16(StartSheet);
+                    if (intEndSheet < startSheet)
+                    {
+                        throw new ArgumentException($"Введите " +
+                            $"число больше {startSheet}.");
+                    }
+                    else if (intEndSheet == startSheet)
+                    {
+                        return $"{endSheet}";
+                    }
+                    else
+                    {
+                        return $"{endSheet}";
+                    }
+                }
+                catch (OverflowException ex)
                 {
                     throw new ArgumentException(
-                        $"Введите число больше {startSheet}.");
-                }
-                else if (intEndSheet == startSheet)
-                {
-                    return $"{endSheet}";
-                }
-                else
-                {
-                    return $"{endSheet}";
+                            $"Введите число из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
                 }
             }
             else

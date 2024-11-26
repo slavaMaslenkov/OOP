@@ -36,10 +36,10 @@
             _addButton = new Button();
             _closeButton = new Button();
             _parametersGroupBox = new GroupBox();
-            dissertationUserControl = new DissertationUserControl();
-            sbornikUserControl = new SbornikUserControl();
-            magazineUserControl = new MagazineUserControl();
-            bookUserControl = new BookUserControl();
+            _dissertationUserControl = new DissertationUserControl();
+            _sbornikUserControl = new SbornikUserControl();
+            _magazineUserControl = new MagazineUserControl();
+            _bookUserControl = new BookUserControl();
             _cardTypeGroupBox.SuspendLayout();
             _parametersGroupBox.SuspendLayout();
             SuspendLayout();
@@ -129,10 +129,10 @@
             // 
             // _parametersGroupBox
             // 
-            _parametersGroupBox.Controls.Add(dissertationUserControl);
-            _parametersGroupBox.Controls.Add(sbornikUserControl);
-            _parametersGroupBox.Controls.Add(magazineUserControl);
-            _parametersGroupBox.Controls.Add(bookUserControl);
+            _parametersGroupBox.Controls.Add(_dissertationUserControl);
+            _parametersGroupBox.Controls.Add(_sbornikUserControl);
+            _parametersGroupBox.Controls.Add(_magazineUserControl);
+            _parametersGroupBox.Controls.Add(_bookUserControl);
             _parametersGroupBox.Location = new Point(6, 207);
             _parametersGroupBox.Margin = new Padding(3, 4, 3, 4);
             _parametersGroupBox.Name = "_parametersGroupBox";
@@ -144,35 +144,35 @@
             // 
             // dissertationUserControl
             // 
-            dissertationUserControl.Location = new Point(6, 29);
-            dissertationUserControl.Margin = new Padding(3, 5, 3, 5);
-            dissertationUserControl.Name = "dissertationUserControl";
-            dissertationUserControl.Size = new Size(301, 540);
-            dissertationUserControl.TabIndex = 3;
+            _dissertationUserControl.Location = new Point(6, 29);
+            _dissertationUserControl.Margin = new Padding(3, 5, 3, 5);
+            _dissertationUserControl.Name = "dissertationUserControl";
+            _dissertationUserControl.Size = new Size(301, 540);
+            _dissertationUserControl.TabIndex = 3;
             // 
             // sbornikUserControl
             // 
-            sbornikUserControl.Location = new Point(7, 29);
-            sbornikUserControl.Margin = new Padding(3, 5, 3, 5);
-            sbornikUserControl.Name = "sbornikUserControl";
-            sbornikUserControl.Size = new Size(301, 444);
-            sbornikUserControl.TabIndex = 2;
+            _sbornikUserControl.Location = new Point(7, 29);
+            _sbornikUserControl.Margin = new Padding(3, 5, 3, 5);
+            _sbornikUserControl.Name = "sbornikUserControl";
+            _sbornikUserControl.Size = new Size(301, 444);
+            _sbornikUserControl.TabIndex = 2;
             // 
             // magazineUserControl
             // 
-            magazineUserControl.Location = new Point(7, 29);
-            magazineUserControl.Margin = new Padding(3, 5, 3, 5);
-            magazineUserControl.Name = "magazineUserControl";
-            magazineUserControl.Size = new Size(299, 407);
-            magazineUserControl.TabIndex = 1;
+            _magazineUserControl.Location = new Point(7, 29);
+            _magazineUserControl.Margin = new Padding(3, 5, 3, 5);
+            _magazineUserControl.Name = "magazineUserControl";
+            _magazineUserControl.Size = new Size(299, 407);
+            _magazineUserControl.TabIndex = 1;
             // 
             // bookUserControl
             // 
-            bookUserControl.Location = new Point(7, 29);
-            bookUserControl.Margin = new Padding(3, 5, 3, 5);
-            bookUserControl.Name = "bookUserControl";
-            bookUserControl.Size = new Size(298, 403);
-            bookUserControl.TabIndex = 0;
+            _bookUserControl.Location = new Point(7, 29);
+            _bookUserControl.Margin = new Padding(3, 5, 3, 5);
+            _bookUserControl.Name = "bookUserControl";
+            _bookUserControl.Size = new Size(298, 403);
+            _bookUserControl.TabIndex = 0;
             // 
             // AddForm
             // 
@@ -205,9 +205,9 @@
         private Button _addButton;
         private Button _closeButton;
         private GroupBox _parametersGroupBox;
-        private BookUserControl bookUserControl;
-        private MagazineUserControl magazineUserControl;
-        private DissertationUserControl dissertationUserControl;
-        private SbornikUserControl sbornikUserControl;
+        private BookUserControl _bookUserControl;
+        private MagazineUserControl _magazineUserControl;
+        private DissertationUserControl _dissertationUserControl;
+        private SbornikUserControl _sbornikUserControl;
     }
 }

@@ -83,19 +83,8 @@ namespace View
                 DataGridViewTriState.True;
             dataGridView.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
-
-            foreach (DataGridViewColumn column in dataGridView.Columns)
-            {
-                //TODO: rewrite
-                if (column.Name == "EditionType")
-                {
-                    column.Width = 218; 
-                }
-                else if (column.Name == "GetInfo")
-                {
-                    column.Width = 600;
-                }
-            }
+            dataGridView.Columns[0].Width = 218;
+            dataGridView.Columns[1].Width = 600;
         }
         
         /// <summary>

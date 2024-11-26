@@ -42,18 +42,5 @@ namespace Model
             var tmpValue = rnd.Next(minValue, maxValue);
             return Convert.ToString(tmpValue);
         }
-
-        /// <summary>
-        /// Метод возвращает случайное число в указанном диапазоне.
-        /// </summary>
-        /// <param name="minValue">Минимальное число.</param>
-        /// <param name="maxValue">Максимальное число</param>
-        /// <returns>Случайное число.</returns>
-        public int GetRandomDigit(int minValue, int maxValue)
-        {
-            var rnd = new Random();
-            var tmpValue = rnd.Next(minValue, maxValue);
-            return tmpValue;
-        }
     }
 }

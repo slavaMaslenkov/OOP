@@ -311,18 +311,28 @@ namespace Model
         /// <returns>Возраст/>.</returns>
         public string IsCorrectYear(string year)
         {
-            if (Regex.IsMatch(year, _ageRegex) 
+            if (Regex.IsMatch(year, _ageRegex)
                 && !string.IsNullOrEmpty(year))
             {
-                int yearInt = Convert.ToInt16(year);
-                if (yearInt > MaxYear || yearInt < MinYear)
+                try
+                {
+                    int yearInt = Convert.ToInt16(year);
+                    if (yearInt > MaxYear || yearInt < MinYear)
+                    {
+                        throw new ArgumentException(
+                            $"Введите год из диапазона " +
+                            $"от {MinYear} до {MaxYear}.");
+                    }
+                    else
+                    {
+                        return year;
+                    }
+                }
+                catch (OverflowException ex)
                 {
                     throw new ArgumentException(
-                        $"Введите год из диапазона от {MinYear} до {MaxYear}.");
-                }
-                else
-                {
-                    return year;
+                            $"Введите год из диапазона " +
+                            $"от {MinYear} до {MaxYear}.");
                 }
             }
             else

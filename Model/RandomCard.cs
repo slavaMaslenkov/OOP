@@ -202,7 +202,7 @@ namespace Model
                             = GetRandomString(publishingHouseArray);
                         var startSheet = GetRandomValue(1, startPage);
                         var endSheet = GetRandomValue(21, endPage);
-                        var numberOfMagazine = GetRandomDigit(1, startPage);
+                        var numberOfMagazine = GetRandomValue(1, startPage);
                         return new Magazine
                             (surname, name, patronymic, title,
                             nameOfMagazine, numberOfMagazine,

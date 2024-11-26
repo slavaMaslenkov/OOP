@@ -43,7 +43,7 @@ namespace Model
         /// <summary>
         /// Объект класс Book по умолчанию.
         /// </summary>
-        /// //TODO: RSDN+
+        /// 
         public Book() : this("Неизвестно", "Неизвестно", "Неизвестно", 
             "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "1900", "100")
         { }
@@ -60,7 +60,6 @@ namespace Model
         /// <param name="additionalInformation">Сведение об издании.</param>
         /// <param name="year">Год издания.</param>
         /// <param name="sheet">Количество страниц.</param>
-        /// //TODO: RSDN+
         public Book(string surname, string name, string patronymic, 
             string title, string placeOfPublication, string publishingHouse, 
             string additionalInformation, string year, 
@@ -177,15 +176,25 @@ namespace Model
             if (Regex.IsMatch(sheet, _ageRegex)
                 && !string.IsNullOrEmpty(sheet))
             {
-                int sheetInt = Convert.ToInt16(sheet);
-                if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                try
+                {
+                    int sheetInt = Convert.ToInt16(sheet);
+                    if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                    {
+                        throw new ArgumentException(
+                            $"Введите страницу из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
+                    }
+                    else
+                    {
+                        return sheet;
+                    }
+                }
+                catch (OverflowException ex)
                 {
                     throw new ArgumentException(
-                        $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
-                }
-                else
-                {
-                    return sheet;
+                            $"Введите страницу из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
                 }
             }
             else

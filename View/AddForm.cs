@@ -8,6 +8,11 @@ namespace View
     public partial class AddForm : Form
     {
         /// <summary>
+        /// Список с UserControls.
+        /// </summary>
+        private List<ICardAddable> _cardAddableControls;
+
+        /// <summary>
         /// Конструктор класса AddForm.
         /// </summary>
         public AddForm()
@@ -29,6 +34,14 @@ namespace View
                 ChangeSbornikStatus;
 
             _addButton.Click += ClickAddButton;
+
+            _cardAddableControls = new List<ICardAddable>()
+            {
+                _bookUserControl, 
+                _dissertationUserControl,
+                _magazineUserControl, 
+                _sbornikUserControl
+            };
         }
         
         /// <summary>
@@ -43,10 +56,10 @@ namespace View
         /// <param name="e">Объект, содержащий данные о событии.</param>
         private void ChangeBookStatus(object sender, EventArgs e)
         {
-            bookUserControl.Visible = true;
-            dissertationUserControl.Visible = false;
-            magazineUserControl.Visible = false;
-            sbornikUserControl.Visible = false;
+            _bookUserControl.Visible = true;
+            _dissertationUserControl.Visible = false;
+            _magazineUserControl.Visible = false;
+            _sbornikUserControl.Visible = false;
         }
 
         /// <summary>
@@ -57,10 +70,10 @@ namespace View
         private void ChangeDissertationStatus(
             object sender, EventArgs e)
         {
-            bookUserControl.Visible = false;
-            dissertationUserControl.Visible = true;
-            magazineUserControl.Visible = false;
-            sbornikUserControl.Visible = false;
+            _bookUserControl.Visible = false;
+            _dissertationUserControl.Visible = true;
+            _magazineUserControl.Visible = false;
+            _sbornikUserControl.Visible = false;
         }
 
         /// <summary>
@@ -71,10 +84,10 @@ namespace View
         private void ChangeMagazineStatus(
             object sender, EventArgs e)
         {
-            bookUserControl.Visible = false;
-            dissertationUserControl.Visible = false;
-            magazineUserControl.Visible = true;
-            sbornikUserControl.Visible = false;
+            _bookUserControl.Visible = false;
+            _dissertationUserControl.Visible = false;
+            _magazineUserControl.Visible = true;
+            _sbornikUserControl.Visible = false;
         }
 
         /// <summary>
@@ -85,10 +98,10 @@ namespace View
         private void ChangeSbornikStatus(
             object sender, EventArgs e)
         {
-            bookUserControl.Visible = false;
-            dissertationUserControl.Visible = false;
-            magazineUserControl.Visible = false;
-            sbornikUserControl.Visible = true;
+            _bookUserControl.Visible = false;
+            _dissertationUserControl.Visible = false;
+            _magazineUserControl.Visible = false;
+            _sbornikUserControl.Visible = true;
         }
 
         /// <summary>
@@ -100,128 +113,24 @@ namespace View
         {
             try
             {
-                //TODO: зачем здесь консоль?
-                Console.WriteLine($"_surnameTextBox: {sbornikUserControl._surnameTextBox.Text}");
-                Console.WriteLine($"_startSheetTextBox: {sbornikUserControl._startSheetTextBox.Text}");
-
+                //TODO: зачем здесь консоль?+
                 CardBase cardBase = null;
 
-                //TODO: много нарушений инкапсуляции
-                if (bookUserControl.Visible)
+                foreach (var userControl in _cardAddableControls)
                 {
-                    cardBase = new Book()
+                    if (((UserControl)userControl).Visible)
                     {
-                        Surname = bookUserControl.
-                            _surnameTextBox.Text,
-                        Name = bookUserControl.
-                            _nameTextBox.Text,
-                        Patronymic = bookUserControl.
-                            _patronymicTextBox.Text,
-                        Title = bookUserControl.
-                            _nameOfBookTextBox.Text,
-                        PlaceOfPublication = bookUserControl.
-                            _placeOfPublicationTextBox.Text,
-                        PublishingHouse = bookUserControl.
-                            _publishingHouseTextBox.Text,
-                        AdditionalInformation = bookUserControl.
-                            _additionalInformationTextBox.Text,
-                        Year = bookUserControl.
-                            _yearTextBox.Text,
-                        Sheet = bookUserControl.
-                            _sheetTextBox.Text,
-                    };
+                        cardBase = userControl.Card;
+                    }
                 }
 
-                if (dissertationUserControl.Visible)
-                {
-                    cardBase = new Dissertation()
-                    {
-                        Surname = dissertationUserControl.
-                            _surnameTextBox.Text,
-                        Name = dissertationUserControl.
-                            _nameTextBox.Text,
-                        Patronymic = dissertationUserControl.
-                            _patronymicTextBox.Text,
-                        Title = dissertationUserControl.
-                            _nameOfBookTextBox.Text,
-                        KindOfDissert = dissertationUserControl.
-                            _kindOfDissertTextBox.Text,
-                        BranchOfScience = dissertationUserControl.
-                            _branchOfScienceTextBox.Text,
-                        SpecialtyCode = dissertationUserControl.
-                            _specialtyCodeTextBox.Text,
-                        Organization = dissertationUserControl.
-                            _organizationTextBox.Text,
-                        City = dissertationUserControl.
-                            _cityTextBox.Text,
-                        NameOfSpeciality = dissertationUserControl.
-                            _nameOfSpecialityTextBox.Text,
-                        Year = dissertationUserControl.
-                            _yearTextBox.Text,
-                        Sheet = dissertationUserControl.
-                            _sheetTextBox.Text,
-                    };
-                }
-
-                if (magazineUserControl.Visible)
-                {
-                    cardBase = new Magazine()
-                    {
-                        Surname = magazineUserControl.
-                            _surnameTextBox.Text,
-                        Name = magazineUserControl.
-                            _nameTextBox.Text,
-                        Patronymic = magazineUserControl.
-                            _patronymicTextBox.Text,
-                        Title = magazineUserControl.
-                            _nameOfBookTextBox.Text,
-                        NameOfMagazine = magazineUserControl.
-                            _nameOfMagazineTextBox.Text,
-                        NumberOfMagazine = Convert.ToInt32(
-                            magazineUserControl.
-                            _numberOfMagazineTextBox.Text),
-                        Year = magazineUserControl.
-                            _yearTextBox.Text,
-                        StartSheet = magazineUserControl.
-                            _startSheetTextBox.Text,
-                        EndSheet = magazineUserControl.
-                            _endSheetTextBox.Text,
-                    };
-                }
-
-                if (sbornikUserControl.Visible)
-                {
-                    cardBase = new Sbornik()
-                    {
-                        Surname = sbornikUserControl.
-                            _surnameTextBox.Text,
-                        Name = sbornikUserControl.
-                            _nameTextBox.Text,
-                        Patronymic = sbornikUserControl.
-                            _patronymicTextBox.Text,
-                        Title = sbornikUserControl.
-                            _nameOfBookTextBox.Text,
-                        NameOfSbornik = sbornikUserControl.
-                            _nameOfSbornikTextBox.Text,
-                        PlaceOfPublication = sbornikUserControl.
-                            _placeOfPublicationTextBox.Text,
-                        PublishingHouse = sbornikUserControl.
-                            _publishingHouseTextBox.Text,
-                        Year = sbornikUserControl.
-                            _yearTextBox.Text,
-                        StartSheet = sbornikUserControl.
-                            _startSheetTextBox.Text,
-                        EndSheet = sbornikUserControl.
-                            _endSheetTextBox.Text,
-                    };
-                }
+                //TODO: много нарушений инкапсуляции+
 
                 CardAdded?.Invoke(this,
                     new CardAddedEvent(cardBase));
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ошибка: {ex.Message}\n{ex.StackTrace}");
                 MessageBox.Show($"Произошла ошибка: {ex.Message}",
                     "Предупреждение", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);

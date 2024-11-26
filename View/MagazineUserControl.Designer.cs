@@ -127,7 +127,6 @@
             _nameOfMagazineLabel.Size = new Size(110, 15);
             _nameOfMagazineLabel.TabIndex = 26;
             _nameOfMagazineLabel.Text = "Название журнала";
-            _nameOfMagazineLabel.Click += _placeOfPublicationLabel_Click;
             // 
             // _nameOfBookTextBox
             // 
