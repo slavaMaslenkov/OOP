@@ -22,7 +22,7 @@ namespace LibraryCards
         /// <summary>
         /// Номер журнала.
         /// </summary>
-        private int _numberOfMagazine;
+        private string _numberOfMagazine;
 
         /// <summary>
         /// Начальная страница.
@@ -43,7 +43,7 @@ namespace LibraryCards
         /// Объект класс Magazine по умолчанию.
         /// </summary>
         public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно",
-            "Неизвестно", "Неизвестно", 1, "1900", "1", null)
+            "Неизвестно", "Неизвестно", "1", "1900", "1", null)
         { }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace LibraryCards
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
         public Magazine(string surname, string name, string patronymic, 
-            string title, string nameOfMagazine, int numberOfMagazine, string year, 
+            string title, string nameOfMagazine, string numberOfMagazine, string year, 
             string startSheet, string endSheet) 
             : base(surname, name, patronymic, title, year)
 
@@ -101,22 +101,13 @@ namespace LibraryCards
         /// <summary>
         /// Номер магазина.
         /// </summary>
-        public int NumberOfMagazine
+        public string NumberOfMagazine
         {
             get => _numberOfMagazine;
 
             set
             {
-                if ( value < 0)
-                {
-                    throw new ArgumentException(
-                        $"Введите положительное число.");
-
-                }
-                else
-                {
-                    _numberOfMagazine = value;
-                }
+                _numberOfMagazine = IsCorrectStartSheet(value);
             }
         }
 
@@ -156,15 +147,25 @@ namespace LibraryCards
             if (Regex.IsMatch(sheet, _ageRegex)
                 && !string.IsNullOrEmpty(sheet))
             {
-                int sheetInt = Convert.ToInt16(sheet);
-                if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                try
+                {
+                    int sheetInt = Convert.ToInt16(sheet);
+                    if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                    {
+                        throw new ArgumentException(
+                            $"Введите число из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
+                    }
+                    else
+                    {
+                        return sheet;
+                    }
+                }
+                catch (OverflowException ex)
                 {
                     throw new ArgumentException(
-                        $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
-                }
-                else
-                {
-                    return sheet;
+                            $"Введите число из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
                 }
             }
             else
@@ -186,19 +187,28 @@ namespace LibraryCards
             }
             if (Regex.IsMatch(endSheet, _ageRegex))
             {
-                int intEndSheet = Convert.ToInt16(endSheet);
-                int startSheet = Convert.ToInt16(StartSheet);
-                if (intEndSheet < startSheet)
+                try
                 {
-                    throw new ArgumentException($"Введите число больше {startSheet}.");
+                    int intEndSheet = Convert.ToInt16(endSheet);
+                    int startSheet = Convert.ToInt16(StartSheet);
+                    if (intEndSheet < startSheet)
+                    {
+                        throw new ArgumentException($"Введите число больше {startSheet}.");
+                    }
+                    else if (intEndSheet == startSheet)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        return $"-{endSheet}";
+                    }
                 }
-                else if (intEndSheet == startSheet)
+                catch (OverflowException ex)
                 {
-                    return null;
-                }
-                else
-                {
-                    return $"-{endSheet}";
+                    throw new ArgumentException(
+                            $"Введите страницу из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
                 }
             }
             else

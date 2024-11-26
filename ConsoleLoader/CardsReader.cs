@@ -182,7 +182,7 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите номер журнала: ");
-                    magazine.NumberOfMagazine =Convert.ToInt32(Console.ReadLine());
+                    magazine.NumberOfMagazine =Console.ReadLine();
                 },
 
                 () =>

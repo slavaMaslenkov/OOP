@@ -261,15 +261,25 @@ namespace LibraryCards
             if (Regex.IsMatch(sheet, _ageRegex)
                 && !string.IsNullOrEmpty(sheet))
             {
-                int sheetInt = Convert.ToInt16(sheet);
-                if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                try
+                {
+                    int sheetInt = Convert.ToInt16(sheet);
+                    if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                    {
+                        throw new ArgumentException(
+                            $"Введите страницу из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
+                    }
+                    else
+                    {
+                        return sheet;
+                    }
+                }
+                catch (OverflowException ex)
                 {
                     throw new ArgumentException(
-                        $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
-                }
-                else
-                {
-                    return sheet;
+                            $"Введите страницу из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
                 }
             }
             else
