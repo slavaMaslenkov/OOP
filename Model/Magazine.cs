@@ -43,7 +43,7 @@ namespace Model
         /// Объект класс Magazine по умолчанию.
         /// </summary>
         public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно",
-            "Неизвестно", "Неизвестно", 1, "1900", "1", null)
+            "Неизвестно", "Неизвестно", 1, "1900", "1", "1")
         { }
 
         /// <summary>
@@ -224,21 +224,18 @@ namespace Model
         /// <returns>True or False/>.</returns>
         public string IsCorrectSheet(string endSheet)
         {
-            if (endSheet == null)
-            {
-                return null;
-            }
             if (Regex.IsMatch(endSheet, _ageRegex))
             {
                 int intEndSheet = Convert.ToInt16(endSheet);
                 int startSheet = Convert.ToInt16(StartSheet);
                 if (intEndSheet < startSheet)
                 {
-                    throw new ArgumentException($"Введите число больше {startSheet}.");
+                    throw new ArgumentException(
+                        $"Введите число больше {startSheet}.");
                 }
                 else if (intEndSheet == startSheet)
                 {
-                    return null;
+                    return $"-{endSheet}";
                 }
                 else
                 {

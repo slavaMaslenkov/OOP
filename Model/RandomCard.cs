@@ -116,8 +116,8 @@ namespace Model
 
                         return new Sbornik
                             (surname, name, patronymic, title,
-                            placeOfPublication, publishingHouse,
-                            nameOfSbornik, year, startSheet, endSheet);
+                            nameOfSbornik, placeOfPublication, publishingHouse,
+                            year, startSheet, endSheet);
                     }
 
                 case (CardType.Dissertation):

@@ -50,7 +50,7 @@ namespace Model
         /// </summary>
         public Sbornik() : this("Неизвестно", "Неизвестно", "Неизвестно", 
             "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", 
-            "1900", "1",null)
+            "1900", "1", "1")
         { }
 
         /// <summary>
@@ -165,7 +165,7 @@ namespace Model
                 if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentException(
-                        "Введена пустая строка.");
+                        "Введите нач.страницу.");
                 }
                 else
                 {
@@ -186,7 +186,7 @@ namespace Model
                 if(string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentException(
-                        "Введена пустая строка.");
+                        "Введена конечную стр.");
                 }
                 else
                 {
@@ -205,7 +205,7 @@ namespace Model
                 return "Сборник";
             }
         }
-
+        
         /// <summary>
         /// Проверяет страницу на корректность./>.
         /// </summary>
@@ -213,9 +213,11 @@ namespace Model
         /// <returns>Страницы/>.</returns>
         public string IsCorrectStartSheet(string sheet)
         {
+            Console.WriteLine("1 этап");
             if (Regex.IsMatch(sheet, _ageRegex)
                 && !string.IsNullOrEmpty(sheet))
             {
+                Console.WriteLine("2 этап");
                 int sheetInt = Convert.ToInt16(sheet);
                 if (sheetInt > MaxSheet || sheetInt < MinSheet)
                 {
@@ -233,7 +235,7 @@ namespace Model
                 throw new ArgumentException("Введите только число.");
             }
         }
-
+        
         /// <summary>
         /// Проверяет страницу на корректность./>.
         /// </summary>
@@ -241,10 +243,6 @@ namespace Model
         /// <returns>True or False/>.</returns>
         public string IsCorrectSheet(string endSheet)
         {
-            if (endSheet == null)
-            {
-                return null;
-            }
             if (Regex.IsMatch(endSheet, _ageRegex))
             {
                 int intEndSheet = Convert.ToInt16(endSheet);
@@ -256,7 +254,7 @@ namespace Model
                 }
                 else if (intEndSheet == startSheet)
                 {
-                    return null;
+                    return $"-{endSheet}";
                 }
                 else
                 {
@@ -268,7 +266,7 @@ namespace Model
                 throw new ArgumentException($"Введите последнюю страницу.");
             }
         }
-
+        
         /// <summary>
         /// Метод вывода библиотечной карточки.
         /// </summary>

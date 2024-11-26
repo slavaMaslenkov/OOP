@@ -100,6 +100,9 @@ namespace View
         {
             try
             {
+                Console.WriteLine($"_surnameTextBox: {sbornikUserControl._surnameTextBox.Text}");
+                Console.WriteLine($"_startSheetTextBox: {sbornikUserControl._startSheetTextBox.Text}");
+
                 CardBase cardBase = null;
 
                 if (bookUserControl.Visible)
@@ -196,12 +199,12 @@ namespace View
                             _patronymicTextBox.Text,
                         Title = sbornikUserControl.
                             _nameOfBookTextBox.Text,
+                        NameOfSbornik = sbornikUserControl.
+                            _nameOfSbornikTextBox.Text,
                         PlaceOfPublication = sbornikUserControl.
                             _placeOfPublicationTextBox.Text,
                         PublishingHouse = sbornikUserControl.
                             _publishingHouseTextBox.Text,
-                        NameOfSbornik = sbornikUserControl.
-                            _nameOfSbornikTextBox.Text,
                         Year = sbornikUserControl.
                             _yearTextBox.Text,
                         StartSheet = sbornikUserControl.
@@ -214,9 +217,10 @@ namespace View
                 CardAdded?.Invoke(this,
                     new CardAddedEvent(cardBase));
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Введите данные.",
+                Console.WriteLine($"Ошибка: {ex.Message}\n{ex.StackTrace}");
+                MessageBox.Show($"Произошла ошибка: {ex.Message}",
                     "Предупреждение", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
