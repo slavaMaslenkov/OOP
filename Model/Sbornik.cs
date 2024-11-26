@@ -275,6 +275,6 @@ namespace Model
            $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
            $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}. " +
            $"// {NameOfSbornik}. –{PlaceOfPublication}: - №{PublishingHouse}," +
-           $" {Year}. - С. {StartSheet}{EndSheet}.";
+           $" {Year}. - С. {StartSheet}-{EndSheet}.";
     }
 }

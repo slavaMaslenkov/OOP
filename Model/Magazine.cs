@@ -256,6 +256,6 @@ namespace Model
             $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
             $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}." +
             $" // {NameOfMagazine}. – {Year}. - №" +
-            $"{NumberOfMagazine}. - С. {StartSheet}{EndSheet}.";
+            $"{NumberOfMagazine}. - С. {StartSheet}-{EndSheet}.";
     }
 }
