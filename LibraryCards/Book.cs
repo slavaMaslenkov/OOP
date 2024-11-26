@@ -42,7 +42,6 @@ namespace LibraryCards
         /// <summary>
         /// Объект класс Book по умолчанию.
         /// </summary>
-        /// //TODO: RSDN+
         public Book() : this("Неизвестно", "Неизвестно", "Неизвестно", 
             "Неизвестно", "Неизвестно", "Неизвестно", null, "1900", "100")
         { }
@@ -59,7 +58,6 @@ namespace LibraryCards
         /// <param name="additionalInformation">Сведение об издании.</param>
         /// <param name="year">Год издания.</param>
         /// <param name="sheet">Количество страниц.</param>
-        /// //TODO: RSDN+
         public Book(string surname, string name, string patronymic, 
             string title, string placeOfPublication, string publishingHouse, 
             string additionalInformation, string year, 

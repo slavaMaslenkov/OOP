@@ -8,7 +8,6 @@ using System.Xml.Linq;
 
 namespace LibraryCards
 {
-    //TODO: XML+
     /// <summary>
     /// Класс создания библ. карточки по статье из сборника.
     /// </summary>
@@ -65,7 +64,6 @@ namespace LibraryCards
         /// <param name="year">Год издания.</param>
         /// <param name="startSheet">Начальная страница.</param>
         /// <param name="endSheet">Последняя страница.</param>
-        /// //TODO: RSDN+
         public Sbornik(string surname, string name, string patronymic, 
             string title, string nameOfSbornik, string placeOfPublication, 
             string publishingHouse, string year, string startSheet, 
