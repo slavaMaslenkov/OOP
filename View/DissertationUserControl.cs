@@ -34,51 +34,40 @@ namespace View
             {
                 try
                 {
-                    if (_surnameTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_nameTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_patronymicTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_nameOfBookTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_kindOfDissertTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_branchOfScienceTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_specialtyCodeTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_organizationTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_cityTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_nameOfSpecialityTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_yearTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_sheetTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
+                    var textFieldLimits = new (TextBox TextBox, 
+                        string FieldName, int MaxLength)[]
+                    {
+                        (_surnameTextBox, "Фамилия", 20),
+                        (_nameTextBox, "Имя", 20),
+                        (_patronymicTextBox, "Отчество", 20),
+                        (_nameOfBookTextBox, "Название статьи", 50),
+                        (_kindOfDissertTextBox, "Вид диссертации", 50),
+                        (_branchOfScienceTextBox, "Отрасль наук", 20),
+                        (_specialtyCodeTextBox, "Код специальности", 20),
+                        (_organizationTextBox, "Организация", 10),
+                        (_cityTextBox, "Город", 20),
+                        (_nameOfSpecialityTextBox, "Название спец.", 20),
+                        (_yearTextBox, "Год издания", 4),                        
+                        (_sheetTextBox, "Количество страниц", 3)
+                    };
 
+                    foreach (var (textBox, fieldName, maxLength) 
+                        in textFieldLimits)
+                    {
+                        if (textBox.Text.Length > maxLength)
+                        {
+                            throw new ArgumentException($"{fieldName} не должно " +
+                                $"превышать {maxLength} символов.");
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(ex.Message, "Ошибка ввода",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return null;
 
                 }
-
                 return new Dissertation()
                 {
                     Surname =_surnameTextBox.Text,

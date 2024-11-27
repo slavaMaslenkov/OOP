@@ -35,16 +35,16 @@ namespace View
                 {
                     var textFieldLimits = new (TextBox TextBox, string FieldName, int MaxLength)[]
                     {
-                        (_surnameTextBox, "Фамилия", 50),
-                        (_nameTextBox, "Имя", 40),
-                        (_patronymicTextBox, "Отчество", 45),
-                        (_nameOfBookTextBox, "Название статьи", 100),
-                        (_nameOfSbornikTextBox, "Название сборника", 80),
-                        (_placeOfPublicationTextBox, "Место публикации", 10),
-                        (_publishingHouseTextBox, "Издательство", 10),
+                        (_surnameTextBox, "Фамилия", 20),
+                        (_nameTextBox, "Имя", 20),
+                        (_patronymicTextBox, "Отчество", 20),
+                        (_nameOfBookTextBox, "Название статьи", 50),
+                        (_nameOfSbornikTextBox, "Название сборника", 50),
+                        (_placeOfPublicationTextBox, "Место публикации", 20),
+                        (_publishingHouseTextBox, "Издательство", 20),
                         (_yearTextBox, "Год издания", 4),
-                        (_startSheetTextBox, "Начальная страница", 5),
-                        (_endSheetTextBox, "Последняя страница", 5)
+                        (_startSheetTextBox, "Начальная страница", 3),
+                        (_endSheetTextBox, "Последняя страница", 3)
                     };
 
                     foreach (var (textBox, fieldName, maxLength) in textFieldLimits)

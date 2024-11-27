@@ -181,7 +181,7 @@ namespace Model
             }
             else
             {
-                throw new ArgumentException("Введите только число.");
+                throw new ArgumentException("Введена пустая строка.");
             }
         }
 
@@ -221,7 +221,7 @@ namespace Model
             }
             else
             {
-                throw new ArgumentException($"Введите последнюю страницу.");
+                throw new ArgumentException($"Введена пустая строка.");
             }
         }
 

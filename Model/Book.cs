@@ -199,7 +199,7 @@ namespace Model
             }
             else
             {
-                throw new ArgumentException("Введите только число.");
+                throw new ArgumentException("Введена пустая строка.");
             }
         }
 

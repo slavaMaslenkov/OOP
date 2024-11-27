@@ -126,12 +126,15 @@ namespace View
 
                 //TODO: много нарушений инкапсуляции+
 
-                CardAdded?.Invoke(this,
-                    new CardAddedEvent(cardBase));
+                if (cardBase != null)
+                {
+                    CardAdded?.Invoke(this, new CardAddedEvent(cardBase));
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message, "Ошибка ввода",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

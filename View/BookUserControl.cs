@@ -36,38 +36,32 @@ namespace View
             {
                 try
                 {
-                    if (_surnameTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_nameTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_patronymicTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_nameOfBookTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_placeOfPublicationTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_publishingHouseTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_additionalInformationTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_yearTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
-                    if (_sheetTextBox.Text.Length > 50)
-                        throw new ArgumentException("Строка не должна" +
-                            " превышать 50 символов.");
+                    var textFieldLimits = new (TextBox TextBox, string FieldName, int MaxLength)[]
+                    {
+                        (_surnameTextBox, "Фамилия", 20),
+                        (_nameTextBox, "Имя", 20),
+                        (_patronymicTextBox, "Отчество", 20),
+                        (_nameOfBookTextBox, "Название книги", 50),
+                        (_placeOfPublicationTextBox, "Место публикации", 30),
+                        (_publishingHouseTextBox, "Издательство", 30),
+                        (_additionalInformationTextBox, "Доп.инфа", 30),
+                        (_yearTextBox, "Год издания", 4),
+                        (_sheetTextBox, "Начальная страница", 5)
+                    };
 
+                    foreach (var (textBox, fieldName, maxLength) in textFieldLimits)
+                    {
+                        if (textBox.Text.Length > maxLength)
+                        {
+                            throw new ArgumentException($"{fieldName} не должно " +
+                                $"превышать {maxLength} символов.");
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(ex.Message, "Ошибка ввода",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return null;
 
                 }

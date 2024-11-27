@@ -24,11 +24,6 @@ namespace View
         /// <exception cref="ArgumentNullException">Исключение.</exception>
         public CardAddedEvent(CardBase cardBase)
         {
-            if (cardBase == null)
-            {
-                throw new ArgumentNullException();
-            }
-
             CardBase = cardBase;
         }
     }
