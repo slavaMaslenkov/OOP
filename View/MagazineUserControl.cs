@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace View
 {
-    //TODO: XML+
     /// <summary>
     /// UserControl для добавления журнала.
     /// </summary>

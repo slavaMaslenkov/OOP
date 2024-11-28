@@ -113,22 +113,12 @@ namespace View
         {
             try
             {
-                //TODO: зачем здесь консоль?+
-                CardBase cardBase = null;
-
                 foreach (var userControl in _cardAddableControls)
                 {
                     if (((UserControl)userControl).Visible)
                     {
-                        cardBase = userControl.Card;
+                        CardAdded?.Invoke(this, new CardAddedEvent(userControl.Card));
                     }
-                }
-
-                //TODO: много нарушений инкапсуляции+
-
-                if (cardBase != null)
-                {
-                    CardAdded?.Invoke(this, new CardAddedEvent(cardBase));
                 }
             }
             catch (Exception ex)

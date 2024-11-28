@@ -11,13 +11,11 @@ using Model;
 
 namespace View
 {
-    //TODO: XML+
     /// <summary>
     /// UserControl для добавления книги.
     /// </summary>
     public partial class BookUserControl : UserControl, ICardAddable
     {
-        //TODO: XML+
         /// <summary>
         /// Конструктор класса BookUserControl.
         /// </summary>
