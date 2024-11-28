@@ -12,7 +12,6 @@ namespace View
     /// </summary>
     public class SpecialityCodeBox : TextBox
     {
-        //TODO: XML+
         /// <summary>
         /// Конструктор класса NumericBox.
         /// </summary>

@@ -46,7 +46,6 @@ namespace View
         /// </summary>
         private bool _isFiltered = false;
 
-        //TODO: XML+
         /// <summary>
         /// Состояние фильтра отключен.
         /// </summary>
