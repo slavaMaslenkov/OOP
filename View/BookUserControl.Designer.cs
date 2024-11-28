@@ -43,7 +43,7 @@
             _additionalInformationLabel = new Label();
             _yearLabel = new Label();
             _additionalInformationTextBox = new TextBox();
-            _yearTextBox = new NumericBox();
+            _yearTextBox = new NegativeNumericBox();
             _sheetLabel = new Label();
             _sheetTextBox = new NumericBox();
             SuspendLayout();

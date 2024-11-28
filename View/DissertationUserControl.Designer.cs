@@ -30,7 +30,7 @@
         {
             _sheetTextBox = new NumericBox();
             _sheetLabel = new Label();
-            _yearTextBox = new NumericBox();
+            _yearTextBox = new NegativeNumericBox();
             _specialtyCodeTextBox = new SpecialityCodeBox();
             _yearLabel = new Label();
             _specialtyCodeLabel = new Label();

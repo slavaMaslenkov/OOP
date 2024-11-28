@@ -31,7 +31,7 @@
             _endSheetTextBox = new NumericBox();
             _startSheetLabel = new Label();
             _startSheetTextBox = new NumericBox();
-            _yearTextBox = new NumericBox();
+            _yearTextBox = new NegativeNumericBox();
             _yearLabel = new Label();
             _endSheetLabel = new Label();
             _numberOfMagazineTextBox = new NumericBox();

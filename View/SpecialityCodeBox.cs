@@ -12,10 +12,7 @@ namespace View
     /// </summary>
     public class SpecialityCodeBox : TextBox
     {
-
-        //TODO: XML
-        private readonly Regex _regex = new Regex(@"^\d{2}\.\d{2}\.\d{2}$");
-
+        //TODO: XML+
         /// <summary>
         /// Конструктор класса NumericBox.
         /// </summary>

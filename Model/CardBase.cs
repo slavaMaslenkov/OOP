@@ -55,7 +55,7 @@ namespace Model
         /// Минимальный год издания.
         /// </summary>
         [Browsable(false)]
-        public int MinYear { get; } = 1;
+        public int MinYear { get; } = -2000;
 
         /// <summary>
         /// Масимальный год издания.
