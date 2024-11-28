@@ -7,8 +7,14 @@ using Model;
 
 namespace View
 {
+    /// <summary> 
+    /// Интерфейс добавления карточки.
+    /// </summary>
     public interface ICardAddable
     {
+        /// <summary> 
+        /// Метод добавления карточки.
+        /// </summary>
         CardBase Card { get; }
     }
 }

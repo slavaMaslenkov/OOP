@@ -32,7 +32,9 @@
             cardDataGridView = new DataGridView();
             _saveButton = new Button();
             _loadButton = new Button();
+#if DEBUG
             _randomButton = new Button();
+#endif
             _editingGroupBox = new GroupBox();
             _clearButton = new Button();
             _deleteButton = new Button();
@@ -82,12 +84,14 @@
             // 
             // _randomButton
             // 
+#if DEBUG
             _randomButton.Location = new Point(638, 12);
             _randomButton.Name = "_randomButton";
             _randomButton.Size = new Size(96, 23);
             _randomButton.TabIndex = 3;
             _randomButton.Text = "Random";
             _randomButton.UseVisualStyleBackColor = true;
+#endif
             // 
             // _editingGroupBox
             // 
@@ -156,7 +160,9 @@
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             ClientSize = new Size(768, 450);
             Controls.Add(_editingGroupBox);
+#if DEBUG
             Controls.Add(_randomButton);
+#endif
             Controls.Add(_loadButton);
             Controls.Add(_saveButton);
             Controls.Add(_cardGroupBox);
