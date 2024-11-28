@@ -129,7 +129,7 @@ namespace View
 
             addForm.Show();
         }
-
+#if DEBUG
         /// <summary>
         /// Метод нажатия на кнопку "Random".
         /// </summary>
@@ -155,6 +155,7 @@ namespace View
 
             _cardList.Add(randomCard);
         }
+#endif
 
         /// <summary>
         /// Метод нажатия на кнопку "Удалить".
